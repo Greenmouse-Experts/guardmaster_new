@@ -11,13 +11,14 @@ import { FiSearch } from "react-icons/fi";
 import { IoIosArrowDown } from "react-icons/io";
 import { Link, useNavigate } from "react-router-dom";
 import { SearchModal } from "../../landing/homepage/SearchModal";
+import MultiMenu from "./MultiMenu";
 
 const Header = () => {
   const navigate = useNavigate();
   const [showSearch, setShowSearch] = useState(false);
   return (
     <>
-      <div className=" text-primary py-2">
+      <div className=" text-primary bg-[#FFD347] py-2">
         <div className="box flex justify-end fs-500 ">
           <ul className="flex gap-x-6 items-center">
             <li className="flex items-center gap-x-1 fw-500 fs-400">
@@ -42,8 +43,8 @@ const Header = () => {
               className="w-[150px] lg:w-[250px]"
             />
           </div>
-          <div className="w-4/12">
-            <ul className="flex justify-center gap-x-5">
+          <div className="w-5/12">
+            <ul className="flex justify-between">
               <li className="fw-600">
                 <Link to={"/auth/login"}>Home</Link>
               </li>
@@ -83,8 +84,10 @@ const Header = () => {
                       Programs <IoIosArrowDown />
                     </Button>
                   </MenuHandler>
-                  <MenuList className="z-[10000]">
-                    <div></div>
+                  <MenuList className="z-[10000] w-full mt-9">
+                    <div>
+                      <MultiMenu/>
+                    </div>
                   </MenuList>
                 </Menu>
               </li>

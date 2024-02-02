@@ -101,18 +101,18 @@ const StatFaqSection = () => {
                   {faqData.map((item) => (
                     <div
                       key={item.id}
-                      className={`p-3 rounded ${
+                      className={`p-1 rounded ${
                         openItemId === item.id ? "" : ""
                       }`}
                     >
                       <div
                         onClick={() => handleItemClick(item.id)}
-                        className={`p-2 lg:px-4 flex w-full rounded-md items-center justify-between ${openItemId === item.id ? "bg-primary text-white" : "bg-white"}`}
+                        className={`p-1 lg:pl-3 flex w-full rounded-md items-center justify-between ${openItemId === item.id ? "bg-primary text-white" : "bg-white"}`}
                       >
-                        <p>{item.question}</p>
+                        <p className="poppins">{item.question}</p>
                         <span
                           onClick={() => handleItemClick(item.id)}
-                          className={`w-9 h-9 place-center rounded-md ${openItemId === item.id ? 'bg-white text-black' : 'bg-primary text-white'}`}
+                          className={`w-8 h-8 lg:w-12 lg:h-12 place-center rounded-md ${openItemId === item.id ? 'bg-white text-black' : 'bg-primary text-white'}`}
                         >
                           {openItemId === item.id ? (
                             <RiArrowDownSLine className="text-xl"/>

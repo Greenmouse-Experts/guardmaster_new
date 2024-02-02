@@ -1,0 +1,368 @@
+.course_main {
+    padding: 5rem 0;
+    background: #EDEDED;
+    width: 100%;
+    font-family: var(--mont) !important;
+}
+
+.course_grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.6rem;
+    padding-top: 3rem;
+}
+
+.course_grid .slide_card {
+    width: 100%;
+    margin-right: 0 !important;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.course_main:nth-child(3) {
+    background: white;
+}
+
+.course_main:nth-child(3) .slide_card {
+    box-shadow: rgba(149, 157, 165, 0.2) 2px 8px 24px;
+}
+.course_main:nth-child(5) .slide_card {
+    box-shadow: rgba(149, 157, 165, 0.2) 2px 8px 24px;
+}
+.course_main:nth-child(5) {
+    background: white;
+}
+
+
+.course_grid .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between !important;
+
+    height: 100%;
+}
+
+.course_head span {
+    color: #192F59;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.course_head h2 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.course_head a {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #192F59;
+    font-size: 19px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.wh .slide_card {
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.be_main {
+    padding: 6rem 7% !important;
+}
+
+.be_form {
+    border-radius: 17px;
+    background: linear-gradient(180deg, #123373 0%, #192F59 100%);
+    padding: 2rem 3.5rem 5rem 3.5rem;
+    font-family: var(--mont) !important;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 1.5rem;
+}
+
+.be_form h2 {
+    color: white;
+    text-align: center;
+    padding-bottom: 3rem;
+}
+
+.phone {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+
+.be_main .double .input input {
+    width: 100%;
+    border-radius: 14px;
+    background: #F6F6F6;
+    padding: 1.3rem;
+}
+
+.be_main .input {
+    width: 100%;
+}
+
+.triple>div {
+    padding-top: 0.8rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem
+}
+
+.triple .input {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.triple select {
+    padding: 1.3rem;
+    border: none;
+    color: rgba(0, 0, 0, 0.589);
+    font-family: var(--mont) !important;
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    width: 100%;
+    border-radius: 14px;
+    background: #F6F6F6
+}
+
+.tr .input:nth-child(1) {
+    width: 165%;
+}
+
+.tr .input:nth-child(2) {
+    width: 35%;
+}
+
+.tri .input:nth-child(1) {
+    width: 90%;
+}
+
+.tri .input:nth-child(2) {
+    width: 50%;
+}
+
+
+.be_form button {
+    border: none;
+    border-radius: 14px;
+    background: #FFD347;
+    color: #000;
+    font-family: var(--mont) !important;
+    font-size: 19px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    padding: 2.5rem
+}
+
+.radio {
+    display: flex;
+    gap: 1.5rem;
+
+}
+
+.radio div {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    color: #FFF;
+    font-size: 19px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.radio input[type="radio"] {
+    display: none;
+}
+
+.radio input[type="radio"]+label:before {
+    content: "";
+    display: inline-block;
+    width: 2rem;
+    height: 2rem;
+    border: 2px solid var(--yell);
+    /* Border color for the radio button */
+    background-color: white;
+    /* Background color for the radio button */
+    border-radius: 50%;
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
+.radio input[type="radio"]:checked+label:before {
+    background-color: var(--yell);
+    /* Change to your desired color for the checked state */
+    border-color: var(--yell);
+    /* Change to your desired color for the checked state */
+}
+
+.radio label {
+    display: inline-block;
+    vertical-align: middle;
+
+    cursor: pointer;
+}
+
+
+.main_faq{
+    padding: 5rem 7%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.content_faq{
+    border: none !important;
+}
+.faq_head{
+    border: none;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    border-radius: 11px;
+background: #EBEDEF;
+color: #000;
+font-family: var(--mont) !important;
+font-size: 18px;
+font-style: normal;
+font-weight: 500;
+line-height: 166.4%; /* 29.952px */
+padding: 1.4rem 2rem; 
+}
+
+.body_faq{
+    color: #000;
+font-family: var(--mont) !important;
+font-size: 18px;
+font-style: normal;
+font-weight: 500;
+line-height: 166.4%;
+padding: 1.4rem 2rem; 
+
+}
+
+.aboutus{
+    padding-top: 9rem;
+    width: 100%;
+}
+
+.us_head{
+    background: radial-gradient(50% 50% at 50% 50%, #0346B9 0%, #003DA5 100%);
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 5rem 7%;
+ 
+}
+
+.us_head h2{
+    color: white !important;
+}
+
+.aboutus> p{
+    padding: 5rem 7%;
+font-family: var(--mont) !important;
+font-size: 17px;
+font-style: normal;
+font-weight: 500;
+line-height: 150%; /* 33px */
+}
+
+.drop-shade{
+    box-shadow: 0px 4px 21.100000381469727px 0px #00000026;
+}
+
+@media screen and (max-width: 1200px) {
+    .course_grid{
+        grid-template-columns: repeat(2, 1fr);
+        justify-content: center !important;
+        
+    }
+}
+
+
+
+@media screen and (max-width: 1024px) {
+    .tri, .tr {
+        flex-direction: column !important;
+
+    }
+
+
+    .tr .input:nth-child(1) {
+        width: 100% !important;
+    }
+
+    .tr .input:nth-child(2) {
+        width: 100% !important;
+    }
+
+    .tri .input:nth-child(1) {
+        width: 100% !important;
+    }
+
+    .tri .input:nth-child(2) {
+        width: 100% !important;
+    }
+
+}
+
+
+@media screen and (max-width: 745px) {
+    .radio {
+        flex-direction: column;
+    }
+
+    .radio input[type="radio"]+label:before {
+        content: "";
+        display: inline-block;
+        width: 0.5rem;
+        height: 0.5rem;
+        border: 2px solid var(--yell);
+        /* Border color for the radio button */
+        background-color: white;
+        /* Background color for the radio button */
+        border-radius: 50%;
+        margin-right: 8px;
+        vertical-align: middle;
+    }
+
+    .triple>div {
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .be_form{
+        padding: 2rem 1.5rem 5rem 1.5rem;
+    }
+    .be_form .double{
+        gap: 1rem;
+    }
+
+    .be_form button{
+        padding: 1.5rem;
+        margin-top: 1rem;
+
+    }
+
+    .course_grid{
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
