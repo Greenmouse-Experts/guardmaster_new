@@ -85,10 +85,10 @@ const InstituteSection = () => {
                   Our Students Attest to our Claims
                 </p>
                 <div className="flex items-center gap-x-4">
-                  <div className="w-6 h-6 bg-pri place-center cursor-pointer">
+                  <div className="w-6 h-6 lg:w-10 lg:h-10 bg-pri place-center cursor-pointer">
                     <RiArrowLeftLine />
                   </div>
-                  <div className="w-6 h-6 bg-pri place-center cursor-pointer">
+                  <div className="w-6 h-6 lg:w-10 lg:h-10 bg-pri place-center cursor-pointer">
                     <RiArrowRightLine />
                   </div>
                 </div>
