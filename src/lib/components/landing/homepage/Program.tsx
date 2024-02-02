@@ -19,7 +19,7 @@ const ProgramSection = () => {
             </div>
             <div className="mt-6 lg:mt-16">
               <div className="md:w-9/12 mx-auto grid lg:grid-cols-2 gap-8">
-                <div className="new-shade">
+                <div className="new-shade bg-white">
                   <div className="flex px-4 py-3 lg:p-5 text-white gap-x-3 bg-primary items-center">
                     <img
                       src="https://res.cloudinary.com/greenmouse-tech/image/upload/v1706796228/GuardMaster/Rectangle_21222_gpbuow.png"
@@ -63,7 +63,7 @@ const ProgramSection = () => {
                     </div>
                   </div>
                 </div>
-                <div className="new-shade">
+                <div className="new-shade bg-white">
                   <div className="flex px-4 py-3 lg:p-5 gap-x-3 bg-pri items-center">
                     <img
                       src="https://res.cloudinary.com/greenmouse-tech/image/upload/v1706796228/GuardMaster/Rectangle_21223_c0unaw.png"
@@ -112,7 +112,7 @@ const ProgramSection = () => {
                     </div>
                   </div>
                 </div>
-                <div className="new-shade">
+                <div className="new-shade bg-white">
                   <div className="flex px-4 lg:p-5 py-3 gap-x-3 bg-pri items-center">
                     <img
                       src="https://res.cloudinary.com/greenmouse-tech/image/upload/v1706796228/GuardMaster/Rectangle_21224_vkfohy.png"
@@ -157,7 +157,7 @@ const ProgramSection = () => {
                     </div>
                   </div>
                 </div>
-                <div className="new-shade">
+                <div className="new-shade bg-white">
                   <div className="flex px-4 py-3 lg:p-5 text-white gap-x-3 bg-primary items-center">
                     <img
                       src="https://res.cloudinary.com/greenmouse-tech/image/upload/v1706796228/GuardMaster/Rectangle_21225_fgs8cd.png"
@@ -183,8 +183,8 @@ const ProgramSection = () => {
                         <span className="w-2 h-2 shrink-0 circle bg-primary"></span>
                         <span>IFPO Certified Protection Officers Course</span>
                       </li>
-                      <li className="flex items-center gap-x-2">
-                        <span className="w-2 h-2 shrink-0 circle bg-primary"></span>
+                      <li className="flex gap-x-2">
+                        <span className="w-2 h-2 shrink-0 mt-2 circle bg-primary"></span>
                         <span>
                           Association of Chartered Loss Specialists of Canada
                           Professional Certification Programs

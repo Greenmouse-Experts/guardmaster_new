@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { RiArrowDownSLine, RiArrowLeftSLine } from "react-icons/ri";
+import { Link } from "react-router-dom";
 
 const StatFaqSection = () => {
   const stat = [
@@ -93,7 +94,7 @@ const StatFaqSection = () => {
                 </p>
                 <p className="lg:w-6/12 mx-auto mt-3 fw-500">
                   Get answers to all your question from our FAQs, feel free to
-                  contact us if you don’t find the answer you are looking for.
+                  contact us if you don’t find the answer you are looking for <Link to='/faq'>click here</Link> to view more.
                 </p>
               </div>
               <div className="lg:w-7/12 mt-12 mx-auto">
