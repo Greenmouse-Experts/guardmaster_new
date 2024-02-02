@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { HiMinus, HiPlus } from "react-icons/hi";
 import PostHeader from "../../lib/components/layout/landing/PostHeader";
-import "../";
+import "../../Stylesheet/about.css";
+import "../../Stylesheet/style.css"
 
 const FaqPage = () => {
   const [openItemId, setOpenItemId] = useState<number | null>(null);
@@ -167,7 +168,7 @@ const FaqPage = () => {
   ];
 
   return (
-    <div className="about_main">
+    <div className="">
       <PostHeader
         image={
           "https://res.cloudinary.com/greenmouse-tech/image/upload/v1706870703/GuardMaster/Rectangle_3_7_c1ct1o.png"

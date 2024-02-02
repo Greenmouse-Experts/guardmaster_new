@@ -19,7 +19,7 @@
   padding: 5rem 5%;
   font-family: var(--mont) !important;
   background: #192f59;
-  background-image: url(../assets/login.png);
+  background-image: url('https://res.cloudinary.com/greenmouse-tech/image/upload/v1706880296/GuardMaster/Frame_3_ibyq5b.png');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -28,7 +28,7 @@
 }
 
 .reg {
-  background-image: url(../assets/register.png);
+  background-image: url('https://res.cloudinary.com/greenmouse-tech/image/upload/v1706880518/GuardMaster/Frame_3_1_dhjirl.png');
   align-items: flex-start;
   padding-top: 10rem;
 }

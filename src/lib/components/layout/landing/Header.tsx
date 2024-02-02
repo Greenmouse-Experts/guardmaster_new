@@ -46,7 +46,7 @@ const Header = () => {
           <div className="w-5/12">
             <ul className="flex justify-between">
               <li className="fw-600">
-                <Link to={"/auth/login"}>Home</Link>
+                <Link to={"/"}>Home</Link>
               </li>
               <li>
                 <Menu>
