@@ -18,7 +18,7 @@ const ProgramSection = () => {
               </p>
             </div>
             <div className="mt-6 lg:mt-16">
-              <div className="w-9/12 mx-auto grid lg:grid-cols-2 gap-8">
+              <div className="md:w-9/12 mx-auto grid lg:grid-cols-2 gap-8">
                 <div className="new-shade">
                   <div className="flex px-4 py-3 lg:p-5 text-white gap-x-3 bg-primary items-center">
                     <img

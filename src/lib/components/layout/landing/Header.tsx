@@ -12,38 +12,43 @@ import { IoIosArrowDown } from "react-icons/io";
 import { Link, useNavigate } from "react-router-dom";
 import { SearchModal } from "../../landing/homepage/SearchModal";
 import MultiMenu from "./MultiMenu";
+import { RiCloseFill, RiMenuFill } from "react-icons/ri";
 
 const Header = () => {
   const navigate = useNavigate();
   const [showSearch, setShowSearch] = useState(false);
+  const [isOpen, setIsOpen] = useState(false)
   return (
     <>
       <div className=" text-primary bg-[#FFD347] py-2">
         <div className="box flex justify-end fs-500 ">
-          <ul className="flex gap-x-6 items-center">
-            <li className="flex items-center gap-x-1 fw-500 fs-400">
+          <ul className="flex gap-x-3 md:gap-x-4 lg:gap-x-6 items-center">
+            <li className="flex items-center gap-x-1 fw-500 fs-200 lg:fs-400">
               <BsTelephone className="text-sm mt-[1px]" /> +000 123 456 7890
             </li>
             <li>
-              <Link to={"/auth/login"} className="fs-400 fw-500">Student Login</Link>
+              <Link to={"/auth/login"} className=" fs-200 lg:fs-400 fw-500">Student Login</Link>
             </li>
-            <li>
-              <Link to={"/contact"}className="fw-500 fs-400">Contact Us</Link>
+            <li className="hidden sm:block">
+              <Link to={"/contact"}className="fw-500  fs-200 lg:fs-400">Contact Us</Link>
             </li>
           </ul>
         </div>
       </div>
       <div className="bg-primary text-white">
       <div className="box">
-        <div className="flex items-center py-2">
-          <div className="w-4/12">
+        <div className="flex items-center justify-between py-2">
+        <button className="lg:hidden" onClick={() => setIsOpen(!isOpen)}>
+          {isOpen ? <RiCloseFill /> : (<div className="bg-white text-primary p-2 rounded"><RiMenuFill /></div>)}
+        </button>
+          <div className="lg:w-4/12">
             <img
               src="https://res.cloudinary.com/greenmouse-tech/image/upload/v1706278834/rsh/logo2-removebg-preview_fcvxwc.png"
               alt="logo"
-              className="w-[150px] lg:w-[250px]"
+              className="w-[140px] sm:w-[180px] lg:w-[250px]"
             />
           </div>
-          <div className="w-5/12">
+          <div className="hidden lg:block lg:w-5/12">
             <ul className="flex justify-between">
               <li className="fw-600">
                 <Link to={"/"}>Home</Link>
@@ -96,7 +101,7 @@ const Header = () => {
               </li>
             </ul>
           </div>
-          <div className="w-4/12">
+          <div className="lg:w-4/12">
             <div className="flex items-center gap-x-5 justify-end">
               <span
                 className="cursor-pointer"
@@ -104,7 +109,7 @@ const Header = () => {
               >
                 <FiSearch className="hover:scale-105 duration-100 text-lg" />
               </span>
-              <Link to="/course" className="btn-feel py-3 px-6">View Our Programs</Link>
+              <Link to="/course" className="hidden lg:block btn-feel py-3 px-6">View Our Programs</Link>
             </div>
           </div>
         </div>

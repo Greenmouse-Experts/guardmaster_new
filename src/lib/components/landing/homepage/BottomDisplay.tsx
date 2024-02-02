@@ -22,8 +22,8 @@ const BottomDisplay = () => {
     },
   ];
   return (
-    <div className="absolute z-[3000]  bottom-0 w-full flex justify-center">
-      <div className="w-10/12 bg-[#052B5E]/[0.6] text-white p-4 lg:p-10 grid lg:grid-cols-4 gap-4 lg:gap-6">
+    <div className="lg:absolute z-[3000]  bottom-0 w-full flex justify-center">
+      <div className="md:w-10/12 bg-[#052B5E] lg:bg-[#052B5E]/[0.6] text-white py-12 md:py-6 p-6 lg:p-10 grid md:grid-cols-2 lg:grid-cols-4 gap-9 md:gap-4 lg:gap-6">
         {data.map((item) => (
           <div className={`flex gap-x-2 items-center ${item.border && 'border-r border-gray-700 border-dashed'}`}>
             <img src={item.img} alt="icon" className="w-[60px] shrink-0" />

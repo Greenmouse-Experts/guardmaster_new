@@ -7,13 +7,13 @@ const Footer = () => {
       <div className="bg-primary text-white">
         <div className="border-b border-[#8C8C8C] pt-10 pb-9">
         <div className="box">
-          <div className="flex items-center justify-between">
+          <div className="lg:flex items-center justify-between">
             <div>
-              <p className="text-white font-semibold !text-3xl">
+              <p className="text-white syne font-semibold text-xl lg:!text-3xl">
                 Subscribe to our Newsletter
               </p>
             </div>
-            <div className="lg:w-4/12">
+            <div className="lg:w-4/12 mt-6 lg:mt-0">
               <div className="bg-white flex items-center p-2">
                 <input
                   type="email"
@@ -31,7 +31,7 @@ const Footer = () => {
         </div>
         </div>
         <div className="box">
-          <div className="grid lg:grid-cols-4 mt-6 lg:mt-16">
+          <div className="grid gap-10 lg:gap-0 lg:grid-cols-4 mt-6 lg:mt-16">
             <div className="grid gap-4">
               <h3 className="text-[18px] font-semibold">Quick Links</h3>
               <Link to="/">Home</Link>
@@ -84,7 +84,7 @@ const Footer = () => {
         <div className="box">
           <div className="pb-10 lg:flex justify-between">
             <p>Copyright © 2024 Guardmaster Institute. All Rights Reserved </p>
-            <div className="flex gap-x-5 mt-6 lg:mt-0">
+            <div className="md:flex gap-x-5 mt-6 lg:mt-0">
               <Link to={"/terms"}>Terms & Conditions</Link>
               <Link to={"/privacy"}>Privacy Policy</Link>
               <Link to={"/support"}>Support</Link>

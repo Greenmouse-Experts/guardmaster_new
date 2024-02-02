@@ -65,10 +65,10 @@ const StatFaqSection = () => {
       <div>
         <div className="bg-grad section">
           <div className="box">
-            <div className="grid md:grid-cols-2 lg:flex lg:px-16 justify-between">
+            <div className="grid gap-4 lg:gap-0 md:grid-cols-2 lg:flex lg:px-16 lg:justify-between">
               {stat.map((item) => (
-                <div className="text-white p-4">
-                  <div className="flex items-center gap-x-3">
+                <div className="text-white p-4 text-center lg:text-left">
+                  <div className="flex justify-center lg:justify-start items-center gap-x-3">
                     <img
                       src={item.icon}
                       alt="icons"
@@ -109,10 +109,10 @@ const StatFaqSection = () => {
                         onClick={() => handleItemClick(item.id)}
                         className={`p-1 lg:pl-3 flex w-full rounded-md items-center justify-between ${openItemId === item.id ? "bg-primary text-white" : "bg-white"}`}
                       >
-                        <p className="poppins">{item.question}</p>
+                        <p className="poppins fs-300 md:fs-600">{item.question}</p>
                         <span
                           onClick={() => handleItemClick(item.id)}
-                          className={`w-8 h-8 lg:w-12 lg:h-12 place-center rounded-md ${openItemId === item.id ? 'bg-white text-black' : 'bg-primary text-white'}`}
+                          className={`w-8 h-8 shrink-0 lg:w-12 lg:h-12 place-center rounded-md ${openItemId === item.id ? 'bg-white text-black' : 'bg-primary text-white'}`}
                         >
                           {openItemId === item.id ? (
                             <RiArrowDownSLine className="text-xl"/>

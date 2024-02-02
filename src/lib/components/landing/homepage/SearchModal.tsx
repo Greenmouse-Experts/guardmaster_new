@@ -8,7 +8,7 @@ interface Props {
 export const SearchModal:React.FC<Props> = ({ close }) => {
   return (
     <>
-      <div className="bg-white fixed w-full h-screen top-0 left-0 pacity-ani">
+      <div className="bg-white fixed z-[5000] w-full h-screen top-0 left-0 pacity-ani">
         <div className="lg:w-[87%] mx-auto py-8 px-3 lg:px-0">
           <div className="flex justify-between items-center">
             <img

@@ -58,11 +58,11 @@ const About = () => {
     <div className="">
       <PostHeader image={'https://res.cloudinary.com/greenmouse-tech/image/upload/v1706267755/rsh/Group_48097478_1_dvsu16.png'} title="About Us" nav="About" />
       <div className="boxes">
-      <div className="flex justify-between py-12">
+      <div className="lg:flex justify-between py-12">
         <div className="lg:w-4/12 w-full">
           <img src={'https://res.cloudinary.com/greenmouse-tech/image/upload/v1706874344/GuardMaster/Group_48097332_1_hy05vu.png'} alt="" />
         </div>
-        <div className="lg:w-7/12 dis_text about_text">
+        <div className="lg:w-7/12 dis_text lg:about_text mt-10 lg:mt-0">
           <span className="text-primary fw-500">About Us</span>
           <h2 className="fw-600 syne text-xl lg:text-4xl">Discover the Essence of Guardmaster Institute</h2>
           <p className="mt-4">
@@ -78,14 +78,12 @@ const About = () => {
               <span>
                 <img src={'https://res.cloudinary.com/greenmouse-tech/image/upload/v1706874343/GuardMaster/Group_48097526_anrnof.png'} alt="" />
               </span>
-
               <p>Diversity</p>
             </div>
             <div>
               <span>
                 <img src={'https://res.cloudinary.com/greenmouse-tech/image/upload/v1706874343/GuardMaster/Group_48097527_tqovbc.png'} alt="" />
               </span>
-
               <p>Leadership</p>
             </div>
           </div>

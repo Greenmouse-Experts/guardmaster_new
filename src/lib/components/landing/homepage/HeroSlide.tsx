@@ -23,7 +23,7 @@ const HeroSlide = () => {
           <SwiperSlide>
             <div className="home bg-first bg-cover bg-[left_20px] lg:bg-top">
               <div className="box text-white">
-                <h2 className="text-5xl fw-600">
+                <h2 className="text-2xl lg:text-5xl fw-600">
                   Your Gateway to Knowledge <br /> and Excellence!
                 </h2>
                 <p className="mt-6 lg:text-lg">
@@ -33,7 +33,7 @@ const HeroSlide = () => {
                 <div className="flex mt-6 lg:mt-12">
                   <Link
                     to="/course"
-                    className="btn-feel flex items-center gap-x-2 py-3 px-6"
+                    className="btn-feel whitespace-nowrap flex items-center gap-x-2 py-3 px-3 lg:px-6"
                   >
                     Discover all our Courses <RiArrowRightLine />
                   </Link>
@@ -44,7 +44,7 @@ const HeroSlide = () => {
           <SwiperSlide>
             <div className="home bg-second bg-cover bg-center  lg:bg-top">
               <div className="box text-white">
-                <h2 className="text-5xl fw-600">
+                <h2 className="text-2xl lg:text-5xl fw-600">
                   Explore Infinite Possibilities <br /> Here!
                 </h2>
                 <p className="mt-6 lg:text-lg">
@@ -54,7 +54,7 @@ const HeroSlide = () => {
                 <div className="flex mt-6 lg:mt-12">
                   <Link
                     to="/course"
-                    className="btn-feel flex items-center gap-x-2 py-3 px-6"
+                    className="btn-feel flex whitespace-nowrap items-center gap-x-2 py-3 px-3 lg:px-6"
                   >
                     Discover all our Courses <RiArrowRightLine />
                   </Link>
@@ -65,7 +65,7 @@ const HeroSlide = () => {
           <SwiperSlide>
             <div className="home bg-third bg-cover bg-left lg:bg-top">
               <div className="box text-white">
-                <h2 className="text-5xl fw-600">
+                <h2 className="text-2xl lg:text-5xl fw-600">
                   Building Bridges to Success in <br />
                   Security Management
                 </h2>
@@ -76,7 +76,7 @@ const HeroSlide = () => {
                 <div className="flex mt-6 lg:mt-12">
                   <Link
                     to="/course"
-                    className="btn-feel flex items-center gap-x-2 py-3 px-6"
+                    className="btn-feel flex whitespace-nowrap items-center gap-x-2 py-3 px-3 lg:px-6"
                   >
                     Discover all our Courses <RiArrowRightLine />
                   </Link>
@@ -87,7 +87,7 @@ const HeroSlide = () => {
           <SwiperSlide>
             <div className="home bg-fourth bg-cover bg-left lg:bg-top">
               <div className="box text-white">
-                <h2 className="text-5xl fw-600">
+                <h2 className="text-2xl lg:text-5xl fw-600">
                   Unleashing Potential, Driving <br /> and Excellence!
                 </h2>
                 <p className="mt-6 lg:text-lg">
@@ -98,7 +98,7 @@ const HeroSlide = () => {
                 <div className="flex mt-6 lg:mt-12">
                   <Link
                     to="/course"
-                    className="btn-feel flex items-center gap-x-2 py-3 px-6"
+                    className="btn-feel flex whitespace-nowrap items-center gap-x-2 py-3 px-3 lg:px-6"
                   >
                     Discover all our Courses <RiArrowRightLine />
                   </Link>
@@ -109,7 +109,7 @@ const HeroSlide = () => {
           <SwiperSlide>
             <div className="home bg-fifth bg-cover bg-left lg:bg-top">
               <div className="box text-white">
-                <h2 className="text-5xl fw-600">
+                <h2 className="text-2xl lg:text-5xl fw-600">
                   Innovative Learning Solutions <br /> for All!
                 </h2>
                 <p className="mt-6 lg:text-lg">
@@ -120,7 +120,7 @@ const HeroSlide = () => {
                 <div className="flex mt-6 lg:mt-12">
                   <Link
                     to="/course"
-                    className="btn-feel flex items-center gap-x-2 py-3 px-6"
+                    className="btn-feel flex whitespace-nowrap items-center gap-x-2 py-3 px-3 lg:px-6"
                   >
                     Discover all our Courses <RiArrowRightLine />
                   </Link>
@@ -131,7 +131,7 @@ const HeroSlide = () => {
           <SwiperSlide>
             <div className="home bg-sixth bg-cover bg-left lg:bg-top">
               <div className="box text-white">
-                <h2 className="text-5xl fw-600">
+                <h2 className="text-2xl lg:text-5xl fw-600">
                   Innovative Learning Solutions <br /> for All!
                 </h2>
                 <p className="mt-6 lg:text-lg">
@@ -142,7 +142,7 @@ const HeroSlide = () => {
                 <div className="flex mt-6 lg:mt-12">
                   <Link
                     to="/course"
-                    className="btn-feel flex items-center gap-x-2 py-3 px-6"
+                    className="btn-feel flex whitespace-nowrap items-center gap-x-2 py-3 px-3 lg:px-6"
                   >
                     Discover all our Courses <RiArrowRightLine />
                   </Link>

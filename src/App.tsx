@@ -11,6 +11,10 @@ import ProgramsPage from "./pages/landing/Course";
 import CourseDetail from "./pages/landing/CourseDetails";
 import Login from "./pages/auth/Login";
 import Register from "./pages/auth/Register";
+import ForgetPassword from "./pages/auth/Forget";
+import ResetPassword from "./pages/auth/Reset";
+import VerifyUser from "./pages/auth/Verify";
+import Contact from "./pages/landing/Contact";
 
 function App() {
   return (
@@ -20,14 +24,14 @@ function App() {
         {/* Auth routes */}
         <Route path="/auth/login" element={<Login />} />
         <Route path="/auth/register" element={<Register />} />
-        {/* <Route path="/forget" element={<ForgetPassword />} /> */}
-        {/* <Route path="/auth/confirm" element={<VerifyUser/>}/> */}
-        {/* <Route path="/auth/reset" element={<ResetPassword/>}/> */}
+        <Route path="auth/forget" element={<ForgetPassword />} />
+        <Route path="/auth/confirm" element={<VerifyUser/>}/>
+        <Route path="/auth/reset" element={<ResetPassword/>}/>
         <Route element={<LandingLayout />}>
           <Route path="/" element={<Homepage />} />
           <Route path="/faq" element={<FaqPage />} />
           <Route path="/about" element={<About />} />
-          {/* <Route path="/contact" element={<Contact />} /> */}
+          <Route path="/contact" element={<Contact />} />
           <Route path="/course" element={<ProgramsPage />} />
           {/* <Route path="/bemember" element={<BeMember />} /> */}
           <Route path="/partnership" element={<Partnership />} />

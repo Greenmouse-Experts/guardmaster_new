@@ -51,24 +51,24 @@ const InstituteSection = () => {
                   <span className="text-pri text-2xl lg:text-4xl">
                     Guardmaster Institute
                   </span>
-                    & We're Different
+                   {" "} & We're Different
                 </p>
                 <p className="mt-5 fs-500">
                   Specializing in both online and in-class courses, we tailor
                   our offerings to cater to the evolving needs of our learners.
                 </p>
               </div>
-              <div className="">
+              <div className="mt-12 lg:mt-0">
                 <div
-                  className="w-56 lg:w-80 flex justify-between p-3 bg-white cursor-pointer"
+                  className="w-60 lg:w-80 flex justify-between p-3 bg-white cursor-pointer"
                   onClick={() => navigate("/auth/register")}
                 >
                   <p className="fw-600 syne">Apply Now</p>
                   <FaAngleRight className="text-xl" />
                 </div>
                 <div
-                  className="w-56 mt-4 lg:w-80 flex justify-between p-3 bg-white cursor-pointer"
-                  onClick={() => navigate("/programs")}
+                  className="w-60 mt-4 lg:w-80 flex justify-between p-3 bg-white cursor-pointer"
+                  onClick={() => navigate("/course")}
                 >
                   <p className="fw-600 syne">Discover Our Programs</p>
                   <FaAngleRight className="text-xl" />

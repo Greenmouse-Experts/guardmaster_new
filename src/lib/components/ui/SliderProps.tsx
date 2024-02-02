@@ -1,5 +1,9 @@
-import  { Component } from "react";
-import Slider from "react-slick"; // Make sure to import Slider if you haven't already
+import  { FC, useCallback, useRef } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/element/css/effect-fade";
+import "swiper/css/bundle";
+import { register } from "swiper/element/bundle";
 import { RiArrowRightLine, RiArrowLeftLine } from "react-icons/ri";
 import { Link } from "react-router-dom";
 import "slick-carousel/slick/slick.css";
@@ -11,81 +15,51 @@ interface Props{
   data: any[]
   span: string
 }
-export class SliderProps extends Component<Props> {
-  slider: any;
-  constructor(props:any) {
-    super(props);
-    this.next = this.next.bind(this);
-    this.previous = this.previous.bind(this);
-  }
+register();
+export const SliderProps:FC<Props> = ({head, data, span}) => {
+     // Receive data as a prop
+    const sliderRef = useRef<any>(null);
 
-  next() {
-    this.slider.slickNext();
-  }
-
-  previous() {
-    this.slider.slickPrev();
-  }
-
-  render() {
-    const { data, head, span }:any = this.props; // Receive data as a prop
-
-    const settings = {
-      dots: false,
-      infinite: false,
-      speed: 500,
-      slidesToShow: 4,
-      slidesToScroll: 1,
-      arrows: false,
-      responsive: [
-        {
-          breakpoint: 1024,
-          settings: {
-            slidesToShow: 3,
-          },
-        },
-        {
-          breakpoint: 768,
-          settings: {
-            slidesToShow: 2,
-          },
-        },
-        {
-          breakpoint: 550,
-          settings: {
-            slidesToShow: 1,
-          },
-        },
-      ],
-    };
-
-    return (
-      <div className="course_main">
-        <div className="our_head">
-          <span>Our Program Courses</span>
-          <h2 className="h2">
-            {head}
-            <div className="butt">
-              <span className="button" onClick={this.previous}>
-                <RiArrowLeftLine />
+    const handlePrev = useCallback(() => {
+      if (!sliderRef.current) return;
+      sliderRef.current.swiper.slidePrev();
+    }, []);
+  
+    const handleNext = useCallback(() => {
+      if (!sliderRef.current) return;
+      sliderRef.current.swiper.slideNext();
+    }, []);
+     return (
+      <div className="box">
+        <div className="our_head pt-12 lg:pt-24">
+          <span className="text-[#052B5E] fw-500 fs-500">Our Program Courses</span>
+          <h2 className="h2 flex justify-between">
+            <p className="text-xl lg:text-4xl fw-600 syne">{head}</p>
+            <div className="butt flex gap-x-2">
+              <span className="button w-10 h-10 circle bg-primary place-center cursor-pointer"  onClick={handlePrev} >
+                <RiArrowLeftLine className="text-xl lg:text-3xl text-white"/>
               </span>
-              <span className="button" onClick={this.next}>
-                <RiArrowRightLine />
+              <span className="button w-10 h-10 circle bg-primary place-center cursor-pointer" onClick={handleNext}>
+                <RiArrowRightLine className="text-xl lg:text-3xl text-white"/>
               </span>
             </div>
           </h2>
         </div>
-        <div    style={{marginTop: "1rem"}} className="our_grid">
-          <Slider
-            className="carousel"
-            ref={(c) => (this.slider = c)}
-            {...settings}
-          >
-            {data.map((item:any, index:any) => (
-              <div key={index} className="slide_card">
+        <div    style={{marginTop: "1.5rem"}} className="grid">
+        <Swiper
+          // effect={"fade"}
+          // autoplay={{ delay: 6000 }}
+          // modules={[Autoplay, EffectFade]}
+          ref={sliderRef}
+          slidesPerView={'auto'}
+          spaceBetween={18}
+          className="w-full"
+        >
+          {data.map((item:any, index:any) => (
+              <SwiperSlide key={index} className="shadow-xl w-[340px]">
                 <img src={item.image} alt="" />
-                <div className="content">
-                  <span>
+                <div className="content relative p-4 h-48">
+                  <span className="flex bg-pri absolute gap-x-2 items-center rounded right-5 p-2 fw-500 -top-5">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="17"
@@ -107,18 +81,17 @@ export class SliderProps extends Component<Props> {
                     </svg>
                     {span}
                   </span>
-                  <h3>{item.head}</h3>
-                  <p>{item.body}</p>
-                  <Link to={'/course/139010'}>
+                  <h3 className="text-lg fw-600 mt-2 lg:text-xl syne">{item.head}</h3>
+                  <p className="mt-4 !whitespace-normal syne">{item.body}</p>
+                  <Link to={'/course/139010'} className="flex items-center fw-600 text-primary gap-x-2 mt-5">
                     Enroll Now
-                    <RiArrowRightLine />
+                    <RiArrowRightLine className="text-xl"/>
                   </Link>
                 </div>
-              </div>
+              </SwiperSlide>
             ))}
-          </Slider>
+            </Swiper>
         </div>
       </div>
     );
   }
-}
