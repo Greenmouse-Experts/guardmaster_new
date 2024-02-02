@@ -15,7 +15,7 @@ const PostHeader: FC<Props> = ({ image, title, nav }) => {
           <div className="box h-full flex items-center">
             <div className="text-white">
             <h2 className="text-xl lg:text-3xl fw-600">{title}</h2>
-            <p className="mt-5 lg:text-lg">
+            <p className="mt-5 lg:text-lg relative top-7">
               <Link to="/" className="text-pri fw-500">Home</Link> / {nav}
             </p>
           </div>
