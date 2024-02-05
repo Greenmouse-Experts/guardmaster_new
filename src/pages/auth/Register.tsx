@@ -70,7 +70,7 @@ const Register = () => {
             <div>
               <h3>Hello!</h3>
               <p>
-                Welcome to GMG Security Guard & Services – Where Your Safety is
+                Welcome to GuardMasters – Where Your Safety is
                 Our Priority! <br />
                 <br />
                 Sign up today for peace of mind and top-tier security services.
@@ -187,7 +187,7 @@ const Register = () => {
               </div>
 
               <p className="log_p">
-                I have read and agreed to GMG Security Guard & Services{" "}
+                I have read and agreed to GuardMaster{" "}
                 <span>Privacy Policy </span> and <span>Terms of Use</span>
               </p>
               <div>
