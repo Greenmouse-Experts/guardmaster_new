@@ -6,29 +6,29 @@ const Footer = () => {
     <footer>
       <div className="bg-primary text-white">
         <div className="border-b border-[#8C8C8C] pt-10 pb-9">
-        <div className="box">
-          <div className="lg:flex items-center justify-between">
-            <div>
-              <p className="text-white syne font-semibold text-xl lg:!text-3xl">
-                Subscribe to our Newsletter
-              </p>
-            </div>
-            <div className="lg:w-4/12 mt-6 lg:mt-0">
-              <div className="bg-white flex items-center p-2">
-                <input
-                  type="email"
-                  name="suscribe"
-                  id=""
-                  placeholder="Your Email"
-                  className="p-2 w-full outline-none"
-                />
-                <button className="bg-pri text-black px-4 shrink-0 lg:px-6 fw-500 py-2">
-                  Send
-                </button>
+          <div className="box">
+            <div className="lg:flex items-center justify-between">
+              <div>
+                <p className="text-white syne font-semibold text-xl lg:!text-3xl">
+                  Subscribe to our Newsletter
+                </p>
+              </div>
+              <div className="lg:w-4/12 mt-6 lg:mt-0">
+                <div className="bg-white flex items-center p-2">
+                  <input
+                    type="email"
+                    name="suscribe"
+                    id=""
+                    placeholder="Your Email"
+                    className="p-2 w-full outline-none"
+                  />
+                  <button className="bg-pri text-black px-4 shrink-0 lg:px-6 fw-500 py-2">
+                    Send
+                  </button>
+                </div>
               </div>
             </div>
           </div>
-        </div>
         </div>
         <div className="box">
           <div className="grid gap-10 lg:gap-0 lg:grid-cols-4 mt-6 lg:mt-16">
@@ -81,16 +81,60 @@ const Footer = () => {
           </div>
         </div>
         <div className="border-t border-[#8C8C8C] pt-10 mt-12">
-        <div className="box">
-          <div className="pb-10 lg:flex justify-between">
-            <p>Copyright © 2024 Guardmaster Institute. All Rights Reserved </p>
-            <div className="md:flex gap-x-5 mt-6 lg:mt-0">
-              <Link to={"/terms"}>Terms & Conditions</Link>
-              <Link to={"/privacy"}>Privacy Policy</Link>
-              <Link to={"/support"}>Support</Link>
+          <div className="box">
+            <div className="flex mb-7 justify-center">
+              <div className="md:w-9/12 lg:w-6/12 xl:w-4/12">
+                <ul className="w-full flex justify-between">
+                  <li>
+                    <a href="https://www.facebook.com/GuardmasterInstituteCanada/" target="_blank" rel="noopener noreferrer">
+                      <img
+                        src="https://res.cloudinary.com/greenmouse-tech/image/upload/v1707126193/GuardMaster/fblogo_k1kvwv.webp"
+                        alt="fblogo"
+                        className="w-10"
+                      />
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://twitter.com/TheGuardmaster" target="_blank" rel="noopener noreferrer">
+                      <img
+                        src="https://res.cloudinary.com/greenmouse-tech/image/upload/v1707126193/GuardMaster/xlogo_jynaps.webp"
+                        alt="xlogo"
+                        className="w-10"
+                      />
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://www.instagram.com/guardmasterinstitutecanada/" target="_blank" rel="noopener noreferrer">
+                      <img
+                        src="https://res.cloudinary.com/greenmouse-tech/image/upload/v1707126193/GuardMaster/instalogo_ysmyzb.png"
+                        alt="instalogo"
+                        className="w-10"
+                      />
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://linkedin.com/company/guardmasterinstitutecanada/" target="_blank" rel="noopener noreferrer">
+                      <img
+                        src="https://res.cloudinary.com/greenmouse-tech/image/upload/v1707126490/GuardMaster/LinkedIn-Icon-Squircle-Dark_rsunhy.png"
+                        alt="ldlogo"
+                        className="w-10"
+                      />
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div className="pb-10 lg:flex justify-between">
+              <p>
+                Copyright © 2024 Guardmaster Institute. All Rights Reserved{" "}
+              </p>
+              <div className="md:flex gap-x-5 mt-6 lg:mt-0">
+                <Link to={"/terms"}>Terms & Conditions</Link>
+                <Link to={"/privacy"}>Privacy Policy</Link>
+                <Link to={"/support"}>Support</Link>
+              </div>
             </div>
           </div>
-        </div>
         </div>
       </div>
     </footer>
