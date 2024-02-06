@@ -15,6 +15,7 @@ import ForgetPassword from "./pages/auth/Forget";
 import ResetPassword from "./pages/auth/Reset";
 import VerifyUser from "./pages/auth/Verify";
 import Contact from "./pages/landing/Contact";
+import UserIndex from "./pages/user";
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
           <Route path="/leadership" element={<Leadership />} />
           <Route path="/course/:id" element={<CourseDetail/>}/>
         </Route>
+        <Route path="/user/*" element={<UserIndex />} />
       </Routes>
       <CookieModal />
     </>

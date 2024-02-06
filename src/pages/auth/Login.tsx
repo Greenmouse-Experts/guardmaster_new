@@ -5,10 +5,12 @@ import "../../Stylesheet/login.css";
 import { loginUser } from "../../services/api/authApi";
 import { toast } from "react-toastify";
 import Button from "../../lib/components/ui/Button";
+import useAuth from "../../hooks/authUser";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
+  const {saveUser} = useAuth()
 
   const togglePassword = () => {
     setShowPassword(!showPassword); // Toggle the showPassword state
@@ -33,12 +35,20 @@ const Login = () => {
       .then((data) => {
         toast.success("Login Successful");
         setIsBusy(false);
-        window.location.replace(
-          `https://guardstudent.netlify.app/auth/${data.accessToken}`
-        );
+        localStorage.setItem('guard_token', data.accessToken)
+        saveUser({
+          name: `${data.data.firstName} ${data.data.lastName}`,
+          email: data.data.email,
+          token: data.accessToken,
+          image: data.data.picture,
+          state: '',
+          phone: data.data.phone,
+          id: data.data.id,
+          account: ''
+        })
+        navigate('/user')
       })
       .catch((error) => {
-        console.log(error);
         toast.error(error?.response?.data?.message);
         setIsBusy(false);
       });
