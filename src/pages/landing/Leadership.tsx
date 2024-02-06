@@ -17,7 +17,7 @@ const Leadership = () => {
                   <div className="lg:flex items-center justify-between">
                     <div className="w-full lg:w-[25%]">
                       <img
-                        src="https://res.cloudinary.com/greenmouse-tech/image/upload/v1706188029/GuardMaster/Rectangle_21202_ohyk1j.png"
+                        src="https://res.cloudinary.com/greenmouse-tech/image/upload/v1707231563/GuardMaster/Group_48097527_1_uwpfpd.png"
                         alt="founder"
                         className="w-full"
                       />

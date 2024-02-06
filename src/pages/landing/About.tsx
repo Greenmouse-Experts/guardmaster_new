@@ -60,7 +60,7 @@ const About = () => {
       <div className="boxes">
       <div className="lg:flex justify-between py-12">
         <div className="lg:w-4/12 w-full">
-          <img src={'https://res.cloudinary.com/greenmouse-tech/image/upload/v1706874344/GuardMaster/Group_48097332_1_hy05vu.png'} alt="" />
+          <img src={'https://res.cloudinary.com/greenmouse-tech/image/upload/v1707231563/GuardMaster/Group_48097332_2_rkpn4e.png'} alt="" />
         </div>
         <div className="lg:w-7/12 dis_text lg:about_text mt-10 lg:mt-0">
           <span className="text-primary fw-500">About Us</span>
