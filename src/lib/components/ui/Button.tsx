@@ -32,7 +32,7 @@ const Button: React.FC<Props> = ({
         onClick={onClick ? onClick : undefined}
         disabled={disabled}
       >
-        {isBusy ? 'loading' : capitalizeTitle ? title : title}
+        {isBusy ? 'loading..' : capitalizeTitle ? title : title}
       </button>
     </div>
   );

@@ -7,3 +7,8 @@ export const USERS_REGISTER = `/user/client/signup`
 export const USERS_LOGIN = `/auth/signin`
 export const FORGET_PASSWORD = `/auth/reset-password-request`
 export const RESET_PASSWORD = `/auth/reset-password`
+export const UPDATE_PROFILE = `/auth/update-profile`
+export const UPDATE_PASSWORD = `/auth/update-password`
+
+// programs endpoint
+export const GET_ALL_PROGRAMS = `/programs`

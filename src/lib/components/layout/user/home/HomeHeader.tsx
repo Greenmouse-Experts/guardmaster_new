@@ -12,10 +12,13 @@ import useAuth from "../../../../../hooks/authUser";
 import ProfileAvatar from "../../../ui/ProfileAvatar";
 import { BsGear } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
+import useModal from "../../../../../hooks/useModal";
+import LogoutModal from "../../../auth/LogoutModal";
 
 const HomeHeader = () => {
   const { user } = useAuth();
   const navigate = useNavigate();
+  const {Modal, setShowModal} = useModal()
   return (
     <>
       <div className="bg-primary py-2">
@@ -107,21 +110,21 @@ const HomeHeader = () => {
                 </MenuItem>
                 <MenuItem
                   className="flex gap-x-2 items-center fw-500"
-                  onClick={() => navigate("dashboard")}
+                  onClick={() => navigate("/user/dashboard")}
                 >
                   <MdOutlineDashboard className="text-2xl" />
                   Dashboard
                 </MenuItem>
                 <MenuItem
                   className="flex gap-x-2 items-center fw-500"
-                  onClick={() => navigate("profile")}
+                  onClick={() => navigate("/user/profile")}
                 >
                   <BsGear className="text-2xl" />
                   Settings
                 </MenuItem>
                 <MenuItem
                   className="flex gap-x-2 items-center fw-500"
-                  // onClick={() => setShowModal(true)}
+                  onClick={() => setShowModal(true)}
                 >
                   <IoLogOutOutline className="text-2xl" />
                   Logout
@@ -131,6 +134,9 @@ const HomeHeader = () => {
           </div>
         </div>
       </div>
+      <Modal title="" size="xs">
+        <LogoutModal CloseModal={() => setShowModal(false)}/>
+      </Modal>
     </>
   );
 };

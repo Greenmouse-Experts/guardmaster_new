@@ -5,6 +5,7 @@ import { USERS_LOGIN } from "../constant.tsx";
 import { FORGET_PASSWORD } from "../constant.tsx";
 import { RESET_PASSWORD } from "../constant.tsx";
 import { getToken } from "../helpers.tsx";
+import * as ENDPOINT from "../constant";
 
 axios.defaults.baseURL = BASE_URL;
 axios.defaults.headers.common["Authorization"] = getToken();
@@ -57,5 +58,17 @@ export const resetPassword = async (payload:any, token:any) => {
         Authorization: `Bearer ${token}`,
       },
     })
+    .then((response) => response.data);
+};
+
+export const updateProfile = async (payload:any) => {
+  return axios
+    .post(`${ENDPOINT.UPDATE_PROFILE}`, payload)
+    .then((response) => response.data);
+};
+
+export const updatePassword = async (payload:any) => {
+  return axios
+    .post(`${ENDPOINT.UPDATE_PASSWORD}`, payload)
     .then((response) => response.data);
 };
