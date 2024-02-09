@@ -33,7 +33,7 @@ const HomeHeader = () => {
           <div>
             <Menu>
               <MenuHandler>
-                <Button className="bg-white flex items-center gap-x-2 px-3 lg:px-7 py-3 m-0 !rounded-[25px] shadow-none hover:shadow-none text-primary !mont lg:!syne capitalize font-[500] text-[14px] lg:text-[16px]">
+                <Button className="bg-white flex items-center gap-x-2 px-3 py-1 lg:px-7 lg:py-3 m-0 !rounded-[25px] shadow-none hover:shadow-none text-primary !mont lg:!syne capitalize font-[500] text-[14px] lg:text-[16px]">
                   My Courses <IoIosArrowDown />
                 </Button>
               </MenuHandler>
@@ -47,7 +47,7 @@ const HomeHeader = () => {
               </MenuList>
             </Menu>
           </div>
-          <div className="w-5/12 flex justify-end lg:gap-x-3">
+          <div className="hidden lg:w-5/12 lg:flex justify-end lg:gap-x-3">
             <Menu>
               <MenuHandler>
                 <Button className="bg-transparent flex items-center gap-x-2 p-3 m-0 !rounded-[25px] shadow-none hover:shadow-none text-primary !mont lg:!syne capitalize font-[500] text-[14px] lg:text-[16px]">

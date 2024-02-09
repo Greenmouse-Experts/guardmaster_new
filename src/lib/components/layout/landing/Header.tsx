@@ -25,16 +25,16 @@ const Header = () => {
   return (
     <>
       <div className=" text-primary bg-[#FFD347] py-2">
-        <div className="box flex justify-between fs-500 ">
+        <div className="box flex items-center justify-between fs-500 ">
           <ul className="flex gap-x-3 md:gap-x-4 lg:gap-x-6 items-center">
-            <li className="flex items-center gap-x-1 fw-600 fs-200 lg:fs-300 border-r border-black pr-4">
+            <li className="flex items-center gap-x-1 fw-600 fs-200 lg:fs-300 md:border-r border-black pr-4">
               <BsTelephone className="text-sm mt-[1px]" /> +1 905-452-2470
             </li>
-            <li className="fw-600 fs-200 lg:fs-300">
+            <li className="fw-600 fs-200 lg:fs-300 hidden md:block">
               info@guardmasterinstitute.ca
             </li>
           </ul>
-          <ul className="flex gap-x-4">
+          <ul className="flex items-center gap-x-4">
             {isLoggedIn ? (
               <>
                 <li className="border-r border-black pr-4">
@@ -50,7 +50,7 @@ const Header = () => {
               </>
             ) : (
               <>
-                <li className="border-r border-black pr-4">
+                <li className="hidden md:block border-r border-black pr-4">
                   <Link to={"/auth/login"} className=" fs-200 lg:fs-300 fw-600">
                     Student Login
                   </Link>
