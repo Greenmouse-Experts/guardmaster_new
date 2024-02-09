@@ -10,11 +10,14 @@ import Button from "../../lib/components/ui/Button";
 import { GoPasskeyFill } from "react-icons/go";
 import useModal from "../../hooks/useModal";
 import ChangePassword from "../../lib/components/user/profile/ChangePassword";
+import UpdateProfile from "../../lib/components/user/profile/UpdateProfile";
+import dayjs from "dayjs";
 
 const UserProfile = () => {
   const { user, saveUser } = useAuth();
   const [isUpdate, setIsUpdate] = useState(false);
-  const {Modal:Password, setShowModal:ShowPassword} = useModal()
+  const { Modal: Password, setShowModal: ShowPassword } = useModal();
+  const { Modal: Edit, setShowModal: ShowEdit } = useModal();
   const Update = useMutation({
     mutationFn: updateProfile,
     mutationKey: ["update"],
@@ -83,54 +86,82 @@ const UserProfile = () => {
           </div>
           <div className="flex items-center gap-x-3">
             <div className="w-44">
-            <Button title={'Edit Profile'}/>
+              <Button title={"Edit Profile"} onClick={() => ShowEdit(true)} />
             </div>
-            <div className="w-12 h-12 place-center rounded-lg bg-primary text-white cursor-pointer" onClick={() => ShowPassword(true)}>
-                <GoPasskeyFill className="text-xl"/>
+            <div
+              className="w-12 h-12 place-center rounded-lg bg-primary text-white cursor-pointer"
+              onClick={() => ShowPassword(true)}
+            >
+              <GoPasskeyFill className="text-xl" />
             </div>
           </div>
         </div>
         <div className="mt-12">
-            <p className="syne text-lg lg:text-3xl fw-600">My Profile</p>
-            <div className="mt-6 lg:grid gap-4">
-                <div className="flex items-center gap-x-4 py-3 border-b border-gray-300">
-                    <p className="w-3/12 lg:w-4/12 shrink-0 text-lg lg:text-2xl syne">Registration Date:</p>
-                    <p className="lg:text-xl syne">N/A</p>
-                </div>
-                <div className="flex items-center gap-x-4 py-3 border-b border-gray-300">
-                    <p className="w-3/12 lg:w-4/12 shrink-0 text-lg lg:text-2xl syne">Full Name:</p>
-                    <p className="lg:text-xl syne">{user.name}</p>
-                </div>
-                <div className="flex items-center gap-x-4 py-3 border-b border-gray-300">
-                    <p className="w-3/12 lg:w-4/12 shrink-0 text-lg lg:text-2xl syne">Email:</p>
-                    <p className="lg:text-xl syne">{user.email}</p>
-                </div>
-                <div className="flex items-center gap-x-4 py-3 border-b border-gray-300">
-                    <p className="w-3/12 lg:w-4/12 shrink-0 text-lg lg:text-2xl syne">Phone Number:</p>
-                    <p className="lg:text-xl syne">{user.phone}</p>
-                </div>
-                <div className="flex items-center gap-x-4 py-3 border-b border-gray-300">
-                    <p className="w-3/12 lg:w-4/12 shrink-0 text-lg lg:text-2xl syne">Address:</p>
-                    <p className="lg:text-xl syne">N/A</p>
-                </div>
-                <div className="flex items-center gap-x-4 py-3 border-b border-gray-300">
-                    <p className="w-3/12 lg:w-4/12 shrink-0 text-lg lg:text-2xl syne">Facebook Link:</p>
-                    <p className="lg:text-xl syne">N/A</p>
-                </div>
-                <div className="flex items-center gap-x-4 py-3 border-b border-gray-300">
-                    <p className="w-3/12 lg:w-4/12 shrink-0 text-lg lg:text-2xl syne">Linkldn Link:</p>
-                    <p className="lg:text-xl syne">N/A</p>
-                </div>
-                <div className="flex items-center gap-x-4 py-3 border-b border-gray-300">
-                    <p className="w-3/12 lg:w-4/12 shrink-0 text-lg lg:text-2xl syne">X Link:</p>
-                    <p className="lg:text-xl syne">N/A</p>
-                </div>
+          <p className="syne text-lg lg:text-3xl fw-600">My Profile</p>
+          <div className="mt-6 lg:grid gap-4">
+            <div className="flex items-center gap-x-4 py-3 border-b border-gray-300">
+              <p className="w-3/12 lg:w-4/12 shrink-0 text-lg lg:text-2xl syne">
+                Registration Date:
+              </p>
+              <p className="lg:text-xl syne">{user.joined? dayjs(user.joined).format('dddd DD, MMMM YYYY') : 'N/A'}</p>
             </div>
+            <div className="flex items-center gap-x-4 py-3 border-b border-gray-300">
+              <p className="w-3/12 lg:w-4/12 shrink-0 text-lg lg:text-2xl syne">
+                Full Name:
+              </p>
+              <p className="lg:text-xl syne">{user.name}</p>
+            </div>
+            <div className="flex items-center gap-x-4 py-3 border-b border-gray-300">
+              <p className="w-3/12 lg:w-4/12 shrink-0 text-lg lg:text-2xl syne">
+                Email:
+              </p>
+              <p className="lg:text-xl syne">{user.email}</p>
+            </div>
+            <div className="flex items-center gap-x-4 py-3 border-b border-gray-300">
+              <p className="w-3/12 lg:w-4/12 shrink-0 text-lg lg:text-2xl syne">
+                Phone Number:
+              </p>
+              <p className="lg:text-xl syne">{user.phone}</p>
+            </div>
+            <div className="flex items-center gap-x-4 py-3 border-b border-gray-300">
+              <p className="w-3/12 lg:w-4/12 shrink-0 text-lg lg:text-2xl syne">
+                BIO:
+              </p>
+              <p className="lg:text-xl syne">{user.bio}</p>
+            </div>
+            <div className="flex items-center gap-x-4 py-3 border-b border-gray-300">
+              <p className="w-3/12 lg:w-4/12 shrink-0 text-lg lg:text-2xl syne">
+                Address:
+              </p>
+              <p className="lg:text-xl syne">{user.address? user.address : 'N/A'}</p>
+            </div>
+            <div className="flex items-center gap-x-4 py-3 border-b border-gray-300">
+              <p className="w-3/12 lg:w-4/12 shrink-0 text-lg lg:text-2xl syne">
+                Facebook Link:
+              </p>
+              <p className="lg:text-xl syne">{user.facebookUrl? user.facebookUrl : 'N/A'}</p>
+            </div>
+            <div className="flex items-center gap-x-4 py-3 border-b border-gray-300">
+              <p className="w-3/12 lg:w-4/12 shrink-0 text-lg lg:text-2xl syne">
+                Linkldn Link:
+              </p>
+              <p className="lg:text-xl syne">{user.linkedinUrl? user.linkedinUrl : 'N/A'}</p>
+            </div>
+            <div className="flex items-center gap-x-4 py-3 border-b border-gray-300">
+              <p className="w-3/12 lg:w-4/12 shrink-0 text-lg lg:text-2xl syne">
+                X Link:
+              </p>
+              <p className="lg:text-xl syne">{user.twitterUrl? user.twitterUrl : 'N/A'}</p>
+            </div>
+          </div>
         </div>
       </div>
       <Password title="Change Password" size="md" type="withCancel">
-        <ChangePassword close={() => ShowPassword(false)}/>
+        <ChangePassword close={() => ShowPassword(false)} />
       </Password>
+      <Edit title="Update Profile" size="lg" type="withCancel">
+        <UpdateProfile close={() => ShowEdit()} />
+      </Edit>
     </>
   );
 };
