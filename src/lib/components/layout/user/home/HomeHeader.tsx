@@ -47,15 +47,17 @@ const HomeHeader = () => {
               </MenuList>
             </Menu>
           </div>
-          <div className="w-5/12 flex justify-end gap-x-3 lg:gap-x-7">
+          <div className="w-5/12 flex justify-end lg:gap-x-3">
             <Menu>
               <MenuHandler>
-                <Button className="bg-white flex items-center gap-x-2 p-0 m-0 !rounded-[25px] shadow-none hover:shadow-none text-primary !mont lg:!syne capitalize font-[500] text-[14px] lg:text-[16px]">
-                  <div className="bg-[#003ca543] w-12 h-12 circle relative place-center">
+                <Button className="bg-transparent flex items-center gap-x-2 p-3 m-0 !rounded-[25px] shadow-none hover:shadow-none text-primary !mont lg:!syne capitalize font-[500] text-[14px] lg:text-[16px]">
+                  <div className="bg-white w-12 h-12 circle relative ">
+                    <div className="bg-[#003ca543] w-full h-full circle place-center">
                     <MdOutlineShoppingCart className="text-xl" />
                     <span className="w-6 h-6 circle bg-white text-primary absolute -top-2 -right-1">
                       4
                     </span>
+                    </div>
                   </div>
                 </Button>
               </MenuHandler>
@@ -70,12 +72,14 @@ const HomeHeader = () => {
             </Menu>
             <Menu>
               <MenuHandler>
-                <Button className="bg-white flex items-center gap-x-2 p-0 m-0 !rounded-[25px] shadow-none hover:shadow-none text-primary !mont lg:!syne capitalize font-[500] text-[14px] lg:text-[16px]">
-                  <div className="bg-[#003ca543] w-12 h-12 circle relative place-center">
+                <Button className="bg-transparent flex items-center gap-x-2 p-3 m-0 !rounded-[25px] shadow-none hover:shadow-none text-primary !mont lg:!syne capitalize font-[500] text-[14px] lg:text-[16px]">
+                  <div className="bg-white w-12 h-12 circle relative ">
+                  <div className="bg-[#003ca543] w-full h-full circle place-center">
                     <IoNotifications className="text-xl" />
                     <span className="w-6 h-6 circle bg-white text-primary absolute -top-2 -right-1">
                       4
                     </span>
+                    </div>
                   </div>
                 </Button>
               </MenuHandler>
@@ -90,11 +94,11 @@ const HomeHeader = () => {
             </Menu>
             <Menu>
               <MenuHandler>
-                <Button className="bg-transparent flex items-center gap-x-2 p-0 m-0 !rounded-[25px] shadow-none hover:shadow-none text-white !mont lg:!syne capitalize font-[500] text-[14px] lg:text-[16px]">
+                <Button className="bg-transparent flex items-center gap-x-2 !pl-3 p-0 m-0 !rounded-[25px] shadow-none hover:shadow-none text-white !mont lg:!syne capitalize font-[500] text-[14px] lg:text-[16px]">
                   <ProfileAvatar
                     url={user.image}
                     name={user.name}
-                    size={45}
+                    size={49}
                     font={18}
                   />
                   <p>{user.name}</p>

@@ -41,10 +41,15 @@ const Login = () => {
           email: data.data.email,
           token: data.accessToken,
           image: data.data.picture,
-          state: '',
+          address: '',
           phone: data.data.phone,
           id: data.data.id,
-          account: ''
+          account: '',
+          bio: '',
+          facebookUrl: '',
+          twitterUrl: '',
+          linkedinUrl: '',
+          joined: ''
         })
         navigate('/user')
       })

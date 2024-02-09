@@ -1,5 +1,6 @@
 import { useState } from "react";
-// import "react-phone-number-input/style.css";
+import 'react-phone-number-input/style.css'
+import PhoneInput from 'react-phone-number-input'
 import { Link, useNavigate } from "react-router-dom";
 import { AiFillEye } from "react-icons/ai";
 import "../../Stylesheet/login.css";
@@ -70,8 +71,8 @@ const Register = () => {
             <div>
               <h3>Hello!</h3>
               <p>
-                Welcome to GuardMasters – Where Your Safety is
-                Our Priority! <br />
+                Welcome to GuardMasters – Where Your Safety is Our Priority!{" "}
+                <br />
                 <br />
                 Sign up today for peace of mind and top-tier security services.
               </p>
@@ -135,18 +136,16 @@ const Register = () => {
                   />
                 </div>
               </div>
-              <div className="input">
+              <div className="">
                 <label htmlFor="phone">Phone Number</label>
-                <div>
-                  {/* <div>
-                  <PhoneInput  defaultCountry="US" value={userDetail.phone} onChange={(value) => handleChange("phone", value)} />
-                  </div> */}
-                  <input
+                <div className="border border-[#192f59] p-2 lg:p-3 rounded-[9px]">
+                  <PhoneInput  defaultCountry="US" onChange={(value) => handleChange("phone", String(value))} className="p-2 bg-transparent" />
+                  {/* <input
                     type="tel"
                     placeholder="Enter Phone Number"
                     value={userDetail.phone}
                     onChange={(e) => handleChange("phone", e.target.value)}
-                  />
+                  /> */}
                 </div>
               </div>
               <div className="input">
@@ -192,7 +191,7 @@ const Register = () => {
               </p>
               <div>
                 <div>
-                  <Button title={isBusy ? "Siging Up ..." : "Sign Up"}/>
+                  <Button title={isBusy ? "Siging Up ..." : "Sign Up"} />
                 </div>
               </div>
               {/* <button>{isBusy ? "Siging Up ..." : "Sign Up"}</button> */}

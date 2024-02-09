@@ -4,16 +4,16 @@ import { BASE_URL } from "../constant.tsx";
 import { USERS_LOGIN } from "../constant.tsx";
 import { FORGET_PASSWORD } from "../constant.tsx";
 import { RESET_PASSWORD } from "../constant.tsx";
-import { getToken } from "../helpers.tsx";
+import { getBearerToken, getToken } from "../helpers.tsx";
 import * as ENDPOINT from "../constant";
 
 axios.defaults.baseURL = BASE_URL;
-axios.defaults.headers.common["Authorization"] = getToken();
+axios.defaults.headers.common["Authorization"] = getBearerToken();
 axios.interceptors.request.use(
   function(config) {
     const token = getToken(); 
     if (token) {
-      config.headers["Authorization"] = token;
+      config.headers["Authorization"] = getBearerToken();
     }
     return config;
   },
@@ -27,8 +27,8 @@ axios.interceptors.response.use(
   },
   (error) => {
     if (error.response.status === 401) {
-      //   localStorage.clear()
-      // return (window.location.href = "/login");
+        localStorage.clear()
+      return (window.location.href = "/auth/login");
     }
     return Promise.reject(error);
   }

@@ -22,7 +22,7 @@ export const Routes = [
     submenu: [],
   },
   {
-    name: 'Courses',
+    name: 'My Courses',
     icon: <HiOutlineUsers className="text-xl" />,
     route: '/user/courses',
     submenu: [],

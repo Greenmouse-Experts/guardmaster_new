@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { BeatLoader } from "react-spinners";
+import { BASE_URL } from "../../services/constant";
 
 const VerifyUser = () => {
   const myParam = new URLSearchParams(location.search).get("token");
@@ -13,26 +13,30 @@ const VerifyUser = () => {
   useEffect(() => {
     VerifyUser();
   }, []);
-  const VerifyUser = () => {
-    axios
-      .get("/auth/verify-email", {
+  const VerifyUser = async () => {
+    try {
+      const response = await fetch(`${BASE_URL}/auth/verify-email`, {
+        method: "GET",
         headers: {
+          "Content-Type": "application/json",
           Authorization: `Bearer ${myParam}`,
         },
-      })
-      .then(() => {
+      });
+
+      const result = await response.json();
+      if (result.statusCode === 200) {
         toast.success("Email verified successfully");
         setIsLoading(false);
         setIsSuccess(true);
         setTimeout(() => {
           navigate("/auth/login");
         }, 2000);
-      })
-      .catch((error) => {
-        toast.error(error.response.data.message);
-        setIsLoading(false);
-        setIsError(true);
-      });
+      }
+    } catch (error: any) {
+      setIsLoading(false);
+      setIsError(true);
+      toast.error(error.message);
+    }
   };
 
   return (

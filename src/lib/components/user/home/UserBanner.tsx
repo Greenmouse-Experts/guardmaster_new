@@ -1,7 +1,7 @@
 const UserBanner = () => {
   return (
     <>
-      <div className="h-[350px] bg-user lg:bg-fit">
+      <div className="h-[350px] bg-user lg:bg-cover bg-center">
         <div className="box h-full flex items-center">
           <div className="text-white w-full">
             <p className="text-xl lg:text-3xl fw-600 syne lg:w-6/12">
