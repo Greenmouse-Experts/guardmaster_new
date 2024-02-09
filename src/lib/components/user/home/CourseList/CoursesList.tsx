@@ -1,6 +1,7 @@
 import React from "react";
 import { RiArrowRightLine } from "react-icons/ri";
 import { Link } from "react-router-dom";
+import { formatName } from "../../../../utils";
 
 interface Props {
   active: string;
@@ -64,9 +65,10 @@ const CoursesListItems: React.FC<Props> = ({ active }) => {
         <div className="grid lg:grid-cols-3 gap-5">
           {data.map((item) => (
             <div className="shadow-xl">
-              <img src={item.image} alt="" />
-              <div className="content relative p-4 min-h-[200px]">
-                <span className="flex bg-pri absolute gap-x-2 items-center rounded right-5 p-2 fw-500 -top-5">
+              <img src={item.image} alt="" className="w-full h-44" />
+              <div className="content relative px-4 py-2">
+               <div className="h-[110px]">
+               <span className="flex bg-pri absolute gap-x-2 items-center rounded right-5 p-2 fw-500 -top-5">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="17"
@@ -88,13 +90,14 @@ const CoursesListItems: React.FC<Props> = ({ active }) => {
                   </svg>
                   {/* {span} */}
                 </span>
-                <h3 className="text-lg fw-600 mt-2 lg:text-xl syne">
+                <h3 className="fw-600 mt-2 lg:text-lg syne">
                   {item.head}
                 </h3>
-                <p className="mt-4 !whitespace-normal syne">{item.body}</p>
+                <p className="mt-4 !whitespace-normal syne">{formatName(item.body, 94)}</p>
+               </div>
                 <Link
                   to={"/course/139010"}
-                  className="flex items-center fw-600 text-primary gap-x-2 mt-5"
+                  className="flex items-center fw-600 text-primary gap-x-2 mt-5 mb-4"
                 >
                   Enroll Now
                   <RiArrowRightLine className="text-xl" />

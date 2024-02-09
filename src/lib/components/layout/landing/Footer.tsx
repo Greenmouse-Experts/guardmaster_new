@@ -1,3 +1,5 @@
+import { BsTwitterX } from "react-icons/bs";
+import { FaFacebookF, FaInstagram, FaLinkedinIn } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 
@@ -37,33 +39,33 @@ const Footer = () => {
               <Link to="/">Home</Link>
               <Link to="/about">About Us</Link>
               <Link to="/course">Courses</Link>
-              <Link to="/faq">FAQs</Link>
+              <Link to="/">Admission</Link>
             </div>
             <div className="grid gap-4">
-              <h3 className="text-[18px] font-semibold">Courses</h3>
+              <h3 className="text-[18px] font-semibold">Legal</h3>
               <p>
-                <HashLink to={"/course#courses"}>
-                  Corporate Security Mgmt
-                </HashLink>
+                <Link to={"/"}>
+                  Terms and Conditions
+                </Link>
               </p>
               <p>
-                <HashLink to={"/course#courses"}>Loss Prevention Mgmt</HashLink>
+                <Link to={"/"}>Privacy Policy</Link>
               </p>
               <p>
-                <HashLink to={"/course#courses"}>
-                  Private Security Business Mgmt
-                </HashLink>
+                <Link to={"/"}>
+                  Licence
+                </Link>
               </p>
               <p>
-                <HashLink to={"/course#courses"}>Business Resilience</HashLink>
+                <Link to={"/"}>Certifications</Link>
               </p>
             </div>
-            <div className="grid gap-4">
-              <h3 className="text-[18px] font-semibold">Company Details</h3>
+            <div className="grid gap-4 lg:gap-5">
+              <h3 className="text-[18px] font-semibold">Contact Info</h3>
+              <p>NO 8 Company address, Nigeria</p>
               <p>+1 905 452 2470</p>
               <p>info@guardmasterinstitute.ca</p>
               <p>www.guardmasterinstitute.ca</p>
-              <p className="lg:mb-5"></p>
             </div>
             <div className="grid gap-4">
               <h3 className="text-[18px] font-semibold">Our Programs</h3>
@@ -80,59 +82,51 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <div className="border-t border-[#8C8C8C] pt-10 mt-12">
-          <div className="box">
-            <div className="flex mb-7 justify-center">
-              <div className="md:w-9/12 lg:w-6/12 xl:w-4/12">
+        <div className="border-t border-[#8C8C8C] pt-10 mt-12 lg:mt-16">
+          <div className="box relative">
+            <div className="flex justify-center">
+              <div className="md:w-9/12 lg:w-6/12 xl:w-4/12 absolute -top-16">
                 <ul className="w-full flex justify-between">
                   <li>
                     <a href="https://www.facebook.com/GuardmasterInstituteCanada/" target="_blank" rel="noopener noreferrer">
-                      <img
-                        src="https://res.cloudinary.com/greenmouse-tech/image/upload/v1707126193/GuardMaster/fblogo_k1kvwv.webp"
-                        alt="fblogo"
-                        className="w-10"
-                      />
+                      <div className="w-12 h-12 place-center bg-primary circle border border-[#8C8C8C]">
+                          <FaFacebookF className="text-white text-lg"/>
+                      </div>
                     </a>
                   </li>
                   <li>
                     <a href="https://twitter.com/TheGuardmaster" target="_blank" rel="noopener noreferrer">
-                      <img
-                        src="https://res.cloudinary.com/greenmouse-tech/image/upload/v1707126193/GuardMaster/xlogo_jynaps.webp"
-                        alt="xlogo"
-                        className="w-10"
-                      />
+                    <div className="w-12 h-12 place-center bg-primary circle border border-[#8C8C8C]">
+                          <BsTwitterX className="text-white text-lg"/>
+                      </div>
                     </a>
                   </li>
                   <li>
                     <a href="https://www.instagram.com/guardmasterinstitutecanada/" target="_blank" rel="noopener noreferrer">
-                      <img
-                        src="https://res.cloudinary.com/greenmouse-tech/image/upload/v1707126193/GuardMaster/instalogo_ysmyzb.png"
-                        alt="instalogo"
-                        className="w-10"
-                      />
+                    <div className="w-12 h-12 place-center bg-primary circle border border-[#8C8C8C]">
+                          <FaInstagram className="text-white text-lg"/>
+                      </div>
                     </a>
                   </li>
                   <li>
                     <a href="https://linkedin.com/company/guardmasterinstitutecanada/" target="_blank" rel="noopener noreferrer">
-                      <img
-                        src="https://res.cloudinary.com/greenmouse-tech/image/upload/v1707126490/GuardMaster/LinkedIn-Icon-Squircle-Dark_rsunhy.png"
-                        alt="ldlogo"
-                        className="w-10"
-                      />
+                    <div className="w-12 h-12 place-center bg-primary circle border border-[#8C8C8C]">
+                          <FaLinkedinIn className="text-white text-lg"/>
+                      </div>
                     </a>
                   </li>
                 </ul>
               </div>
             </div>
-            <div className="pb-10 lg:flex justify-between">
-              <p>
-                Copyright © 2024 Guardmaster Institute. All Rights Reserved{" "}
+            <div className="pb-10 pt-4 lg:flex justify-center">
+              <p className="fw-500">
+              © Copyright 2024 Guardmaster Institute of Corporate Security Management.{" "}
               </p>
-              <div className="md:flex gap-x-5 mt-6 lg:mt-0">
+              {/* <div className="md:flex gap-x-5 mt-6 lg:mt-0">
                 <Link to={"/terms"}>Terms & Conditions</Link>
                 <Link to={"/privacy"}>Privacy Policy</Link>
                 <Link to={"/support"}>Support</Link>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
