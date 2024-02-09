@@ -95,7 +95,7 @@ const Header = () => {
                 </div>
               )}
             </button>
-            <div className="lg:w-4/12">
+            <div className="lg:w-3/12">
               <img
                 src="https://res.cloudinary.com/greenmouse-tech/image/upload/v1706278834/rsh/logo2-removebg-preview_fcvxwc.png"
                 alt="logo"
@@ -111,7 +111,7 @@ const Header = () => {
                   <Menu>
                     <MenuHandler>
                       <Button className="bg-transparent flex items-center gap-x-2 p-0 m-0 shadow-none hover:shadow-none text-white !mont lg:!syne capitalize font-[500] text-[14px] lg:text-[16px]">
-                        About Guardmaster Institute <IoIosArrowDown />
+                        <span className="!syne fw-700">About Guardmaster Institute</span> <IoIosArrowDown />
                       </Button>
                     </MenuHandler>
                     <MenuList className="z-[10000]">
@@ -153,9 +153,12 @@ const Header = () => {
                 <li className="fw-600">
                   <Link to={"/faq"}>FAQs</Link>
                 </li>
+                <li className="fw-600">
+                  <Link to={"/faq"}>Blog</Link>
+                </li>
               </ul>
             </div>
-            <div className="lg:w-4/12">
+            <div className="lg:w-3/12">
               <div className="flex items-center gap-x-5 justify-end">
                 <span
                   className="cursor-pointer"

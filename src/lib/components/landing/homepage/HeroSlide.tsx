@@ -150,6 +150,26 @@ const HeroSlide = () => {
               </div>
             </div>
           </SwiperSlide>
+          <SwiperSlide>
+            <div className="home bg-seventh bg-cover bg-left lg:bg-top">
+              <div className="box text-white">
+                <h2 className="text-2xl lg:text-5xl fw-600">
+                Unlocking Wisdom and <br />Achieving Greatness!
+                </h2>
+                <p className="mt-6 lg:text-lg">
+                Guardmaster Institute embodies the idea of access to valuable information  <br />and achieving high standards, by utilizing our courses, individuals <br /> can open doors to learning, growth, and success.
+                </p>
+                <div className="flex mt-6 lg:mt-12">
+                  <Link
+                    to="/course"
+                    className="btn-feel flex whitespace-nowrap items-center gap-x-2 py-3 px-3 lg:px-6"
+                  >
+                    Discover all our Courses <RiArrowRightLine />
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </SwiperSlide>
         </Swiper>
         <BottomDisplay/>
       </div>

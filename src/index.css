@@ -233,6 +233,9 @@ input[type="checkbox"]:checked {
 .bg-sixth{
   background:  linear-gradient(90deg, #000 0%, rgba(0, 0, 0, 0.00) 60.2%), url('https://res.cloudinary.com/greenmouse-tech/image/upload/v1706266960/rsh/Property_1_Variant6_1_hdn7cq.png');
 }
+.bg-seventh{
+  background:  linear-gradient(90deg, #000 0%, rgba(0, 0, 0, 0.00) 60.2%), url('https://res.cloudinary.com/greenmouse-tech/image/upload/v1707492308/GuardMaster/Group_48097535_1_bk0hx1.jpg');
+}
 .bg-user{
   background:  linear-gradient(90deg, #000 0%, rgba(0, 0, 0, 0.00) 60.2%), url('https://res.cloudinary.com/greenmouse-tech/image/upload/v1707252603/GuardMaster/back_pudq9k.png');
 }
