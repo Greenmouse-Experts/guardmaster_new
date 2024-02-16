@@ -468,8 +468,8 @@ input[type="checkbox"]:checked {
     background-image: url("https://res.cloudinary.com/greenmouse-tech/image/upload/v1688995561/globfolio/Group_62_1_s5rrif.png");
     background-size: cover;
   }
-  .bg-chat {
-    background-image: url("https://res.cloudinary.com/greenmouse-tech/image/upload/v1692974015/globfolio/Group_48466_1_afdkbj.png");
+  .bg-white-cover {
+    background-image: linear-gradient(to left, rgba(255,255,255,.5),rgba(255,255,255,.5)),url("https://res.cloudinary.com/greenmouse-tech/image/upload/v1708077629/GuardMaster/WhatsApp_Image_2024-02-16_at_10.07.07_1_yodft4.jpg");
     background-size: cover;
   }
   .box-shade{

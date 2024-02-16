@@ -1,3 +1,4 @@
+import { useRef } from "react";
 import { FaAngleRight } from "react-icons/fa";
 import { IoMdPlayCircle } from "react-icons/io";
 import {
@@ -39,6 +40,19 @@ const InstituteSection = () => {
       acc: "AN",
     },
   ];
+  const scrollRef = useRef<any>(null);
+
+  const scrollLeft = () => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollLeft -= 200; // Adjust scroll amount as needed
+    }
+  };
+
+  const scrollRight = () => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollLeft += 200; // Adjust scroll amount as needed
+    }
+  };
   return (
     <>
       <div>
@@ -85,16 +99,16 @@ const InstituteSection = () => {
                   Our Students Attest to our Claims
                 </p>
                 <div className="flex items-center gap-x-4">
-                  <div className="w-6 h-6 lg:w-10 lg:h-10 bg-pri place-center cursor-pointer">
+                  <div className="w-6 h-6 lg:w-10 lg:h-10 bg-pri place-center cursor-pointer" onClick={scrollLeft}>
                     <RiArrowLeftLine />
                   </div>
-                  <div className="w-6 h-6 lg:w-10 lg:h-10 bg-pri place-center cursor-pointer">
+                  <div className="w-6 h-6 lg:w-10 lg:h-10 bg-pri place-center cursor-pointer" onClick={scrollRight}>
                     <RiArrowRightLine />
                   </div>
                 </div>
               </div>
-              <div className="mt-6 lg:mt-12 w-full overflow-x-auto scroll-pro">
-                <div className="flex gap-x-6">
+              <div className="mt-6 lg:mt-12">
+                <div className="flex gap-x-6  w-full overflow-x-auto scroll-pro" ref={scrollRef}>
                   {review.map((item) => (
                     <div className="p-3 lg:p-6 bg-white w-[370px]">
                       <p>
