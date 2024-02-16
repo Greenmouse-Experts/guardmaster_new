@@ -64,7 +64,7 @@ const StatFaqSection = () => {
   return (
     <>
       <div>
-        <div className="bg-grad section">
+        <div className="bg-[url('https://res.cloudinary.com/greenmouse-tech/image/upload/v1708077628/GuardMaster/WhatsApp_Image_2024-02-16_at_10.07.07_ypsnx6.jpg')] bg-cover section">
           <div className="box">
             <div className="grid gap-4 lg:gap-0 md:grid-cols-2 lg:flex lg:px-16 lg:justify-between">
               {stat.map((item) => (
