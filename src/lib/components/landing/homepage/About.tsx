@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const AboutSection = () => {
   return (
     <>
-      <div className="bg-[url('https://res.cloudinary.com/greenmouse-tech/image/upload/v1708077629/GuardMaster/WhatsApp_Image_2024-02-16_at_10.07.07_1_yodft4.jpg')]">
+      <div className="bg-[url('https://res.cloudinary.com/greenmouse-tech/image/upload/v1708077629/GuardMaster/WhatsApp_Image_2024-02-16_at_10.07.07_1_yodft4.jpg')] bg-cover">
         <div className="section">
           <div className="box pt-[480px] md:pt-[150px] lg:pt-5 lg:py-5">
             <div>
