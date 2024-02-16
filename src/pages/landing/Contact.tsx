@@ -92,7 +92,7 @@ const Contact = () => {
           </button>
         </form>
 
-        <div className="contact_text bg-primary">
+        <div className="contact_text bg-[url('https://res.cloudinary.com/greenmouse-tech/image/upload/v1708077628/GuardMaster/WhatsApp_Image_2024-02-16_at_10.07.07_ypsnx6.jpg')] bg-cover">
           <div className="cont">
             <h2>Contact information</h2>
             <p>

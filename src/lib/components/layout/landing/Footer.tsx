@@ -6,7 +6,7 @@ import { HashLink } from "react-router-hash-link";
 const Footer = () => {
   return (
     <footer>
-      <div className="bg-primary text-white">
+      <div className="bg-[url('https://res.cloudinary.com/greenmouse-tech/image/upload/v1708077628/GuardMaster/WhatsApp_Image_2024-02-16_at_10.07.07_ypsnx6.jpg')] bg-cover text-white">
         <div className="border-b border-[#8C8C8C] pt-10 pb-9">
           <div className="box">
             <div className="lg:flex items-center justify-between">
