@@ -72,7 +72,7 @@ const Login = () => {
             onClick={() => navigate("/")}
           />
           <div>
-            <h3>Welcome Back!</h3>
+            <h3>Welcome</h3>
             <p>
               Your security is our priority. Log in now to access your account
               and stay updated on all safety measures and reports.
@@ -97,7 +97,7 @@ const Login = () => {
               alt="logo"
               onClick={() => navigate("/")}
             />
-            <h3>Welcome Back!</h3>
+            <h3>Welcome</h3>
           </div>
           <h2>Log in</h2>
           <form onSubmit={handleSubmit} className="login_form">

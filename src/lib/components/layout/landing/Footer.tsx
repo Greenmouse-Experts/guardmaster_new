@@ -39,7 +39,9 @@ const Footer = () => {
               <Link to="/">Home</Link>
               <Link to="/about">About Us</Link>
               <Link to="/course">Courses</Link>
-              <Link to="/">Admission</Link>
+              {/* <Link to="/">Admission</Link> */}
+              <Link to="/">Blog</Link>
+              <Link to="/">Careers</Link>
             </div>
             <div className="grid gap-4">
               <h3 className="text-[18px] font-semibold">Legal</h3>

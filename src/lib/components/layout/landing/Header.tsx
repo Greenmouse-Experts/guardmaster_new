@@ -5,7 +5,7 @@ import {
   MenuItem,
   MenuList,
 } from "@material-tailwind/react";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { BsLinkedin, BsTelephone } from "react-icons/bs";
 import { FiSearch } from "react-icons/fi";
 import { IoIosArrowDown } from "react-icons/io";
@@ -22,9 +22,27 @@ const Header = () => {
   const { isLoggedIn } = useAuth();
   const [showSearch, setShowSearch] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const [isSticky, setSticky] = useState<boolean>(false);
+  const headerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (headerRef.current) {
+        const headerHeight = headerRef.current.offsetHeight;
+        setSticky(window.scrollY > headerHeight);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
   return (
-    <>
-      <div className=" text-primary bg-[#FFD347] py-2">
+   <>
+     <div ref={headerRef} className={isSticky? "fixed top-0 left-0 z-[50000] w-full" : ""}>
+      <div className="text-primary bg-[#FFD347] py-2">
         <div className="box flex items-center justify-between fs-500 ">
           <ul className="flex gap-x-3 md:gap-x-4 lg:gap-x-6 items-center">
             <li className="flex items-center gap-x-1 fw-600 fs-200 lg:fs-300 md:border-r border-black pr-4">
@@ -111,7 +129,7 @@ const Header = () => {
                   <Menu>
                     <MenuHandler>
                       <Button className="bg-transparent flex items-center gap-x-2 p-0 m-0 shadow-none hover:shadow-none text-white !mont lg:!syne capitalize font-[500] text-[14px] lg:text-[16px]">
-                        <span className="!syne fw-700">About Guardmaster Institute</span> <IoIosArrowDown />
+                        <span className="!syne fw-700">About Us</span> <IoIosArrowDown />
                       </Button>
                     </MenuHandler>
                     <MenuList className="z-[10000]">
@@ -153,8 +171,11 @@ const Header = () => {
                 <li className="fw-600">
                   <Link to={"/faq"}>FAQs</Link>
                 </li>
-                <li className="fw-600">
+                <li className="fw-600 lg:hidden xl:block">
                   <Link to={"/"}>Blog</Link>
+                </li>
+                <li className="fw-600 lg:hidden xl:block">
+                  <Link to={"/"}>Careers</Link>
                 </li>
               </ul>
             </div>
@@ -178,7 +199,8 @@ const Header = () => {
         </div>
       </div>
       {showSearch && <SearchModal close={() => setShowSearch(false)} />}
-    </>
+    </div>
+   </>
   );
 };
 

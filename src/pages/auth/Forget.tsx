@@ -39,7 +39,7 @@ const ForgetPassword = () => {
         <div>
           <img src={'https://res.cloudinary.com/greenmouse-tech/image/upload/v1706278834/rsh/logo2-removebg-preview_fcvxwc.png'} alt="logo" className="cursor-pointer" onClick={() => navigate('/')}/>
           <div>
-            <h3>Welcome Back!</h3>
+            <h3>Welcome</h3>
             <p>
               Your security is our priority. Log in now to access your account
               and stay updated on all safety measures and reports.
@@ -58,7 +58,7 @@ const ForgetPassword = () => {
         <div className="login">
         <div className="login_logo">
             <img src={'https://res.cloudinary.com/greenmouse-tech/image/upload/v1706009737/GuardMaster/Guardmaster_transparent1_1_1_wzdsac.png'} alt="logo" onClick={() => navigate('/')} />
-            <h3>Welcome Back!</h3>
+            <h3>Welcome</h3>
         </div>
           <h2>Forgot Password?</h2>
           <p className='mt-4'>Enter the email linked to your account</p>
