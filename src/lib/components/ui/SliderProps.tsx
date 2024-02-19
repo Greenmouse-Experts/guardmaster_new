@@ -57,7 +57,7 @@ export const SliderProps:FC<Props> = ({head, data, span}) => {
         >
           {data.map((item:any, index:any) => (
               <SwiperSlide key={index} className="shadow-xl w-[340px]">
-                <img src={item.image} alt="" />
+                <img src={item.coverImage} alt="" className="w-full h-44 object-cover"/>
                 <div className="content relative p-4 h-48">
                   <span className="flex bg-pri absolute gap-x-2 items-center rounded right-5 p-2 fw-500 -top-5">
                     <svg
@@ -81,8 +81,8 @@ export const SliderProps:FC<Props> = ({head, data, span}) => {
                     </svg>
                     {span}
                   </span>
-                  <h3 className="text-lg fw-600 mt-2 lg:text-xl syne">{item.head}</h3>
-                  <p className="mt-4 !whitespace-normal syne">{item.body}</p>
+                  <h3 className="text-lg fw-600 mt-2 lg:text-xl syne">{item.title}</h3>
+                  <p className="mt-4 !whitespace-normal syne">{item.shortDesc}</p>
                   <Link to={'/course/139010'} className="flex items-center fw-600 text-primary gap-x-2 mt-5">
                     Enroll Now
                     <RiArrowRightLine className="text-xl"/>

@@ -12,3 +12,6 @@ export const UPDATE_PASSWORD = `/auth/update-password`
 
 // programs endpoint
 export const GET_ALL_PROGRAMS = `/programs`
+
+// public programs
+export const GET_PUBLIC_PROGRAMS = `/programs/public`
