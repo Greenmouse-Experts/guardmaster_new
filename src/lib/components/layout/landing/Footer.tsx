@@ -64,12 +64,12 @@ const Footer = () => {
             </div>
             <div className="grid gap-4 lg:gap-5">
               <h3 className="text-[18px] font-semibold">Contact Info</h3>
-              <p>NO 8 Company address, Nigeria</p>
+              <p>Dougall Avenue, Windsor, Ontario N9E 1S3, Canada</p>
               <p>+1 905 452 2470</p>
-              <p>info@guardmasterinstitute.ca</p>
-              <p>www.guardmasterinstitute.ca</p>
+              <p>info@guardmaster<span className="sm:inline lg:block xl:inline">institute.ca</span></p>
+              <p>www.guardmaster<span className="sm:inline lg:block xl:inline">institute.ca</span></p>
             </div>
-            <div className="grid gap-4">
+            <div className="grid gap-4 pl-3">
               <h3 className="text-[18px] font-semibold">Our Programs</h3>
               <HashLink to={"/course#courses"}>Mini-MBA Programs</HashLink>
               <HashLink to={"/course#diploma"}>
