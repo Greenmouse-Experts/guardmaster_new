@@ -227,7 +227,7 @@ const ProgramSection = () => {
                     <ul className="grid gap-2">
                       {
                         item.courses.map((item:any, i:number) => (
-                               <li className="flex items-center gap-x-2">
+                               <li className="flex items-center gap-x-2" key={i}>
                         <span className="w-2 h-2 circle shrink bg-pri"></span>
                         <span>{item.title}</span>
                       </li>
