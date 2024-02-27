@@ -9,6 +9,7 @@ import { Link } from "react-router-dom";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "../../../Stylesheet/style.css"
+import { formatName } from "../../utils";
 
 interface Props{
   head: string
@@ -81,9 +82,11 @@ export const SliderProps:FC<Props> = ({head, data, span}) => {
                     </svg>
                     {span}
                   </span>
+                  <div className="h-28">
                   <h3 className="text-lg fw-600 mt-2 lg:text-xl syne">{item.title}</h3>
-                  <p className="mt-4 !whitespace-normal syne">{item.shortDesc}</p>
-                  <Link to={'/course/139010'} className="flex items-center fw-600 text-primary gap-x-2 mt-5">
+                  <p className="mt-4 !whitespace-normal syne">{formatName(item.shortDesc, 69)}</p>
+                  </div>
+                  <Link to={`/course/${item.id}`} className="flex items-center fw-600 text-primary gap-x-2 mt-5">
                     Enroll Now
                     <RiArrowRightLine className="text-xl"/>
                   </Link>

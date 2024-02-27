@@ -15,3 +15,4 @@ export const GET_ALL_PROGRAMS = `/programs`
 
 // public programs
 export const GET_PUBLIC_PROGRAMS = `/programs/public`
+export const GET_SINGLE_COURSE = `/course-content/public`
