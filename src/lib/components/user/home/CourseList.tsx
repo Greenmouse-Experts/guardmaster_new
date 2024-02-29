@@ -1,9 +1,16 @@
 import { useState } from "react"
 import ProgramList from "./CourseList/ProgramList"
 import CoursesListItems from "./CourseList/CoursesList"
+import { getCourses } from "../../../../services/api/programApi"
+import { useQuery } from "@tanstack/react-query"
 
 const CourseList = () => {
   const [cat, setCat] = useState<string>('')
+  const { isLoading } = useQuery({
+    queryKey: ["getCourses"],
+    queryFn: getCourses,
+    retry: 0
+  });
   return (
     <>
     <div className="section">

@@ -163,4 +163,13 @@ export const capitalizeFirstLetter = (string: string) => {
     return paginationNumbers;
   };
 
+  export const formatProgramName = {
+    'Mini MBA': 'Mini MBA',
+    'Professional Profeciency Diploma (PPD)': 'PPD',
+    'Masterclass': 'Masterclass',
+    'Professional Profeciency Certification (PPC)': 'PPC',
+    'Security Guard Licencing (SGL)': 'SGL',
+    'Professional Certification Training (PCT)': 'PCT'
+  }
+
   

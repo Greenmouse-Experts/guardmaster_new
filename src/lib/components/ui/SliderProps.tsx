@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "../../../Stylesheet/style.css"
-import { formatName } from "../../utils";
+import { formatName, formatProgramName } from "../../utils";
 
 interface Props{
   head: string
@@ -54,10 +54,10 @@ export const SliderProps:FC<Props> = ({head, data, span}) => {
           ref={sliderRef}
           slidesPerView={'auto'}
           spaceBetween={18}
-          className="w-full"
+          className="w-full pb-6"
         >
           {data.map((item:any, index:any) => (
-              <SwiperSlide key={index} className="shadow-xl w-[340px]">
+              <SwiperSlide key={index} className="shadow-xl w-[340px] pb-3">
                 <img src={item.coverImage} alt="" className="w-full h-44 object-cover"/>
                 <div className="content relative p-4 h-48">
                   <span className="flex bg-pri absolute gap-x-2 items-center rounded right-5 p-2 fw-500 -top-5">
@@ -80,10 +80,10 @@ export const SliderProps:FC<Props> = ({head, data, span}) => {
                         </clipPath>
                       </defs>
                     </svg>
-                    {span}
+                    {formatProgramName[head as keyof typeof formatProgramName]}
                   </span>
                   <div className="h-28">
-                  <h3 className="text-lg fw-600 mt-2 lg:text-xl syne">{item.title}</h3>
+                  <h3 className="text-lg fw-600 mt-2 lg:text-xl syne">{formatName(item.title, 48)}</h3>
                   <p className="mt-4 !whitespace-normal syne">{formatName(item.shortDesc, 69)}</p>
                   </div>
                   <Link to={`/course/${item.id}`} className="flex items-center fw-600 text-primary gap-x-2 mt-5">

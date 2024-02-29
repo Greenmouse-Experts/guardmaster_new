@@ -2,13 +2,12 @@ import { BsBank, BsBook, BsSuitcaseLg } from "react-icons/bs";
 import { LuUserCheck2 } from "react-icons/lu";
 import { SlNotebook } from "react-icons/sl";
 import "../../Stylesheet/style.css";
-import { MdOutlineOndemandVideo } from "react-icons/md";
-import { FaStar } from "react-icons/fa";
 import { useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { getSingleCourse } from "../../services/api/programApi";
 import { useEffect, useState } from "react";
 import { CourseContentType, CourseItemType } from "../../contracts/course";
+import ContentList from "../../lib/components/landing/course/contentList";
 
 const CourseDetail = () => {
   const { id } = useParams();
@@ -19,65 +18,10 @@ const CourseDetail = () => {
     queryFn: () => getSingleCourse(`${id}`),
   });
   useEffect(() => {
-    setCourse(data.course)
-    setContent(data.contents)
+    setCourse(data?.course)
+    setContent(data?.contents)
   }, [data])
-  const tolearn = [
-    {
-      name: "What you will learn from this course",
-      dur: "40mins",
-    },
-    {
-      name: "Get Started",
-      dur: "102mins",
-    },
-    {
-      name: "What is Corporate Security",
-      dur: "67mins",
-    },
-    {
-      name: "Understanding Principles",
-      dur: "24mins",
-    },
-    {
-      name: "Career Opportunities",
-      dur: "40mins",
-    },
-    {
-      name: "Outro",
-      dur: "105mins",
-    },
-    {
-      name: "Assessment and Exams",
-      dur: "35mins",
-    },
-  ];
-  const review = [
-    {
-      name: "Victor Dwane",
-      ini: "VD",
-      comment:
-        "I'm thrilled with the knowledge I gained from this course. The instructors were engaging, and the course materials were top-notch. This course has truly been a game-changer for me professionally.",
-    },
-    {
-      name: "Anita Tabitha",
-      ini: "AT",
-      comment:
-        "Enrolling in GICSM was one of the best decisions I've made for my career. The course structure was well-paced, and the interactive elements kept me engaged throughout.",
-    },
-    {
-      name: "Juliana Andrews",
-      ini: "JA",
-      comment:
-        "I'm amazed by the level of support I received throughout. From the initial enrollment process to completing the final assessment, the team at GICSM was there every step of the way.",
-    },
-    {
-      name: "Alex Bestforth",
-      ini: "AB",
-      comment:
-        "The online course offered by GICSM was a perfect fit for my learning style. The modules were concise yet comprehensive, and the interactive quizzes helped reinforce my understanding. ",
-    },
-  ];
+  
   return (
     <>
       <div className="">
@@ -202,58 +146,18 @@ const CourseDetail = () => {
                           </p>
                         </div>
                         <div>
-                          {!!content?.data.length && content?.data?.map((item) => (
-                            <div className="lg:flex justify-between p-4 lg:px-6 border-t-2">
-                              <div className="flex gap-x-2 items-center">
-                                <MdOutlineOndemandVideo className="text-lg lg:text-xl" />
-                                <p className="!mont text-[#003DA5] font-medium underline">
-                                  {item.title}
-                                </p>
-                              </div>
-                              <p className="!mont text-end font-medium text-[14px]">
-                                {/* {item.dur} */}
-                                40mins
-                              </p>
-                            </div>
-                          ))}
+                          <ContentList data={content?.data  || []}/>
                         </div>
                       </div>
                     </div>
                     <div className="mt-12">
                       <p className="!mont text-[#003DA5] font-medium">
-                        4.7 course rating
+                        0.0 course rating
                       </p>
                       <p className="mt-4 !syne font-semibold !text-3xl">
                         Reviews and Ratings
                       </p>
-                      <div className="mt-6 grid lg:grid-cols-2 gap-4 lg:gap-12">
-                        {review.map((item) => (
-                          <div className="border-t-2 border-[#B7B7B7] pt-6">
-                            <div className="flex items-center gap-x-3">
-                              <div className="w-10 h-10 rounded-[50%] !mont text--[18px] font-semibold text-white bg-black flex items-center justify-center">
-                                {item.ini}
-                              </div>
-                              <div>
-                                <p className="!mont font-semibold">
-                                  {item.name}
-                                </p>
-                                <div className="text-[15px] text-[#B4690E] flex gap-x-2">
-                                  <FaStar />
-                                  <FaStar />
-                                  <FaStar />
-                                  <FaStar />
-                                  <FaStar />
-                                </div>
-                              </div>
-                            </div>
-                            <div className="mt-4">
-                              <p className="!mont text-[15px]">
-                                {item.comment}
-                              </p>
-                            </div>
-                          </div>
-                        ))}
-                      </div>
+                      {/* <CourseRating/> */}
                     </div>
                   </div>
                   <div className="lg:w-[28%] mt-8 lg:mt-0">
@@ -263,7 +167,7 @@ const CourseDetail = () => {
                       </p>
                       <div className="mt-6">
                         <p className="!mont text-[15px] font-medium">
-                          Enroll now in our Mini MBA course! Gain essential
+                          Enroll now in our {course?.title}! Gain essential
                           business knowledge and leadership skills in a
                           condensed format. Perfect for busy professionals
                           looking to enhance their career prospects. Limited
@@ -279,11 +183,11 @@ const CourseDetail = () => {
                       </div>
                     </div>
                     <div className="bg-[#EBF3FF] mt-6 lg:mt-12 p-6 rounded-[11px] lg:p-6">
-                      <p className="!text-4xl font-bold">$35.00</p>
-                      <div className="grid gap-2 mt-8">
-                        <button className="w-full !mont py-3 bg-[#003DA5] rounded-[7px] font-semibold text-white">
+                      <p className="!text-4xl font-bold">{course?.originalPriceFormat}</p>
+                      <div className="grid gap-2 mt-8 lg:mt-12">
+                        {/* <button className="w-full !mont py-3 bg-[#003DA5] rounded-[7px] font-semibold text-white">
                           Add to Cart
-                        </button>
+                        </button> */}
                         <button className="w-full !mont  py-3 border border-[#003DA5] text-[#003DA5] rounded-[7px] font-semibold">
                           Buy Now
                         </button>
