@@ -17,7 +17,7 @@ interface Props{
   span: string
 }
 register();
-export const SliderProps:FC<Props> = ({head, data, span}) => {
+export const SliderProps:FC<Props> = ({head, data}) => {
      // Receive data as a prop
     const sliderRef = useRef<any>(null);
 
