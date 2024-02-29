@@ -11,9 +11,12 @@ export const UPDATE_PROFILE = `/auth/update-profile`
 export const UPDATE_PASSWORD = `/auth/update-password`
 
 // programs endpoint
-export const GET_ALL_PROGRAMS = `/programs/fetch-programss`
+export const GET_ALL_PROGRAMS = `/programs/fetch-programs`
 export const GET_ALL_COURSES = `/courses/fetch-courses`
 
 // public programs
 export const GET_PUBLIC_PROGRAMS = `/programs/public`
 export const GET_SINGLE_COURSE = `/course-content/public`
+
+// program course payment
+export const START_PAYMENT = `/orders/create`

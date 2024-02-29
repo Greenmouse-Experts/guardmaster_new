@@ -40,7 +40,7 @@ const CoursesListItems: React.FC<Props> = ({ data }) => {
           {data.slice(start, stop).map((item) => (
             <div className="shadow-xl" key={item.id}>
               <img src={item.coverImage} alt="" className="w-full h-44 object-cover"/>
-                <div className="content relative p-4 h-48">
+                <div className="content relative p-4">
                   <span className="flex bg-pri absolute gap-x-2 items-center rounded right-5 p-2 fw-500 -top-5">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -63,7 +63,7 @@ const CoursesListItems: React.FC<Props> = ({ data }) => {
                     </svg>
                     {formatProgramName[item.program.title as keyof typeof formatProgramName]}
                   </span>
-                  <div className="h-28">
+                  <div className="h-28 lg:h-52 xl:h-44 2xl:h-28">
                   <h3 className="text-lg fw-600 mt-2 lg:text-xl syne">{formatName(item.title, 48)}</h3>
                   <p className="mt-4 !whitespace-normal syne">{formatName(item.shortDesc, 69)}</p>
                   </div>
