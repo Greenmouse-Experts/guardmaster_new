@@ -1,16 +1,39 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import ProgramList from "./CourseList/ProgramList"
 import CoursesListItems from "./CourseList/CoursesList"
-import { getCourses } from "../../../../services/api/programApi"
+import { getCourses, getProgramCourses } from "../../../../services/api/programApi"
 import { useQuery } from "@tanstack/react-query"
+import { CourseListItem } from "../../../../contracts/course"
 
 const CourseList = () => {
   const [cat, setCat] = useState<string>('')
-  const { isLoading } = useQuery({
-    queryKey: ["getCourses"],
-    queryFn: getCourses,
-    retry: 0
-  });
+  const [courseData, setCourseData] = useState<CourseListItem[]>([])
+  const fetchCourses = async() => {
+    await getCourses()
+    .then((res) => {
+      setCourseData(res.data)
+    })
+    .catch(() => {})
+  }
+  const fetchProgramCourses = async (id:string, page:number) => {
+    const payload = {
+      id: id,
+      page: page
+    }
+    await getProgramCourses(payload)
+    .then((res) => {
+      if(cat !== ''){
+        setCourseData(res.data)
+      }
+    })
+    .catch(() => {})
+  }
+  useEffect(() => {
+    fetchCourses()
+  }, [])
+  useEffect(() => {
+    fetchProgramCourses(cat, 1)
+  }, [cat])
   return (
     <>
     <div className="section">
@@ -20,7 +43,7 @@ const CourseList = () => {
               <ProgramList active={cat} setActive={setCat}/>
             </div>
             <div className="lg:w-[calc(100%_-_250px)]">
-              <CoursesListItems active={cat}/>
+              <CoursesListItems active={cat} data={courseData}/>
             </div>
           </div>
         </div>
