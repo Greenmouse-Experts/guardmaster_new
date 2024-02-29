@@ -2,7 +2,6 @@ import { useEffect, useState } from "react"
 import ProgramList from "./CourseList/ProgramList"
 import CoursesListItems from "./CourseList/CoursesList"
 import { getCourses, getProgramCourses } from "../../../../services/api/programApi"
-import { useQuery } from "@tanstack/react-query"
 import { CourseListItem } from "../../../../contracts/course"
 
 const CourseList = () => {
@@ -32,7 +31,11 @@ const CourseList = () => {
     fetchCourses()
   }, [])
   useEffect(() => {
-    fetchProgramCourses(cat, 1)
+    if(cat == ""){
+      fetchCourses()
+    }else(
+      fetchProgramCourses(cat, 1)
+    )
   }, [cat])
   return (
     <>

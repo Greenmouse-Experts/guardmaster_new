@@ -3,6 +3,7 @@ import { RiArrowRightLine } from "react-icons/ri";
 import { Link } from "react-router-dom";
 import { formatName, formatProgramName } from "../../../../utils";
 import { CourseListItem } from "../../../../../contracts/course";
+import { toast } from "react-toastify";
 
 interface Props {
   active: string;
@@ -10,6 +11,28 @@ interface Props {
 }
 const CoursesListItems: React.FC<Props> = ({ data }) => {
   const [{start, stop, page}, setPage] = useState({start: 0, stop: 6, page: 1})
+  const handleNext = () => {
+    if(stop >= data.length){
+      toast.info('This is the last page')
+    }else{
+      setPage({
+        start: start + 6,
+        stop: stop + 6,
+        page: page + 1
+      })
+    }
+  }
+    const handlePrev = () => {
+    if(page === 1){
+      toast.info('This is the first page')
+    }else{
+      setPage({
+        start: start - 6,
+        stop: stop - 6,
+        page: page - 1
+      })
+    }
+  }
   return (
     <>
       <div>
@@ -56,10 +79,10 @@ const CoursesListItems: React.FC<Props> = ({ data }) => {
               <div className="flex gap-x-4 items-center">
                 <p className="fw-600">Page {page}</p>
                 <div className="flex gap-x-2 items-center">
-                  <div className={`px-2 py-1 rounded ${page === 1? 'bg-gray-300 cursor-not-allowed' : ' cursor-pointer'}`}>
+                  <div onClick={handlePrev} className={`px-2 py-1 rounded ${page === 1? 'bg-gray-300 cursor-not-allowed' : 'bg-primary text-white cursor-pointer'}`}>
                     Prev
                   </div>
-                  <div className={`px-2 py-1 rounded cursor-pointer ${page === 1? 'bg-gray-300' : }`}>
+                  <div onClick={handleNext} className={`px-2 py-1 rounded ${stop >= data.length? 'bg-gray-300 cursor-not-allowed' : 'bg-primary text-white cursor-pointer'}`}>
                     Next
                   </div>
                 </div>
