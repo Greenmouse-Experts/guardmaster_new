@@ -1,8 +1,8 @@
 import axios from "axios";
 import * as ENDPOINT from "../constant";
 
-export const getPublicPrograms = async (payload: number) => {
+export const fetchOrder = async () => {
     return axios
-      .get(`${ENDPOINT.GET_PUBLIC_PROGRAMS}?page=${payload}`)
+      .get(`${ENDPOINT.USER_ORDERS}`)
       .then((response) => response.data);
   };

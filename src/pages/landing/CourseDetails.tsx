@@ -10,13 +10,18 @@ import { CourseContentType, CourseItemType } from "../../contracts/course";
 import ContentList from "../../lib/components/landing/course/contentList";
 import useModal from "../../hooks/useModal";
 import PaymentModal from "../../lib/components/landing/course/paymentModal";
-import { goToPayment } from "../../services/api/paymentApi";
+import useCartStore from "../../store/cartStore";
+import { toast } from "react-toastify";
+import useAuth from "../../hooks/authUser";
 
 const CourseDetail = () => {
   const { id } = useParams();
+  const {isLoggedIn} = useAuth()
   const [course, setCourse] = useState<CourseItemType>();
   const [content, setContent] = useState<CourseContentType>();
   const [payInfo, setPayInfo] = useState<any>();
+  const addToCart = useCartStore((state) => state.saveCart);
+  const cart = useCartStore((state) => state.cart);
   const { data, isLoading } = useQuery({
     queryKey: ["singleCourse"],
     queryFn: () => getSingleCourse(`${id}`),
@@ -26,18 +31,33 @@ const CourseDetail = () => {
     setContent(data?.contents);
   }, [data]);
   const proceedToPayment = () => {
+    if(!isLoggedIn){
+      toast.info('Please Login to purchase a course')
+    }
     const payload = {
-      courses: [{ id: id, price: course?.price }],
-      amount: course?.price,
-    };
-    goToPayment(payload)
-      .then((res) => {
-        setPayInfo(res.data);
-        setShowModal(true);
-      })
-      .catch(() => {});
+        courses: [{ id: id, price: course?.price }],
+        amount: course?.price,
+      };
+    setPayInfo(payload);
+    setShowModal(true)
   };
   const { Modal, setShowModal } = useModal();
+  const handleAdd = () => {
+    const payload = {
+      id: course?.id || "",
+      coverImg: course?.coverImage || "",
+      title: course?.title || "",
+      price: course?.price || 0,
+      fmprice: course?.originalPriceFormat || "",
+    };
+    const check = cart.filter((item) => item.id === course?.id)
+    if(!!check.length){
+      toast.info('Course already added to cart!')
+      return;
+    }
+    addToCart([...cart, payload]);
+    toast.success('Course added to cart!')
+  };
   return (
     <>
       <div>
@@ -46,20 +66,20 @@ const CourseDetail = () => {
             <div>
               <div className="w-full relative z-0 h-[270px] pb-5 flex items-center bg-[url('https://res.cloudinary.com/greenmouse-tech/image/upload/v1706272690/rsh/Group_48097479_1_kreeio.png')]">
                 <div className="boxes">
-                  <p className="text-white !mont !text-3xl font-semibold">
+                  <p className="text-white !mont text-xl lg:!text-3xl font-semibold">
                     {course?.title}
                   </p>
                   <div className="mt-4 lg:flex gap-x-1 text-white">
-                    <p className="!mont">Home /</p>
-                    <p className="!mont">Course /</p>
-                    <p className="!mont">{course?.program?.title} /</p>
+                    <p className="!mont fs-400 lg:fs-600">Home /</p>
+                    <p className="!mont fs-400 lg:fs-600">Course /</p>
+                    <p className="!mont fs-400 lg:fs-600">{course?.program?.title} /</p>
                     <p className="!mont text-[#FFD347]">{course?.title}</p>
                   </div>
                 </div>
               </div>
               <div className="lg:pb-24 pb-12">
                 {/* course outline */}
-                <div className="w-10/12 bg-white relative z-10 -top-12 mx-auto drop-shade rounded-[13px] p-6 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+                <div className="w-10/12 bg-white relative z-10 lg:-top-12 mx-auto drop-shade rounded-[13px] p-6 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
                   <div className="lg:border-r-2">
                     <p className="font-semibold !mont">
                       Accredited Certificate
@@ -209,7 +229,7 @@ const CourseDetail = () => {
                           {course?.originalPriceFormat}
                         </p>
                         <div className="grid gap-2 mt-8 lg:mt-12">
-                          <button className="w-full !mont py-3 bg-[#003DA5] rounded-[7px] font-semibold text-white">
+                          <button className="w-full !mont py-3 bg-[#003DA5] rounded-[7px] font-semibold text-white" onClick={() => handleAdd()}>
                             Add to Cart
                           </button>
                           <button

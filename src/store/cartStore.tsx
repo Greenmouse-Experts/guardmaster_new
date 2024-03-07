@@ -10,10 +10,11 @@ interface cartProps {
   id: string;
   coverImg: string;
   title: string;
-  price: string;
+  price: number;
+  fmprice: string;
 }
 const cartInitState = [] as cartProps[];
-const useAuthStore = create<Props>()(
+const useCartStore = create<Props>()(
   persist(
     (set) => ({
       cart: cartInitState,
@@ -33,4 +34,4 @@ const useAuthStore = create<Props>()(
   )
 );
 
-export default useAuthStore;
+export default useCartStore;

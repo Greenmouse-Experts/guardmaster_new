@@ -20,3 +20,6 @@ export const GET_SINGLE_COURSE = `/course-content/public`
 
 // program course payment
 export const START_PAYMENT = `/orders/create`
+
+// users
+export const USER_ORDERS = `orders/fetch-student-trx`

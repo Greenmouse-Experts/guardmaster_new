@@ -16,7 +16,7 @@ import { RiCloseFill, RiMenuFill } from "react-icons/ri";
 import { AiFillInstagram } from "react-icons/ai";
 import { FaSquareFacebook, FaSquareXTwitter } from "react-icons/fa6";
 import useAuth from "../../../../hooks/authUser";
-import { IoCartSharp } from "react-icons/io5";
+import CartCallout from "./cartCallout";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -112,10 +112,7 @@ const Header = () => {
                   <BsLinkedin className="fs-500" />
                 </Link>
               </li>
-              <div className="relative">
-                <IoCartSharp className="text-2xl" />
-                <p className="bg-red-600 w-5 h-5 place-center text-white circle text-[11px] fw-600 absolute -top-1 -right-3">2</p>
-              </div>
+              <CartCallout/>
             </ul>
           </div>
         </div>
