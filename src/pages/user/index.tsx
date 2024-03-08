@@ -8,6 +8,7 @@ import UserNotify from "./Notify";
 import UserPayments from "./Payments";
 import UserProgress from "./Progress";
 import UserProfile from "./Profile";
+import StudyCourse from "./StudyCourse";
 
 const UserIndex = () => {
     const token = localStorage.getItem('guard_token')
@@ -24,6 +25,7 @@ const UserIndex = () => {
     <>
       <Routes>
         <Route path="/" element={<UserHome />} />
+        <Route path="/courses/:id" element={<StudyCourse/>}/>
         <Route element={<UserDashboardLayout/>}>
           <Route path="/dashboard" element={<UserDashboard/>}/>
           <Route path="/courses" element={<UserCourses/>}/>

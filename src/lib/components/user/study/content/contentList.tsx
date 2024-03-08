@@ -9,12 +9,18 @@ import {
   AccordionHeader,
 } from "@material-tailwind/react";
 import { MdOutlineOndemandVideo } from "react-icons/md";
-import { CourseContentData } from "../../../../contracts/course";
+import { CourseContentData } from "../../../../../contracts/course";
 
+type activeProps = {
+    mediaType: string;
+    media: string;
+    duration: number;
+  };
 interface Props {
   data: CourseContentData[];
+  setActive: React.Dispatch<React.SetStateAction<activeProps>>
 }
-const ContentList: FC<Props> = ({ data }) => {
+const ContentList: FC<Props> = ({ data, setActive }) => {
   const [open, setOpen] = React.useState(1);
   const handleOpen = (value: number) => setOpen(open === value ? 0 : value);
 
@@ -46,10 +52,14 @@ const ContentList: FC<Props> = ({ data }) => {
               </div>
             </AccordionHeader>
             <AccordionBody className="px-4">
-              <div className="mt-2 grid gap-3">
+              <div className="grid gap-3">
                 {!!item.courseContentSubs?.length &&
                   item.courseContentSubs.map((item) => (
-                    <div className="flex justify-between items-center px-4 py-2 hover:text-black cursor-pointer">
+                    <div className="flex justify-between items-center px-4 py-2 hover:text-black cursor-pointer" onClick={() => setActive({
+                        media: item.previewUrl,
+                        mediaType: item.mediaType,
+                        duration: item.duration
+                    })}>
                       <div className="flex items-center gap-x-2">
                       <span className="w-2 h-2 circle block bg-black"></span>
                         <p className="fs-600 fw-500">{item.title}</p>

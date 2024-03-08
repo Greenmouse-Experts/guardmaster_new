@@ -1,5 +1,5 @@
 import axios from "axios";
-import { GET_ALL_COURSES, GET_ALL_PROGRAMS, GET_SINGLE_COURSE } from "../constant";
+import { GET_ALL_COURSES, GET_ALL_PROGRAMS, GET_REVIEWS, GET_SINGLE_COURSE, POST_REVIEW } from "../constant";
 
 export const getPrograms = async () => {
     return axios
@@ -22,6 +22,17 @@ export const getPrograms = async () => {
   export const getSingleCourse = async (payload:string) => {
     return axios
       .get(`${GET_SINGLE_COURSE}/${payload}`)
+      .then((response) => response.data);
+  };
+
+  export const getReviews = async (payload:string) => {
+    return axios
+      .get(`${GET_REVIEWS}/${payload}`)
+      .then((response) => response.data);
+  };
+  export const submitReview = async (payload:any) => {
+    return axios
+      .post(`${POST_REVIEW}`, payload)
       .then((response) => response.data);
   };
 

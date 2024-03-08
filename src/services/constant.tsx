@@ -22,4 +22,8 @@ export const GET_SINGLE_COURSE = `/course-content/public`
 export const START_PAYMENT = `/orders/create`
 
 // users
-export const USER_ORDERS = `orders/fetch-student-trx`
+export const USER_ORDERS = `/orders/fetch-student-trx`
+
+// reviews
+export const GET_REVIEWS = `/reviews/fetch-course-reviews`
+export const POST_REVIEW = `/reviews/create-course-review`

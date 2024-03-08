@@ -16,21 +16,22 @@ const Tabs: FC<Props> = ({ tabs, broadcastCurrentIndex, type }) => {
     charts:
       "bg-light p-4 rounded-[10px] flex lg:space-x-2 space-x-2 overflow-x-auto",
     norm: "flex lg:space-x-4 space-x-2 overflow-x-auto",
-    "": "-mb-px tab-bar flex lg:space-x-8 space-x-2 overflow-x-auto",
+    "": "-mb-px tab-bar flex lg:space-x-2 space-x-2 overflow-x-auto",
     price: "flex justify-center lg:space-x-8",
   };
   const navClass = {
     charts:
       "whitespace-nowrap grow text-center cursor-pointer py-[10px] fs-500",
     norm: "whitespace-nowrap text-center cursor-pointer py-[5px] px-6 fs-500",
+    "": "px-5 cursor-pointer",
     price:
       "whitespace-nowrap text-center cursor-pointer py-[10px] px-6 lg:px-12 fs-500",
   };
   const navActiveClass = {
     charts: "bg-review text-white fw-600 rounded-[10px] duration-100",
-    norm: "border-b-[4px] text-[#B3561B] border-[#B3561B]",
-    "": "border-b-[4px] text-[#B3561B] border-[#B3561B]",
-    price: "bg-[#B3561B] text-white rounded-[10px] duration-100",
+    norm: "border-b-[4px] text-[#052b5e] border-[#052b5e]",
+    "": "border-b-[4px] text-[#052b5e] cursor-pointer fw-600 border-[#052b5e] px-5",
+    price: "bg-[#052b5e] text-white rounded-[10px] duration-100",
   };
   const navInactiveClass = {
     charts: "text-[#A6A6A6] bg-[#FAFAFA] hover:text-gray-700",
