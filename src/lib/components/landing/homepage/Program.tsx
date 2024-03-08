@@ -5,7 +5,7 @@ import { useQuery } from "@tanstack/react-query";
 
 const ProgramSection = () => {
   const {data, isLoading} = useQuery({
-    queryFn: getPublicPrograms,
+    queryFn: () => getPublicPrograms(1),
     queryKey: ['publicProgram']
   })
   const ProgItem = ["https://res.cloudinary.com/greenmouse-tech/image/upload/v1706796228/GuardMaster/Rectangle_21222_gpbuow.png", "https://res.cloudinary.com/greenmouse-tech/image/upload/v1706796228/GuardMaster/Rectangle_21223_c0unaw.png", "https://res.cloudinary.com/greenmouse-tech/image/upload/v1706796228/GuardMaster/Rectangle_21224_vkfohy.png", "https://res.cloudinary.com/greenmouse-tech/image/upload/v1706796228/GuardMaster/Rectangle_21225_fgs8cd.png", "https://res.cloudinary.com/greenmouse-tech/image/upload/v1706796228/GuardMaster/Rectangle_21222_gpbuow.png", "https://res.cloudinary.com/greenmouse-tech/image/upload/v1706796228/GuardMaster/Rectangle_21223_c0unaw.png", "https://res.cloudinary.com/greenmouse-tech/image/upload/v1706796228/GuardMaster/Rectangle_21224_vkfohy.png", "https://res.cloudinary.com/greenmouse-tech/image/upload/v1706796228/GuardMaster/Rectangle_21225_fgs8cd.png"]
