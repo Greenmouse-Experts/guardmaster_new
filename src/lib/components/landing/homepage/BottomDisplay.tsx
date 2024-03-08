@@ -3,7 +3,7 @@ import { getPublicPrograms } from "../../../../services/api/publicApi";
 
 const BottomDisplay = () => {
   const {data, isLoading} = useQuery({
-    queryFn: getPublicPrograms,
+    queryFn: () => getPublicPrograms(1),
     queryKey: ['publicProgram']
   })
   const datas = [
