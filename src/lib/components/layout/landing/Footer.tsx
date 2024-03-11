@@ -1,9 +1,15 @@
+import { useQuery } from "@tanstack/react-query";
 import { BsTwitterX } from "react-icons/bs";
 import { FaFacebookF, FaInstagram, FaLinkedinIn } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
+import { getPublicPrograms } from "../../../../services/api/publicApi";
 
 const Footer = () => {
+  const { data } = useQuery({
+    queryFn: () => getPublicPrograms(1),
+    queryKey: ["publicProgram"],
+  });
   return (
     <footer>
       <div className="bg-[url('https://res.cloudinary.com/greenmouse-tech/image/upload/v1708077628/GuardMaster/WhatsApp_Image_2024-02-16_at_10.07.07_ypsnx6.jpg')] bg-cover text-white">
@@ -46,17 +52,13 @@ const Footer = () => {
             <div className="grid gap-4">
               <h3 className="text-[18px] font-semibold">Legal</h3>
               <p>
-                <Link to={"/"}>
-                  Terms and Conditions
-                </Link>
+                <Link to={"/"}>Terms and Conditions</Link>
               </p>
               <p>
                 <Link to={"/"}>Privacy Policy</Link>
               </p>
               <p>
-                <Link to={"/"}>
-                  Licence
-                </Link>
+                <Link to={"/"}>Licence</Link>
               </p>
               <p>
                 <Link to={"/"}>Certifications</Link>
@@ -66,21 +68,28 @@ const Footer = () => {
               <h3 className="text-[18px] font-semibold">Contact Info</h3>
               <p>Dougall Avenue, Windsor, Ontario N9E 1S3, Canada</p>
               <p>+1 905 452 2470</p>
-              <p>info@guardmaster<span className="sm:inline lg:block xl:inline">institute.ca</span></p>
-              <p>www.guardmaster<span className="sm:inline lg:block xl:inline">institute.ca</span></p>
+              <p>
+                info@guardmaster
+                <span className="sm:inline lg:block xl:inline">
+                  institute.ca
+                </span>
+              </p>
+              <p>
+                www.guardmaster
+                <span className="sm:inline lg:block xl:inline">
+                  institute.ca
+                </span>
+              </p>
             </div>
             <div className="grid gap-4 pl-3">
               <h3 className="text-[18px] font-semibold">Our Programs</h3>
-              <HashLink to={"/course#courses"}>Mini-MBA Programs</HashLink>
-              <HashLink to={"/course#diploma"}>
-                Professional Proficiency Programs
-              </HashLink>
-              <HashLink to={"/course#ppcp"}>
-                Professional Certification Programs
-              </HashLink>
-              <HashLink to={"/course#plpcp"}>
-                Provincial Licensing and Micro Credential Programs
-              </HashLink>
+              {data &&
+                data?.data.length &&
+                data?.data?.slice(0, 4).map((item: any, i: number) => (
+                  <HashLink to={"/course"} key={i}>
+                    {item.title} Programs
+                  </HashLink>
+                ))}
             </div>
           </div>
         </div>
@@ -90,30 +99,46 @@ const Footer = () => {
               <div className="md:w-9/12 lg:w-6/12 xl:w-4/12 absolute -top-16">
                 <ul className="w-full flex justify-between">
                   <li>
-                    <a href="https://www.facebook.com/GuardmasterInstituteCanada/" target="_blank" rel="noopener noreferrer">
+                    <a
+                      href="https://www.facebook.com/GuardmasterInstituteCanada/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       <div className="w-12 h-12 place-center bg-primary circle border border-[#8C8C8C]">
-                          <FaFacebookF className="text-white text-lg"/>
+                        <FaFacebookF className="text-white text-lg" />
                       </div>
                     </a>
                   </li>
                   <li>
-                    <a href="https://twitter.com/TheGuardmaster" target="_blank" rel="noopener noreferrer">
-                    <div className="w-12 h-12 place-center bg-primary circle border border-[#8C8C8C]">
-                          <BsTwitterX className="text-white text-lg"/>
+                    <a
+                      href="https://twitter.com/TheGuardmaster"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <div className="w-12 h-12 place-center bg-primary circle border border-[#8C8C8C]">
+                        <BsTwitterX className="text-white text-lg" />
                       </div>
                     </a>
                   </li>
                   <li>
-                    <a href="https://www.instagram.com/guardmasterinstitutecanada/" target="_blank" rel="noopener noreferrer">
-                    <div className="w-12 h-12 place-center bg-primary circle border border-[#8C8C8C]">
-                          <FaInstagram className="text-white text-lg"/>
+                    <a
+                      href="https://www.instagram.com/guardmasterinstitutecanada/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <div className="w-12 h-12 place-center bg-primary circle border border-[#8C8C8C]">
+                        <FaInstagram className="text-white text-lg" />
                       </div>
                     </a>
                   </li>
                   <li>
-                    <a href="https://linkedin.com/company/guardmasterinstitutecanada/" target="_blank" rel="noopener noreferrer">
-                    <div className="w-12 h-12 place-center bg-primary circle border border-[#8C8C8C]">
-                          <FaLinkedinIn className="text-white text-lg"/>
+                    <a
+                      href="https://linkedin.com/company/guardmasterinstitutecanada/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <div className="w-12 h-12 place-center bg-primary circle border border-[#8C8C8C]">
+                        <FaLinkedinIn className="text-white text-lg" />
                       </div>
                     </a>
                   </li>
@@ -122,7 +147,8 @@ const Footer = () => {
             </div>
             <div className="pb-10 pt-4 lg:flex justify-center">
               <p className="fw-500">
-              © Copyright 2024 Guardmaster Institute of Corporate Security Management.{" "}
+                © Copyright 2024 Guardmaster Institute of Corporate
+                Security Management.{" "}
               </p>
               {/* <div className="md:flex gap-x-5 mt-6 lg:mt-0">
                 <Link to={"/terms"}>Terms & Conditions</Link>

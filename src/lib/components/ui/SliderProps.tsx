@@ -32,7 +32,7 @@ export const SliderProps:FC<Props> = ({head, data}) => {
     }, []);
      return (
       <div className="box">
-        <div className="our_head pt-12 lg:pt-24">
+        <div className="our_head pt-12 lg:pt-24 relative z-10">
           <span className="text-[#052B5E] fw-500 fs-500">Our Program Courses</span>
           <h2 className="h2 flex justify-between">
             <p className="text-xl lg:text-4xl fw-600 syne">{head}</p>

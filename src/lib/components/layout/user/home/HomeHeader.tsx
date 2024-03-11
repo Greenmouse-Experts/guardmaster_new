@@ -42,7 +42,8 @@ const HomeHeader = () => {
             <img
               src="https://res.cloudinary.com/greenmouse-tech/image/upload/v1706278834/rsh/logo2-removebg-preview_fcvxwc.png"
               alt="logo"
-              className="w-[140px] sm:w-[180px] lg:w-[250px]"
+              className="w-[140px] sm:w-[180px] lg:w-[250px] cursor-pointer"
+              onClick={() => navigate('/')}
             />
           </div>
           <div>
