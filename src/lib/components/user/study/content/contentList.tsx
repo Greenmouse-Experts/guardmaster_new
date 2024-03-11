@@ -56,7 +56,7 @@ const ContentList: FC<Props> = ({ data, setActive }) => {
                 {!!item.courseContentSubs?.length &&
                   item.courseContentSubs.map((item) => (
                     <div className="flex justify-between items-center px-4 py-2 hover:text-black cursor-pointer" onClick={() => setActive({
-                        media: item.media,
+                        media: item.media || '',
                         mediaType: item.mediaType,
                         duration: item.duration
                     })}>
