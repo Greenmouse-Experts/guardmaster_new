@@ -9,7 +9,7 @@ const ProgramSection = () => {
     queryKey: ['publicProgram']
   })
   const ProgItem = ["https://res.cloudinary.com/greenmouse-tech/image/upload/v1706796228/GuardMaster/Rectangle_21222_gpbuow.png", "https://res.cloudinary.com/greenmouse-tech/image/upload/v1706796228/GuardMaster/Rectangle_21223_c0unaw.png", "https://res.cloudinary.com/greenmouse-tech/image/upload/v1706796228/GuardMaster/Rectangle_21224_vkfohy.png", "https://res.cloudinary.com/greenmouse-tech/image/upload/v1706796228/GuardMaster/Rectangle_21225_fgs8cd.png", "https://res.cloudinary.com/greenmouse-tech/image/upload/v1706796228/GuardMaster/Rectangle_21222_gpbuow.png", "https://res.cloudinary.com/greenmouse-tech/image/upload/v1706796228/GuardMaster/Rectangle_21223_c0unaw.png", "https://res.cloudinary.com/greenmouse-tech/image/upload/v1706796228/GuardMaster/Rectangle_21224_vkfohy.png", "https://res.cloudinary.com/greenmouse-tech/image/upload/v1706796228/GuardMaster/Rectangle_21225_fgs8cd.png"]
-  const  checkNums = [1,2,4,5,7,8]
+  const  checkNums = [1,2,5,7,8]
   return (
     <>
       <div className="section bg-[#EDEDED]">
