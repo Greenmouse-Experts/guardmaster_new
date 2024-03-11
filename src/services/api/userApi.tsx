@@ -6,3 +6,15 @@ export const fetchOrder = async () => {
       .get(`${ENDPOINT.USER_ORDERS}`)
       .then((response) => response.data);
   };
+
+  export const fetchUserCourses = async () => {
+    return axios
+      .get(`${ENDPOINT.USER_COURSES}`)
+      .then((response) => response.data);
+  };
+
+  export const fetchUserSingleCourse = async (param:string) => {
+    return axios
+      .get(`${ENDPOINT.USER_SINGLE_COURSE}/${param}`)
+      .then((response) => response.data);
+  };

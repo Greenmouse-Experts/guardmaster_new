@@ -23,6 +23,8 @@ export const START_PAYMENT = `/orders/create`
 
 // users
 export const USER_ORDERS = `/orders/fetch-student-trx`
+export const USER_COURSES = `/orders/purchased-courses`
+export const USER_SINGLE_COURSE = `/orders/fetch-course`
 
 // reviews
 export const GET_REVIEWS = `/reviews/fetch-course-reviews`

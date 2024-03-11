@@ -13,8 +13,8 @@ const CoursePlayer: FC<Props> = ({ active }) => {
   if (active.mediaType === "video") {
     return (
       <div>
-        <div className="h-[380px] bg-blue-300">
-        <ReactPlayer width={'100%'} height={'100%'} url='https://www.youtube.com/watch?v=LXb3EKWsInQ' />
+        <div className="h-[380px] bg-black">
+        <ReactPlayer width={'100%'} height={'100%'} url={active?.media? active?.media : 'https://www.youtube.com/watch?v=LXb3EKWsInQ'} controls pip stopOnUnmount={false}/>
         </div>
       </div>
     );
@@ -22,7 +22,7 @@ const CoursePlayer: FC<Props> = ({ active }) => {
   else if (active.mediaType === "image") {
     return (
       <div>
-        <div className="h-[380px] bg-blue-300">
+        <div className="h-[380px] bg-black">
           <img
             src={active.media}
             alt="image"
@@ -35,7 +35,8 @@ const CoursePlayer: FC<Props> = ({ active }) => {
   else{
     return (
         <div>
-          <div className="h-[380px] bg-blue-300">
+          <div className="h-[380px] bg-blue-300 border-[4px] border-gray-400">
+            <img src="https://res.cloudinary.com/greenmouse-tech/image/upload/v1706266960/rsh/Property_1_Variant6_1_hdn7cq.png" alt="class" className="object-cover w-full h-full" />
           </div>
         </div>
       );

@@ -3,14 +3,16 @@ import CoursePlayer from "../../lib/components/user/study/content/player";
 import CourseDetails from "../../lib/components/user/study/details";
 import CourseHeader from "../../lib/components/user/study/layout/header";
 import CourseSideBar from "../../lib/components/user/study/layout/sideBar";
-import { getSingleCourse } from "../../services/api/programApi";
 import ContentList from "../../lib/components/user/study/content/contentList";
 import { useState } from "react";
+import { fetchUserSingleCourse } from "../../services/api/userApi";
+import { useParams } from "react-router-dom";
 
 const StudyCourse = () => {
+  const {id} = useParams()
   const { data, isLoading } = useQuery({
     queryKey: ["singleCourse"],
-    queryFn: () => getSingleCourse(`bf915481-623a-458a-8b29-fb043ce0a55c`),
+    queryFn: () => fetchUserSingleCourse(`${id}`),
   });
   const [activeSub, setActiveSub] = useState({
     mediaType: '',

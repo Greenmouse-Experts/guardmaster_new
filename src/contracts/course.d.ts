@@ -11,6 +11,7 @@ export interface CourseContentSubs {
   duration: number;
   previewUrl: string;
   mediaType: string;
+  media?: string
 }
 export interface CourseContentData {
   title: string;
@@ -52,4 +53,37 @@ export interface CourseListItem {
     id: string;
     title: string;
   };
+}
+
+export interface PurchaseItemType {
+  course: {
+    coverImage: string;
+    createdDate: string;
+    discount: number;
+    fullDesc: string;
+    id: string;
+    isPublished: boolean;
+    price: number;
+    shortDesc: string;
+    title: string;
+    updatedDate: string;
+  };
+  coverImage: string;
+  createdDate: string;
+  discount: number;
+  fullDesc: string;
+  id: string;
+  isPublished: boolean;
+  price: number;
+  shortDesc: string;
+  title: string;
+  updatedDate: string;
+  id: string;
+  order: {
+    createdDate: string;
+    id: string;
+    number: string;
+    status: string;
+  };
+  price: number;
 }

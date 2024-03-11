@@ -56,7 +56,7 @@ const ContentList: FC<Props> = ({ data, setActive }) => {
                 {!!item.courseContentSubs?.length &&
                   item.courseContentSubs.map((item) => (
                     <div className="flex justify-between items-center px-4 py-2 hover:text-black cursor-pointer" onClick={() => setActive({
-                        media: item.previewUrl,
+                        media: item.media,
                         mediaType: item.mediaType,
                         duration: item.duration
                     })}>
@@ -65,7 +65,7 @@ const ContentList: FC<Props> = ({ data, setActive }) => {
                         <p className="fs-600 fw-500">{item.title}</p>
                       </div>
                       <div>
-                        <p className="fs-500 fw-500">{item.duration} Min(s)</p>
+                        <p className="fs-500 fw-500 whitespace-nowrap">{item.duration} Min(s)</p>
                       </div>
                     </div>
                   ))}

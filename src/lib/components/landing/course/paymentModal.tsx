@@ -65,7 +65,7 @@ const PaymentModal: FC<Props> = ({ close, data, name, amount }) => {
   }
 
   return (
-    <div>
+    <div className="max-h-[500px] overflow-y-auto">
       <PayPalScriptProvider options={initialOptions}>
         <p className="text-center text-lg fw-500 ">
           You're about to pay <span className="fw-600">{amount}</span> for{" "}
