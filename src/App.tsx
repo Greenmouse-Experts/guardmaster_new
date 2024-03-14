@@ -18,6 +18,7 @@ import Contact from "./pages/landing/Contact";
 import UserIndex from "./pages/user";
 import BlogPage from "./pages/landing/blog";
 import BlogDetails from "./pages/landing/blogDetails";
+import CareersPage from "./pages/landing/career";
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
           <Route path="/course" element={<ProgramsPage />} />
           <Route path="/blog" element={<BlogPage />} />
           <Route path="/blog/:id" element={<BlogDetails />} />
+          <Route path="/career" element={<CareersPage/>}/>
           {/* <Route path="/bemember" element={<BeMember />} /> */}
           <Route path="/partnership" element={<Partnership />} />
           <Route path="/leadership" element={<Leadership />} />

@@ -14,7 +14,7 @@ export const getPublicPrograms = async (payload: number) => {
   };
   export const getBlogPost = async (payload: number, activeId: string) => {
     return axios
-      .get(`${ENDPOINT.GET_BLOGS}?page=${payload}?[tags][slug]=${activeId}`)
+      .get(`${ENDPOINT.GET_BLOGS}?page=${payload}&[tags][slug]=${activeId}`)
       .then((response) => response.data);
   };
 

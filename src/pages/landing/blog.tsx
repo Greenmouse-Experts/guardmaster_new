@@ -45,11 +45,12 @@ const BlogPage = () => {
       <div className="box">
         <p className="text-2xl fw-600">All Blog Post</p>
         <div className="mt-4">
-          <div className="flex gap-x-2 items-center w-full overflow-x-auto">
+          <div className="flex gap-x-2 items-center w-full scroll-pro overflow-x-auto relative z-10">
             {tags?.data?.map((item: any, i: number) => (
               <p
-                className="px-3 py-1 bg-blue-50 rounded-xl fs-400 hover:bg-blue-400 cursor-pointer"
+                className={`px-3 py-1 bg-blue-50 rounded-xl fs-400 cursor-pointer hover:bg-blue-400 whitespace-nowrap ${activeTag === item.slug && 'bg-blue-400'}`}
                 key={i}
+                onClick={() => setActiveTag(item.slug)}
               >
                 {item.tag}
               </p>
