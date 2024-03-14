@@ -13,9 +13,15 @@ export const getPublicPrograms = async (payload: number) => {
       .then((response) => response.data);
   };
   export const getBlogPost = async (payload: number, activeId: string) => {
+   if(activeId){
     return axios
-      .get(`${ENDPOINT.GET_BLOGS}?page=${payload}&[tags][slug]=${activeId}`)
-      .then((response) => response.data);
+    .get(`${ENDPOINT.GET_BLOGS}?page=${payload}&[tags][slug]=${activeId}`)
+    .then((response) => response.data);
+   }else{
+    return axios
+    .get(`${ENDPOINT.GET_BLOGS}?page=${payload}`)
+    .then((response) => response.data);
+   }
   };
 
   export const getSingleBlogPost = async (id: string) => {
