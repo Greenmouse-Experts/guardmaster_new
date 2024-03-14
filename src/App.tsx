@@ -16,6 +16,8 @@ import ResetPassword from "./pages/auth/Reset";
 import VerifyUser from "./pages/auth/Verify";
 import Contact from "./pages/landing/Contact";
 import UserIndex from "./pages/user";
+import BlogPage from "./pages/landing/blog";
+import BlogDetails from "./pages/landing/blogDetails";
 
 function App() {
   return (
@@ -34,6 +36,8 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/course" element={<ProgramsPage />} />
+          <Route path="/blog" element={<BlogPage />} />
+          <Route path="/blog/:id" element={<BlogDetails />} />
           {/* <Route path="/bemember" element={<BeMember />} /> */}
           <Route path="/partnership" element={<Partnership />} />
           <Route path="/leadership" element={<Leadership />} />

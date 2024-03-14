@@ -66,7 +66,7 @@ const Footer = () => {
             </div>
             <div className="grid gap-4 lg:gap-5">
               <h3 className="text-[18px] font-semibold">Contact Info</h3>
-              <p>Dougall Avenue, Windsor, Ontario N9E 1S3, Canada</p>
+              <p>Dougall Avenue, Windsor, Ontario, Canada</p>
               <p>+1 905 452 2470</p>
               <p>
                 info@guardmaster

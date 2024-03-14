@@ -188,7 +188,7 @@ const Header = () => {
                     <Link to={"/faq"}>FAQs</Link>
                   </li>
                   <li className="fw-600 lg:hidden xl:block">
-                    <Link to={"/"}>Blog</Link>
+                    <Link to={"/blog"}>Blog</Link>
                   </li>
                   <li className="fw-600 lg:hidden xl:block">
                     <Link to={"/"}>Careers</Link>

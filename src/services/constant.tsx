@@ -29,3 +29,8 @@ export const USER_SINGLE_COURSE = `/orders/fetch-course`
 // reviews
 export const GET_REVIEWS = `/reviews/fetch-course-reviews`
 export const POST_REVIEW = `/reviews/create-course-review`
+
+// blog
+export const GET_BLOG_TAGS = `/blog/view-tags`
+export const GET_BLOGS = `/blog/view-posts`
+export const GET_SINGLE_BLOG = `/blog/view-post`
