@@ -16,7 +16,7 @@ const CareersPage = () => {
   const getCareer = async () => {
     setLoading(true);
     await fetch(
-      `http://careers-gicsm.greenmousetech.com/index.php?keyword=${search}&location=${location}&page=${page}&affid=3993993`,
+      `https://careers-gicsm.greenmousetech.com/index.php?keyword=${search}&location=${location}&page=${page}&affid=3993993`,
       {
         method: "GET",
         headers: {
@@ -39,6 +39,9 @@ const CareersPage = () => {
   useEffect(() => {
     getCareer();
   }, [page]);
+  const handleFilter = () => {
+    getCareer()
+  }
   const handleNext = () => {
     if (page * 20 <= count) {
       setPage((old) => old + 1);
@@ -90,7 +93,7 @@ const CareersPage = () => {
               onChange={(e) => setLoacation(e.target.value)}
             />
           </div>
-          <div className="lg:w-1/12 place-center bg-primary cursor-pointer">
+          <div className={`lg:w-1/12 place-center cursor-pointer ${search === "" && location === ""? "bg-gray-200": "bg-primary"}`} onClick={handleFilter}>
             <FaSearch className="text-xl text-white" />
           </div>
         </div>
