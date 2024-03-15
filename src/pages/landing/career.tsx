@@ -38,6 +38,10 @@ const CareersPage = () => {
   };
   useEffect(() => {
     getCareer();
+    window.scrollTo({
+      top: 120,
+      behavior: "smooth",
+  });
   }, [page]);
   const handleFilter = () => {
     getCareer()
