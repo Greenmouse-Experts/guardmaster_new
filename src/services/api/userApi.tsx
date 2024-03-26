@@ -1,9 +1,9 @@
 import axios from "axios";
 import * as ENDPOINT from "../constant";
 
-export const fetchOrder = async () => {
+export const fetchOrder = async (page:number) => {
     return axios
-      .get(`${ENDPOINT.USER_ORDERS}`)
+      .get(`${ENDPOINT.USER_ORDERS}?page=${page}`)
       .then((response) => response.data);
   };
 

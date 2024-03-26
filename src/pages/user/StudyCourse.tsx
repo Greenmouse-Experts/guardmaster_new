@@ -11,7 +11,7 @@ import { useParams } from "react-router-dom";
 const StudyCourse = () => {
   const {id} = useParams()
   const { data, isLoading } = useQuery({
-    queryKey: ["singleCourse"],
+    queryKey: ["singleCourse", `${id}`],
     queryFn: () => fetchUserSingleCourse(`${id}`),
   });
   const [activeSub, setActiveSub] = useState({

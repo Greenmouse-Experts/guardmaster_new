@@ -13,6 +13,7 @@ import PaymentModal from "../../lib/components/landing/course/paymentModal";
 import useCartStore from "../../store/cartStore";
 import { toast } from "react-toastify";
 import useAuth from "../../hooks/authUser";
+import HourGlassLoading from "../../lib/components/ui/loading/hourloading";
 
 const CourseDetail = () => {
   const { id } = useParams();
@@ -23,9 +24,10 @@ const CourseDetail = () => {
   const addToCart = useCartStore((state) => state.saveCart);
   const cart = useCartStore((state) => state.cart);
   const { data, isLoading } = useQuery({
-    queryKey: ["singleCourse"],
+    queryKey: ["singleCourse", `${id}`],
     queryFn: () => getSingleCourse(`${id}`),
   });
+  // const getSingleCourse = () => 
   useEffect(() => {
     setCourse(data?.course);
     setContent(data?.contents);
@@ -62,6 +64,11 @@ const CourseDetail = () => {
     <>
       <div>
         <div className="">
+        {isLoading && (
+            <div className="place-center py-16">
+              <HourGlassLoading size={1.3} />
+            </div>
+          )}
           {!isLoading && data && (
             <div>
               <div className="w-full relative z-0 h-[270px] pb-5 flex items-center bg-[url('https://res.cloudinary.com/greenmouse-tech/image/upload/v1706272690/rsh/Group_48097479_1_kreeio.png')]">
@@ -116,7 +123,7 @@ const CourseDetail = () => {
                         Overview
                       </p>
                       <p className="mt-4 !syne font-semibold !text-3xl">
-                        A deeply engaging online {course?.program?.title} from
+                        {course?.title} from
                         GICSM.
                       </p>
                       <p className="!mont mt-7">{course?.fullDesc}</p>
