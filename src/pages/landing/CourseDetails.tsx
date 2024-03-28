@@ -2,7 +2,7 @@ import { BsBank, BsBook, BsSuitcaseLg } from "react-icons/bs";
 import { LuUserCheck2 } from "react-icons/lu";
 import { SlNotebook } from "react-icons/sl";
 import "../../Stylesheet/style.css";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { getSingleCourse } from "../../services/api/programApi";
 import { useEffect, useState } from "react";
@@ -18,6 +18,7 @@ import HourGlassLoading from "../../lib/components/ui/loading/hourloading";
 const CourseDetail = () => {
   const { id } = useParams();
   const {isLoggedIn} = useAuth()
+  const navigate = useNavigate()
   const [course, setCourse] = useState<CourseItemType>();
   const [content, setContent] = useState<CourseContentType>();
   const [payInfo, setPayInfo] = useState<any>();
@@ -77,10 +78,10 @@ const CourseDetail = () => {
                     {course?.title}
                   </p>
                   <div className="mt-4 lg:flex gap-x-1 text-white">
-                    <p className="!mont fs-400 lg:fs-600">Home /</p>
-                    <p className="!mont fs-400 lg:fs-600">Course /</p>
-                    <p className="!mont fs-400 lg:fs-600">{course?.program?.title} /</p>
-                    <p className="!mont text-[#FFD347]">{course?.title}</p>
+                    <p className="!mont inline lg:block fs-400 lg:fs-600" onClick={() => navigate('/')}>Home / {" "}</p>
+                    <p className="!mont inline lg:block fs-400 lg:fs-600" onClick={() => navigate('/course')}>Course /{" "}</p>
+                    <p className="!mont inline lg:block fs-400 lg:fs-600">{course?.program?.title} /{" "}</p>
+                    <p className="!mont inline lg:block text-[#FFD347]">{course?.title}</p>
                   </div>
                 </div>
               </div>

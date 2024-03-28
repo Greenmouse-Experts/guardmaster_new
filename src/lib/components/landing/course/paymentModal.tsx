@@ -19,7 +19,7 @@ interface Props {
   amount: string | number | undefined;
 }
 const PaymentModal: FC<Props> = ({ close, data, name, amount }) => {
-  const clearCart = useCartStore((state) => state.clearCart)
+  const clearCart = useCartStore((state) => state.clearCart);
   const initialOptions = {
     clientId:
       "AcfzHrpELdXbmgAyI6qNmIqacZyFNF1G7xIokNH4aB_P9OK5Ka4t9j31zWKL0uD5YortTiQPdAOClsxU",
@@ -27,20 +27,30 @@ const PaymentModal: FC<Props> = ({ close, data, name, amount }) => {
     intent: "capture",
   };
   const navigate = useNavigate();
-  function createOrder() {
-    return fetch(`${BASE_URL}/orders/create`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: getBearerToken(),
-      },
-      body: JSON.stringify({
-        courses: data.courses,
-        amount: data?.amount,
-      }),
-    })
-      .then((response) => response.json())
-      .then((order) => order.data.orderNumber);
+  async function createOrder() {
+    try {
+      return fetch(`${BASE_URL}/orders/create`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: getBearerToken(),
+        },
+        body: JSON.stringify({
+          courses: data.courses,
+          amount: data?.amount,
+        }),
+      })
+        .then((response) => response.json())
+        .then((order) => {
+          if(order?.data){
+            return order.data.orderNumber
+          }else{
+            toast.error(order?.message)
+          }
+        });
+    } catch (e) {
+      console.log(e);
+    }
   }
   function onApprove(data: any) {
     return fetch(`${BASE_URL}/orders/confirm/${data.orderID}`, {
@@ -57,8 +67,8 @@ const PaymentModal: FC<Props> = ({ close, data, name, amount }) => {
       .then((orderData) => {
         toast.success(orderData.message || "Order Completed Successfully");
         navigate("/user/courses");
-        if(name === "these items"){
-          clearCart()
+        if (name === "these items") {
+          clearCart();
         }
         close();
       });

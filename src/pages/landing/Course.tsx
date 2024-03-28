@@ -28,7 +28,7 @@ const ProgramsPage = () => {
     fetchPublicPrograms(1);
   }, []);
   const handleNext = () => {
-    if(page * 6 <= count){
+    if(page * 6 >= count){
       toast.info('This is the last page')
       return;
     }
@@ -75,7 +75,7 @@ const ProgramsPage = () => {
                   <div onClick={handlePrev} className={`px-2 py-1 rounded ${page === 1? 'bg-gray-300 cursor-not-allowed' : 'bg-primary text-white cursor-pointer'}`}>
                     Prev
                   </div>
-                  <div onClick={handleNext} className={`px-2 py-1 rounded ${page * 6 <= count? 'bg-gray-300 cursor-not-allowed' : 'bg-primary text-white cursor-pointer'}`}>
+                  <div onClick={handleNext} className={`px-2 py-1 rounded ${page * 6 >= count? 'bg-gray-300 cursor-not-allowed' : 'bg-primary text-white cursor-pointer'}`}>
                     Next
                   </div>
                 </div>

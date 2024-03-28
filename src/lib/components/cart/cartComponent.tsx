@@ -81,8 +81,8 @@ const CartComponent: FC<Props> = ({ close }) => {
             <p>Subtotal</p>
             <p className="text-xl fw-600">${tsum}</p>
         </div>
-        <Button title={"Checkout"} altClassName="py-2 btn-feel w-full rounded-xl shadow" onClick={proceedToPayment}/>
-        <Button title={"Clear Cart"} altClassName="py-2 text-white w-full rounded-xl shadow bg-red-600" onClick={() => emptyCart()}/>
+        <Button title={"Checkout"} disabled={!cart.length} altClassName="py-2 btn-feel w-full rounded-xl shadow" onClick={proceedToPayment}/>
+        <Button title={"Clear Cart"} altClassName="py-2 text-white w-full rounded-xl shadow bg-red-600" disabled={!cart.length} onClick={() => emptyCart()}/>
       </div>
     </div>
     <Modal title="" size="sm" type="">

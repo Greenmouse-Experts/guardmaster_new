@@ -8,7 +8,7 @@ const PaidCourses: FC<Props> = ({ data }) => {
   return (
     <div>
       {data?.map((item: OrderItem) => (
-        <div className="flex gap-x-2 pb-2 border-b mb-2">
+        <div className="flex gap-x-2 pb-2 border-b mb-2" key={item.id}>
           <div className="w-20 h-20 shrink-0">
             <img
               src={item.course.coverImage}

@@ -7,7 +7,11 @@ import {
   MenuList,
 } from "@material-tailwind/react";
 import { IoIosArrowDown } from "react-icons/io";
-import { IoHomeOutline, IoLogOutOutline, IoNotifications } from "react-icons/io5";
+import {
+  IoHomeOutline,
+  IoLogOutOutline,
+  IoNotifications,
+} from "react-icons/io5";
 import { MdOutlineDashboard, MdOutlineShoppingCart } from "react-icons/md";
 import useAuth from "../../../../../hooks/authUser";
 import ProfileAvatar from "../../../ui/ProfileAvatar";
@@ -22,7 +26,7 @@ import CartComponent from "../../../cart/cartComponent";
 const HomeHeader = () => {
   const { user } = useAuth();
   const navigate = useNavigate();
-  const {Modal, setShowModal} = useModal()
+  const { Modal, setShowModal } = useModal();
   const [open, setOpen] = useState(false);
   const toggleSidebar = (height: string, display: string) => {
     setOpen(height === "auto" ? false : true);
@@ -43,10 +47,10 @@ const HomeHeader = () => {
               src="https://res.cloudinary.com/greenmouse-tech/image/upload/v1706278834/rsh/logo2-removebg-preview_fcvxwc.png"
               alt="logo"
               className="w-[140px] sm:w-[180px] lg:w-[250px] cursor-pointer"
-              onClick={() => navigate('/')}
+              onClick={() => navigate("/")}
             />
           </div>
-          <div>
+          <div className="hidden lg:block">
             <Menu>
               <MenuHandler>
                 <Button className="bg-white flex items-center gap-x-2 px-3 py-1 lg:px-7 lg:py-3 m-0 !rounded-[25px] shadow-none hover:shadow-none text-primary !mont lg:!syne capitalize font-[500] text-[14px] lg:text-[16px]">
@@ -63,24 +67,27 @@ const HomeHeader = () => {
               </MenuList>
             </Menu>
           </div>
-          <div className="hidden lg:w-5/12 lg:flex items-center justify-end lg:gap-x-3">
-          <div className="bg-white w-[50px] h-[50px] circle relative" onClick={openDrawer}>
-                    <div className="bg-[#003ca543] w-full h-full circle place-center">
-                    <MdOutlineShoppingCart className="text-xl" />
-                    <span className="w-6 h-6 place-center circle bg-white text-primary absolute -top-2 -right-1">
-                      {cart.length}
-                    </span>
-                    </div>
-                  </div>
+          <div className="lg:w-5/12 flex items-center justify-end lg:gap-x-3">
+            <div
+              className="bg-white w-[40px] h-[40px] lg:w-[50px] lg:h-[50px] circle relative"
+              onClick={openDrawer}
+            >
+              <div className="bg-[#003ca543] w-full h-full circle place-center">
+                <MdOutlineShoppingCart className="text-xl" />
+                <span className="w-5 lg:w-6 h-5 lg:h-6 circle place-center bg-white text-primary absolute fs-300 fw-500 lg:fs-600 -top-2 -right-1">
+                  {cart.length}
+                </span>
+              </div>
+            </div>
             <Menu>
               <MenuHandler>
                 <Button className="bg-transparent flex items-center gap-x-2 p-3 m-0 !rounded-[25px] shadow-none hover:shadow-none text-primary !mont lg:!syne capitalize font-[500] text-[14px] lg:text-[16px]">
-                  <div className="bg-white w-12 h-12 circle relative ">
-                  <div className="bg-[#003ca543] w-full h-full circle place-center">
-                    <IoNotifications className="text-xl" />
-                    <span className="w-6 h-6 circle bg-white text-primary absolute -top-2 -right-1">
-                      4
-                    </span>
+                  <div className="bg-white w-9 lg:w-12 h-9 lg:h-12 circle relative ">
+                    <div className="bg-[#003ca543] w-full h-full circle place-center">
+                      <IoNotifications className="text-xl" />
+                      <span className="w-5 lg:w-6 h-5 lg:h-6 circle place-center bg-white text-primary absolute fs-300 lg:fs-600 -top-2 -right-1">
+                        4
+                      </span>
                     </div>
                   </div>
                 </Button>
@@ -103,11 +110,11 @@ const HomeHeader = () => {
                     size={49}
                     font={18}
                   />
-                  <p>{user.name}</p>
+                  <p className="hidden lg:block">{user.name}</p>
                 </Button>
               </MenuHandler>
               <MenuList className="z-[10000]">
-              <MenuItem
+                <MenuItem
                   className="flex gap-x-2 items-center fw-500"
                   onClick={() => navigate("/user")}
                 >
@@ -147,10 +154,10 @@ const HomeHeader = () => {
         onClose={closeDrawer}
         className="p-4"
       >
-        <CartComponent close={closeDrawer}/>
+        <CartComponent close={closeDrawer} />
       </Drawer>
       <Modal title="" size="xs">
-        <LogoutModal CloseModal={() => setShowModal(false)}/>
+        <LogoutModal CloseModal={() => setShowModal(false)} />
       </Modal>
     </>
   );

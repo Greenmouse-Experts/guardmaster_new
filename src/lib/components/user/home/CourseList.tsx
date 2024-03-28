@@ -45,7 +45,7 @@ const CourseList = () => {
             <div className="lg:w-[250px]">
               <ProgramList active={cat} setActive={setCat}/>
             </div>
-            <div className="lg:w-[calc(100%_-_250px)]">
+            <div className="lg:w-[calc(100%_-_250px)] mt-6 lg:mt-0">
               <CoursesListItems active={cat} data={courseData}/>
             </div>
           </div>

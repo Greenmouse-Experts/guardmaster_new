@@ -28,7 +28,7 @@ const Tabs: FC<Props> = ({ tabs, broadcastCurrentIndex, type }) => {
       "whitespace-nowrap text-center cursor-pointer py-[10px] px-6 lg:px-12 fs-500",
   };
   const navActiveClass = {
-    charts: "bg-review text-white fw-600 rounded-[10px] duration-100",
+    charts: "bg-[#052b5e] text-white fw-600 rounded-[10px] duration-100",
     norm: "border-b-[4px] text-[#052b5e] border-[#052b5e]",
     "": "border-b-[4px] text-[#052b5e] cursor-pointer fw-600 border-[#052b5e] px-5",
     price: "bg-[#052b5e] text-white rounded-[10px] duration-100",

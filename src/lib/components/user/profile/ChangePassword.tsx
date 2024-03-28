@@ -31,8 +31,8 @@ const ChangePassword:FC<Props> = ({close}) => {
       setIsBusy(false);
       close();
     },
-    onError: (error) => {
-      toast.error(error.message);
+    onError: (error:any) => {
+      toast.error(error.response.data.message);
       setIsBusy(false);
     },
   });

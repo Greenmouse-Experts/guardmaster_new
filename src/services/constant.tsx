@@ -34,3 +34,7 @@ export const POST_REVIEW = `/reviews/create-course-review`
 export const GET_BLOG_TAGS = `/blog/view-tags`
 export const GET_BLOGS = `/blog/view-posts`
 export const GET_SINGLE_BLOG = `/blog/view-post`
+
+// notify
+export const GET_MY_NOTIFY = `/notifications/student`
+export const MARK_NOTIFY = `notifications/mark-as-read`
