@@ -1,5 +1,6 @@
 import {
   Button,
+  Drawer,
   Menu,
   MenuHandler,
   MenuItem,
@@ -17,12 +18,13 @@ import { AiFillInstagram } from "react-icons/ai";
 import { FaSquareFacebook, FaSquareXTwitter } from "react-icons/fa6";
 import useAuth from "../../../../hooks/authUser";
 import CartCallout from "./cartCallout";
+import MobileMenu from "./mobileMenu";
 
 const Header = () => {
   const navigate = useNavigate();
   const { isLoggedIn } = useAuth();
   const [showSearch, setShowSearch] = useState(false);
-  const [isOpen, setIsOpen] = useState(false);
+  const [open, setOpen] = useState(false);
   const [isSticky, setSticky] = useState<boolean>(false);
   const headerRef = useRef<HTMLDivElement>(null);
 
@@ -112,15 +114,15 @@ const Header = () => {
                   <BsLinkedin className="fs-500" />
                 </Link>
               </li>
-              <CartCallout/>
+              <CartCallout />
             </ul>
           </div>
         </div>
         <div className="bg-primary text-white">
           <div className="box">
             <div className="flex items-center justify-between py-2">
-              <button className="lg:hidden" onClick={() => setIsOpen(!isOpen)}>
-                {isOpen ? (
+              <button className="lg:hidden" onClick={() => setOpen(!open)}>
+                {open ? (
                   <RiCloseFill />
                 ) : (
                   <div className="bg-white text-primary p-2 rounded">
@@ -215,6 +217,16 @@ const Header = () => {
           </div>
         </div>
         {showSearch && <SearchModal close={() => setShowSearch(false)} />}
+        <Drawer
+          open={open}
+          placement="left"
+          size={300}
+          onClose={() => setOpen(false)}
+          placeholder={""}
+          className=""
+        >
+          <MobileMenu close={() => setOpen(false)} />
+        </Drawer>
       </div>
     </>
   );

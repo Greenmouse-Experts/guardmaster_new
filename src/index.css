@@ -484,4 +484,7 @@ input[type="checkbox"]:checked {
   .bg-grad{
     background: linear-gradient(180deg, #053472 0%, #052B5E 100%);
   }
+  .clip-slant{
+    clip-path: polygon(100% 0, 100% 80%, 0 100%, 0 0);
+  }
 }

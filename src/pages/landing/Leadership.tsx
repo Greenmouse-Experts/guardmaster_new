@@ -1,100 +1,138 @@
 import PostHeader from "../../lib/components/layout/landing/PostHeader";
+import admin from "../../assets/Rectangle 21202.png";
 
 const Leadership = () => {
-    return (
-        <>
-          <div className="">
-            <PostHeader
-              image={
-                "https://res.cloudinary.com/greenmouse-tech/image/upload/v1706182936/GuardMaster/Group_48097434_1_j5kis8.png"
-              }
-              title="Leadership and Governance"
-              nav="Leadership and Governance"
-            />
-            <div>
-              <div className="boxes">
-                <div className="py-12 lg:py-24">
-                  <div className="lg:flex items-center justify-between">
-                    <div className="w-full lg:w-[25%]">
-                      <img
-                        src="https://res.cloudinary.com/greenmouse-tech/image/upload/v1707231563/GuardMaster/Group_48097527_1_uwpfpd.png"
-                        alt="founder"
-                        className="w-full"
-                      />
-                    </div>
-                    <div className="lg:w-[70%]">
-                      <p className="!syne mt-4 lg:mt-0 !text-3xl">Adegbenga William Koko</p>
-                      <p className="mt-4 !mont italic text-[#003DA5]">
-                        MSc, MBA, PGCert. (Forensics), CA, CFE, CAMS, CCLP, CMILT
-                        (UK), CBRM, LPC, ChLPS, CPO, CPOI, CC, MSyI, CPP® Executive
-                        Director and Lead Faculty, Guardmaster Institute of
-                        Corporate Security Management Canada
-                      </p>
-                      <p className="!mont mt-4">
-                        Adegbenga is an ASIS Board Certified Protection Professional
-                        (CPP®), IFPO Certified Protection Officer (CPO) and
-                        Certified Protection Officer Instructor (CPOI), Professional
-                        Member of The Security Institute, United Kingdom (MSyI),
-                        Professional Member of the International Security
-                        Organization (ISO-KLG) Switzerland, Certified Fraud Examiner
-                        (CFE), Certified Forensic Investigator (CFI), Certified Anti
-                        Money Laundering Specialist (CAMS), Chartered Member of the
-                        Chartered Institute of Logistics and Transport – UK (CMILT),
-                        and CITT Canada Certified Logistics Professional (CCLP). He
-                        also holds the Chartered Professional Accountant (CA)
-                        designations in two countries.
-                      </p>
-                    </div>
+  return (
+    <>
+      <div className="">
+        <PostHeader
+          image={
+            "https://res.cloudinary.com/greenmouse-tech/image/upload/v1706182936/GuardMaster/Group_48097434_1_j5kis8.png"
+          }
+          title="Leadership and Governance"
+          nav="Leadership and Governance"
+        />
+        <div className="mt-24">
+          <div className="bg-primary">
+            <div className="box">
+              <div className="relative flex flex-col py-12 lg:flex-row-reverse">
+                <div className="lg:w-5/12 flex justify-center">
+                  <div className="lg:absolute lg:w-[300px] -top-5 bg-secondary rounded-[50px] border-[20px] border-[#FFD347]">
+                    <img
+                      src={admin}
+                      alt="admin"
+                      className="w-full h-[295px] rounded-[50px] object-cover"
+                    />
                   </div>
-                  <div className="mt-6">
-                    <p className="!mont">
-                      He has undergone extensive training in the Canadian Corporate
-                      Security, Loss Prevention, Anti Money Laundering and Financial
-                      Crime Investigation Industry. He holds the Dual-Licenced of a
-                      Private Investigator and Security Guard in the Province of
-                      Ontario, Canada. He is also a Certified Chief Security Officer
-                      (CSO) and Certified Physical Security Manager (CPSM),
-                      Switzerland.
+                </div>
+                <div className="lg:w-7/12 pt-6 lg:py-[60px]">
+                  <div className="absolute -top-5 left-0 flex ">
+                    <p className="bg-secondary px-4 lg:px-8 fw-600 py-2">
+                      LEAD FACULTY AND TRAINER
                     </p>
-                    <p className="mt-3 !mont">
-                      {" "}
-                      Academically, he holds a Postgraduate Certificate in Fraud
-                      Examination & Forensic Accounting, a Bachelor Degree in
-                      Corporate Security Management, a Master of Science (MSc)
-                      Degree in International Security & Risk Management, and a
-                      Master of Business Administration (MBA) Degree in Finance &
-                      Corporate Strategy. He is currently pursuing a Doctor of
-                      Philosophy (PhD) Degree in Management, with specialization in
-                      Corporate Security Business Management.
+                  </div>
+                  <div className="text-white">
+                    <p className="fw-600 text-3xl lg:text-5xl">
+                      ADEGBENGA <br />
+                      WILLIAM KOKO
                     </p>
-                    <p className="mt-3 !mont">
-                      In addition to his expertise in Corporate Security Management,
-                      he is also a Chartered Loss Prevention Specialist (ChLPS),
-                      Loss Prevention Certified (LPC), Certified Security Assessment
-                      Specialist, and Certified Business Resilience Manager (CBRM).
-                      His expertise in Corporate Security Management, Security Audit
-                      & Assessment, and Loss Prevention, enables him to design,
-                      build and share his knowledge in designing and delivering
-                      various training programs in Private Security Operations,
-                      Corporate Security Management, Loss Prevention Operations,
-                      Supply Chain Security Management, Loss Prevention Through
-                      Environmental Design, and Security Audit & Assessment.
-                    </p>
-                    <p className="mt-3 !mont">
-                      Adegbenga William Koko is a Certified and Accredited Trainer
-                      with both The CPD Group-UK and the Global Compliance Institute
-                      (GCI) Australia. He is currently the Lead Faculty with the
-                      Guardmaster Institute of Corporate Security Management™,
-                      Adjunct Faculty at Guardmaster Academy Canada™ and Team Lead
-                      at Guardmaster Consulting Canada Inc.
+                    <p className="mt-6 lg:text-lg lg:w-8/12">
+                      MSc; MBA; CA; CFE; CFI; CPI; CCM; CAMS; CCLP; CMILT; CPSM;
+                      LPC; CBRM; CC<sup>SM</sup>,CPO; CPOI; MSyl; ChLPS
+                      <sup>TM</sup>; CPP &reg;
                     </p>
                   </div>
                 </div>
               </div>
             </div>
+            <div className="bg-pri w-full h-16"></div>
           </div>
-        </>
-      );
-}
+          <div className="box mt-16">
+            <div>
+              <p>
+                He is a Chartered Accountant (CA), an ASIS International Board
+                Certified Protection Professional (CPP®), I P O Certified
+                Protection Officer (CPO), I P O Certified Protection Officer
+                Instructor (CPOI), Chartered Loss Prevention Specialist
+                (ChLPSTM), Loss Prevention Certified Professional (LPC),
+                Certified Security Assessment Specialist, Certified Professional
+                Investigator (CPI), Certified Commercial & Retail Crime
+                Prevention Specialist, Certified Physical Security Manager
+                (CPSM), Certified Chief Security Officer (CSO), Certified Fraud
+                Examiner (CFE), Certified Anti-Money Laundering Specialist
+                (CAMS), Certified Business Resilience Manager (CBRM), Certified
+                Forensic Investigator (CFI), Certified Compliance Manager (CCM),
+                CITT Certified Logistics Professional (CCLP), and ISC2 -
+                Cybersecurity Certified (CC<sup>SM</sup>).
+              </p>
+              <p className="mt-6">
+                He holds a Bachelor&apos;s Degree in Corporate Security
+                (Switzerland), an Associate Degree in Accountancy, a
+                Postgraduate Certificate in Forensic Accounting & Fraud
+                Examination (Seneca College, Canada), a Graduate Certificate in
+                Risk Management (York University, Canada), a Master of Business
+                Administration (MBA) Degree in Finance &Corporate Strategy, and
+                a Master of Science (MSc.) Degree inInternational Security and
+                Risk Management (University of West London, UK). He is currently
+                pursuing a Doctor of Philosophy (PhD) Degree in Management -
+                (Corporate Security Business Management).
+              </p>
+              <p className="mt-6">
+                Adegbenga has distinct expertise in internal audit & control,
+                cybersecurity, regulatory compliance, fraud & forensic
+                Investigations, anti-money laundering investigations, general
+                corporate security operations, corporate intelligence,
+                investigations, security risk management, enterprise risk
+                management, incident management, business continuity management,
+                leadership of cross-functional teams, training & learning
+                management, among others.
+              </p>
+            </div>
+          </div>
+          <div className="relative mt-16 min-h-[1200px] lg:min-h-[700px]">
+            <div className="w-full z-0 absolute h-[1200px] lg:h-[700px] clip-slant bg-primary"></div>
+            <div className="box py-16 text-white">
+              <div className="relative z-10 lg:flex gap-x-6">
+                <div className="lg:w-10/12">
+                  <p>
+                    He is a multi-skilled and multi-disciplinary professional
+                    with specialization in Corporate Security Management, Loss
+                    Prevention, Business Resilience, Business Analysis, Anti
+                    Money Laundering, and Supply Chain Security. He has over
+                    fifteen years’ hands-on industry experience spread across
+                    banking, financial services, logistics and consulting.
+                  </p>
+                  <p className="mt-6">
+                    He is a subject matter expert in his fields, and his
+                    expertise enables him to build and share his knowledge in
+                    designing various training programs in Corporate Security
+                    Management, Loss Prevention, Supply Chain Security,
+                    Strategic Management, IT/Cybersecurity Audit, Change
+                    Management, Business Analysis, Fraud Examination, and
+                    Anti-Money Laundering Strategies in many jurisdictions
+                    across the globe. 
+                  </p>
+                  <p className="mt-6">
+                    A Certified and Accredited Trainer with both The CPD
+                    Group-UK and the Global Compliance Institute (GCI)
+                    Australia, He is also a Professional Member (MSyI) of The
+                    Security Institute, United Kingdom; Certified Member of the
+                    International Security Organization (ISO-KLG), Switzerland,
+                    and Chartered Member of the Chartered Institute of Logistics
+                    and Transport (CMILT), United Kingdom. He is the Lead
+                    Faculty and Trainer at Guardmaster Institute of Corporate
+                    Security Management Canada, and Team Lead at Guardmaster
+                    Consulting Canada.
+                  </p>
+                </div>
+                <div className="hidden lg:block w-2/12 h-[600px] bg-pri"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
+  );
+};
 
-export default Leadership
+export default Leadership;
