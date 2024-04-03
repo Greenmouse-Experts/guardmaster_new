@@ -1,5 +1,4 @@
 import { FC } from "react";
-import logo from "@/lib/assets/logo.png";
 import { FaTimes } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
