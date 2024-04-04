@@ -5,14 +5,16 @@ import { FaSearch } from "react-icons/fa";
 import CareerItem from "../../lib/components/landing/career/careerItem";
 import { toast } from "react-toastify";
 import HourGlassLoading from "../../lib/components/ui/loading/hourloading";
+import { IoSearch } from "react-icons/io5";
+import { MdLocationOn } from "react-icons/md";
 
 const CareersPage = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [page, setPage] = useState(1);
   const [count, setCount] = useState(0);
-  const [search, setSearch] = useState("");
-  const [location, setLoacation] = useState("");
+  const [search, setSearch] = useState("Security");
+  const [location, setLoacation] = useState("Canada");
   const getCareer = async () => {
     setLoading(true);
     await fetch(
@@ -81,19 +83,21 @@ const CareersPage = () => {
       <div className="box pb-24">
         <p className="text-lg lg:text-3xl fw-600">Careers</p>
         <div className="mt-6 grid grid-cols-5 lg:flex gap-3 relative z-10">
-          <div className="col-span-5 lg:w-8/12">
+          <div className="col-span-5 lg:w-8/12 flex items-center gap-x-2 px-2 border-2 lg:border-[4px] rounded border-[#052b5e]">
+            <IoSearch className="text-lg text-primary lg:text-3xl shrink-0"/>
             <input
               type="search"
               placeholder="Job Description"
-              className="w-full p-2 border-[4px]"
+              className="w-full p-2 outline-none fw-500 placeholder:text-gray-500 placeholder:font-semibold"
               onChange={(e) => setSearch(e.target.value)}
             />
           </div>
-          <div className="col-span-4 lg:w-3/12">
+          <div className="col-span-4 lg:w-3/12 border-2 lg:border-[4px] flex items-center gap-x-2 px-2 border-[#FFD347]">
+            <MdLocationOn className="text-[#FFD347] text-primary lg:text-3xl shrink-0"/>
             <input
               type="text"
               placeholder="Location"
-              className="w-full p-2 border-[4px]"
+              className="w-full p-2 fw-500 placeholder:text-gray-500 placeholder:font-semibold"
               onChange={(e) => setLoacation(e.target.value)}
             />
           </div>

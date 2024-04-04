@@ -21,7 +21,7 @@ const CareerItem: FC<Props> = ({ data, color }) => {
         </div>
         <div className="flex gap-x-2">
           <p className="whitespace-nowrap text-gray-600 !syne">Job Desc:</p>
-          <p>{data?.description}</p>
+          <div dangerouslySetInnerHTML={{ __html: data?.description }} />
         </div>
         <div className="flex gap-x-2">
           <p className="whitespace-nowrap text-gray-600 !syne">Location:</p>

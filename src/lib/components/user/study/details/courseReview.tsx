@@ -63,7 +63,7 @@ const CourseReview: FC<Props> = ({ id }) => {
                 <div className="hover:scale-105 duration-100">
                   <FaStar
                     className={`cursor-pointer ${
-                      Number(item.star_rating) >= i + 1 ? "text-orange-300" : "text-gray-300"
+                      Number(item.rating) >= i + 1 ? "text-orange-300" : "text-gray-300"
                     }`}
                   />
                 </div>

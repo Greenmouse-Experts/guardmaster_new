@@ -1,5 +1,6 @@
 import axios from "axios";
-import { GET_ALL_COURSES, GET_ALL_PROGRAMS, GET_REVIEWS, GET_SINGLE_COURSE, POST_REVIEW } from "../constant";
+import * as ENDPOINT from "../constant";
+import { GET_ALL_COURSES, GET_ALL_PROGRAMS, GET_REVIEWS, POST_REVIEW } from "../constant";
 
 export const getPrograms = async () => {
     return axios
@@ -21,7 +22,7 @@ export const getPrograms = async () => {
 
   export const getSingleCourse = async (payload:string) => {
     return axios
-      .get(`${GET_SINGLE_COURSE}/${payload}`)
+      .get(`${ENDPOINT.GET_SINGLE_COURSE}/${payload}`)
       .then((response) => response.data);
   };
 
@@ -33,6 +34,17 @@ export const getPrograms = async () => {
   export const submitReview = async (payload:any) => {
     return axios
       .post(`${POST_REVIEW}`, payload)
+      .then((response) => response.data);
+  };
+
+  export const getQuestions = async (payload:string) => {
+    return axios
+      .get(`${ENDPOINT.FETCH_QUESTIONS}/${payload}`)
+      .then((response) => response.data);
+  };
+  export const submitQuestions = async (payload:any) => {
+    return axios
+      .post(`${ENDPOINT.SUBMIT_ACCESSMENT}`, payload)
       .then((response) => response.data);
   };
 

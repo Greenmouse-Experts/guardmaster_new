@@ -46,6 +46,7 @@ const PaymentModal: FC<Props> = ({ close, data, name, amount }) => {
             return order.data.orderNumber
           }else{
             toast.error(order?.message)
+            close()
           }
         });
     } catch (e) {

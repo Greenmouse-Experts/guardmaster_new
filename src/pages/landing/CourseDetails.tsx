@@ -14,6 +14,8 @@ import useCartStore from "../../store/cartStore";
 import { toast } from "react-toastify";
 import useAuth from "../../hooks/authUser";
 import HourGlassLoading from "../../lib/components/ui/loading/hourloading";
+import useDialog from "../../hooks/useDialog";
+import LoginPrompt from "../../lib/utils/LoginPrompt";
 
 const CourseDetail = () => {
   const { id } = useParams();
@@ -35,7 +37,8 @@ const CourseDetail = () => {
   }, [data]);
   const proceedToPayment = () => {
     if(!isLoggedIn){
-      toast.info('Please Login to purchase a course')
+      ShowPop(true)
+      return;
     }
     const payload = {
         courses: [{ id: id, price: course?.price }],
@@ -45,6 +48,7 @@ const CourseDetail = () => {
     setShowModal(true)
   };
   const { Modal, setShowModal } = useModal();
+  const {Dialog, setShowModal:ShowPop} = useDialog()
   const handleAdd = () => {
     const payload = {
       id: course?.id || "",
@@ -124,8 +128,7 @@ const CourseDetail = () => {
                         Overview
                       </p>
                       <p className="mt-4 !syne font-semibold !text-3xl">
-                        {course?.title} from
-                        GICSM.
+                        {course?.title}
                       </p>
                       <p className="!mont mt-7">{course?.fullDesc}</p>
                       <div className="mt-12">
@@ -263,6 +266,9 @@ const CourseDetail = () => {
             amount={course?.originalPriceFormat}
           />
         </Modal>
+        <Dialog title="" size="xl">
+            <LoginPrompt/>
+        </Dialog>
       </div>
     </>
   );

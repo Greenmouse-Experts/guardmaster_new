@@ -38,3 +38,7 @@ export const GET_SINGLE_BLOG = `/blog/view-post`
 // notify
 export const GET_MY_NOTIFY = `/notifications/student`
 export const MARK_NOTIFY = `notifications/mark-as-read`
+
+// assessment
+export const FETCH_QUESTIONS = ``
+export const SUBMIT_ACCESSMENT = ``

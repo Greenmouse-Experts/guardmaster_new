@@ -4,41 +4,77 @@ import CourseDetails from "../../lib/components/user/study/details";
 import CourseHeader from "../../lib/components/user/study/layout/header";
 import CourseSideBar from "../../lib/components/user/study/layout/sideBar";
 import ContentList from "../../lib/components/user/study/content/contentList";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { fetchUserSingleCourse } from "../../services/api/userApi";
 import { useParams } from "react-router-dom";
+import AssessmentList from "../../lib/components/user/study/content/assessmentList";
+import AssessmentDisplay from "../../lib/components/user/study/content/assessmentDisplay";
 
 const StudyCourse = () => {
-  const {id} = useParams()
+  const { id } = useParams();
   const { data, isLoading } = useQuery({
     queryKey: ["singleCourse", `${id}`],
     queryFn: () => fetchUserSingleCourse(`${id}`),
   });
+  const [activeStudy, setActiveStudy] = useState(1);
   const [activeSub, setActiveSub] = useState({
-    mediaType: '',
-    media: '',
+    mediaType: "",
+    media: "",
     duration: 0,
-  })
+    title: ""
+  });
+  useEffect(() => {
+    setActiveSub({
+      mediaType: "",
+      media: "",
+      duration: 0,
+      title: ""
+    })
+  }, [activeStudy])
   return (
     <div className="flex">
       <div className="w-[106px]">
-        <CourseSideBar />
+        <CourseSideBar setActive={setActiveStudy} active={activeStudy}/>
       </div>
       <div className="lg:w-[calc(100%_-_106px)] h-screen">
-        {(data && !isLoading) && (
+        {data && !isLoading && (
           <>
             <div>
-              <CourseHeader data={data?.course} duration={data?.contents?.totalDuration}/>
+              <CourseHeader
+                data={data?.course}
+                duration={data?.contents?.totalDuration}
+              />
             </div>
-            <div className="lg:flex justify-between p-5">
-              <div className="w-[65%]">
-                <CoursePlayer active={activeSub}/>
-                <CourseDetails data={data?.course} id={`bf915481-623a-458a-8b29-fb043ce0a55c`}/>
+            {activeStudy === 1 && (
+              <div className="lg:flex justify-between p-5">
+                <div className="w-[65%]">
+                  <CoursePlayer active={activeSub} />
+                  <CourseDetails
+                    data={data?.course}
+                    id={`${id}`}
+                  />
+                </div>
+                <div className="w-[33%]">
+                  <ContentList
+                    data={data?.contents?.data}
+                    setActive={setActiveSub}
+                  />
+                </div>
               </div>
-              <div className="w-[33%]">
-                <ContentList data={data?.contents?.data} setActive={setActiveSub}/>
+            )}
+            {activeStudy === 2 && (
+              <div className="lg:flex justify-between p-5">
+                <div className="w-[65%]">
+                  <AssessmentDisplay active={activeSub}/>
+                </div>
+                <div className="w-[33%]">
+                  <AssessmentList
+                    data={data?.contents?.data}
+                    setActive={setActiveSub}
+                  />
+                </div>
               </div>
-            </div>
+            )}
           </>
         )}
       </div>

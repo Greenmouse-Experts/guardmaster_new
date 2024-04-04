@@ -42,7 +42,7 @@ const HeroSlide = () => {
             </div>
           </SwiperSlide>
           <SwiperSlide>
-            <div className="home bg-second bg-cover bg-center  lg:bg-top">
+            <div className="home bg-second  bg-no-repeat !bg-[left_calc(-100%)_top_calc(0%)] lg:bg-center  lg:!bg-top">
               <div className="box text-white">
                 <h2 className="text-2xl lg:text-5xl fw-600">
                   Explore Infinite Possibilities <br /> Here!
@@ -63,7 +63,7 @@ const HeroSlide = () => {
             </div>
           </SwiperSlide>
           <SwiperSlide>
-            <div className="home bg-third bg-cover bg-left lg:bg-top">
+            <div className="home bg-third bg-cover bg-no-repeat !bg-[left_calc(-100%)_top_calc(0%)]  lg:!bg-top">
               <div className="box text-white">
                 <h2 className="text-2xl lg:text-5xl fw-600">
                   Building Bridges to Success in <br />
@@ -85,7 +85,7 @@ const HeroSlide = () => {
             </div>
           </SwiperSlide>
           <SwiperSlide>
-            <div className="home bg-fourth bg-cover bg-left lg:bg-top">
+            <div className="home bg-fourth bg-cover bg-no-repeat !bg-[left_calc(-100%)_top_calc(0%)] lg:!bg-top">
               <div className="box text-white">
                 <h2 className="text-2xl lg:text-5xl fw-600">
                   Unleashing Potential, Driving <br /> and Excellence!
@@ -107,7 +107,7 @@ const HeroSlide = () => {
             </div>
           </SwiperSlide>
           <SwiperSlide>
-            <div className="home bg-fifth bg-cover bg-left lg:bg-top">
+            <div className="home bg-fifth bg-cover bg-no-repeat !bg-[left_calc(20%)_top_calc(0%)] lg:!bg-top">
               <div className="box text-white">
                 <h2 className="text-2xl lg:text-5xl fw-600">
                   Innovative Learning Solutions <br /> for All!
@@ -129,7 +129,7 @@ const HeroSlide = () => {
             </div>
           </SwiperSlide>
           <SwiperSlide>
-            <div className="home bg-sixth bg-cover bg-left lg:bg-top">
+            <div className="home bg-sixth bg-cover bg-no-repeat !bg-[left_calc(-180%)_top_calc(0%)]  lg:bg-top">
               <div className="box text-white">
                 <h2 className="text-2xl lg:text-5xl fw-600">
                   Innovative Learning Solutions <br /> for All!
@@ -151,13 +151,18 @@ const HeroSlide = () => {
             </div>
           </SwiperSlide>
           <SwiperSlide>
-            <div className="home bg-seventh bg-cover bg-left lg:bg-top">
+            <div className="home bg-seventh bg-cover bg-no-repeat !bg-[left_calc(-110%)_top_calc(0%)] lg:bg-top">
               <div className="box text-white">
                 <h2 className="text-2xl lg:text-5xl fw-600">
-                Unlocking Wisdom and <br />Achieving Greatness!
+                  Unlocking Wisdom and <br />
+                  Achieving Greatness!
                 </h2>
                 <p className="mt-6 lg:text-lg">
-                Guardmaster Institute embodies the idea of access to valuable information  <br />and achieving high standards, by utilizing our courses, individuals <br /> can open doors to learning, growth, and success.
+                  Guardmaster Institute embodies the idea of access to valuable
+                  information <br />
+                  and achieving high standards, by utilizing our courses,
+                  individuals <br /> can open doors to learning, growth, and
+                  success.
                 </p>
                 <div className="flex mt-6 lg:mt-12">
                   <Link
@@ -171,7 +176,7 @@ const HeroSlide = () => {
             </div>
           </SwiperSlide>
         </Swiper>
-        <BottomDisplay/>
+        <BottomDisplay />
       </div>
     </>
   );

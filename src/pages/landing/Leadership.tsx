@@ -15,7 +15,7 @@ const Leadership = () => {
         <div className="mt-24">
           <div className="bg-primary">
             <div className="box">
-              <div className="relative flex flex-col py-12 lg:flex-row-reverse">
+              <div className="relative flex flex-col py-12 lg:py-0 lg:flex-row-reverse">
                 <div className="lg:w-5/12 flex justify-center">
                   <div className="lg:absolute lg:w-[300px] -top-5 bg-secondary rounded-[50px] border-[20px] border-[#FFD347]">
                     <img

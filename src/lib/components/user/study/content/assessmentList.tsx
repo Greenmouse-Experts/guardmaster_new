@@ -8,26 +8,31 @@ import {
 import { MdOutlineOndemandVideo } from "react-icons/md";
 import {
   CourseContentData,
-  CourseContentSubs,
 } from "../../../../../contracts/course";
 
 type activeProps = {
   mediaType: string;
   media: string;
   duration: number;
-  title: string;
+  title:string;
 };
 interface Props {
   data: CourseContentData[];
   setActive: React.Dispatch<React.SetStateAction<activeProps>>;
 }
-const ContentList: FC<Props> = ({ data, setActive }) => {
+const AssessmentList: FC<Props> = ({ data, setActive }) => {
   const [open, setOpen] = React.useState(0);
   const handleOpen = (value: number) => setOpen(open === value ? 0 : value);
-
+    const filteredArray = data.map(obj =>
+        ({
+          ...obj,
+          courseContentSubs: obj.courseContentSubs.filter(innerObj => innerObj.mediaType === "assessment")
+        })
+      ).filter(obj => obj.courseContentSubs.length > 0);
+    
   return (
     <div className="mt-3">
-      {data.map((item, i) => {
+      {filteredArray.map((item, i) => {
         return (
           <Accordion
             placeholder={""}
@@ -55,23 +60,18 @@ const ContentList: FC<Props> = ({ data, setActive }) => {
             <AccordionBody className="px-4">
               <div className="grid gap-3">
                 {!!item.courseContentSubs?.length &&
-                  item.courseContentSubs
-                    .filter(
-                      (where: CourseContentSubs) =>
-                        where.mediaType !== "assessment"
-                    )
-                    .map((item, i) => (
+                  item.courseContentSubs.map((item, i) => (
                       <div
                         className="flex justify-between items-center px-4 py-2 hover:text-black cursor-pointer"
-                        key={i}
                         onClick={() =>
                           setActive({
+                            title: item.title || "",
                             media: item.media || "",
                             mediaType: item.mediaType,
                             duration: item.duration,
-                            title: item?.title
                           })
                         }
+                        key={i}
                       >
                         <div className="flex items-center gap-x-2">
                           <span className="w-2 h-2 circle block bg-black"></span>
@@ -93,4 +93,4 @@ const ContentList: FC<Props> = ({ data, setActive }) => {
   );
 };
 
-export default ContentList;
+export default AssessmentList;

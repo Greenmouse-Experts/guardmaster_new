@@ -60,7 +60,7 @@ const MobileMenu: FC<Props> = ({ close }) => {
         <FaTimes className="text-xl cursor-pointer" onClick={close} />
       </div>
       <div className="mt-12">
-        <ul className="grid gap-5">
+        <ul className="grid gap-5" onClick={close}>
           {headerRoutes.map((item) => (
             <li className="border-b" key={item.route}>
               <Link to={item.route} className="px-3 hover:text-[#F4C501]">
