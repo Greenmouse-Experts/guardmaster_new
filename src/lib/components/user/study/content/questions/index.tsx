@@ -1,4 +1,4 @@
-import { FC,  useEffect,  useState } from "react";
+import { FC,  useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/element/css/effect-fade";
@@ -39,11 +39,11 @@ const StartAssessment: FC<Props> = ({ id, duration, close }) => {
   const [currentIndex, setCurrentIndex] = useState<number>(0);
   const [prevEl, setPrevEl] = useState<HTMLElement | null>(null);
   const [nextEl, setNextEl] = useState<HTMLElement | null>(null);
-  useEffect(() => {
-      setTimeout(() => {
-        handleSubmit()
-      }, duration * 60 * 300)
-  }, [])
+  // useEffect(() => {
+  //     setTimeout(() => {
+  //       handleSubmit()
+  //     }, duration * 60 * 300)
+  // }, [])
   // submission modal
   const {Dialog, setShowModal} = useDialog()
   // submission
@@ -80,7 +80,7 @@ const StartAssessment: FC<Props> = ({ id, duration, close }) => {
       {!isLoading && data && (
         <div>
           <div>
-            <TimerFunc duration={0.4} ontimeout={() => handleSubmit()} attempt={attempt}/>
+            <TimerFunc duration={duration} ontimeout={() => handleSubmit()} attempt={attempt}/>
             <p className="fw-600">{data?.count} Questions</p>
           </div>
           <div className="mt-6 p-6 border-2 shadow">

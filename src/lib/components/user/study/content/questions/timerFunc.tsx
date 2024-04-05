@@ -8,7 +8,14 @@ interface Props{
 }
 const TimerFunc:FC<Props> = ({duration, ontimeout, attempt}) => {
     const [timeLeft, setTimeLeft] = useState(duration * 60);
-    
+    useEffect(() => {
+      const callThisFunction = () => {
+        setTimeout(() => {
+          ontimeout()
+        }, duration * 60 * 1000);
+      }
+      callThisFunction()
+    }, [])
     useEffect(() => {
       const timer = window.setInterval(() => {
         setTimeLeft((prevTimeLeft) => {
