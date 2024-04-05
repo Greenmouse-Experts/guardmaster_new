@@ -15,6 +15,7 @@ type activeProps = {
   media: string;
   duration: number;
   title:string;
+  id: string;
 };
 interface Props {
   data: CourseContentData[];
@@ -49,11 +50,11 @@ const AssessmentList: FC<Props> = ({ data, setActive }) => {
           >
             <AccordionHeader
               placeholder={""}
-              className="border-b-2 p-4"
+              className="border-b-2 px-2 p-4"
               onClick={() => handleOpen(i + 1)}
             >
-              <div className="flex gap-x-2 items-center">
-                <MdOutlineOndemandVideo className="text-" />
+              <div className="flex gap-x-2 items-start">
+                <MdOutlineOndemandVideo className="text- shrink-0 relative top-2" />
                 <p className="text-lg">{item.title}</p>
               </div>
             </AccordionHeader>
@@ -69,6 +70,7 @@ const AssessmentList: FC<Props> = ({ data, setActive }) => {
                             media: item.media || "",
                             mediaType: item.mediaType,
                             duration: item.duration,
+                            id: item?.id || ""
                           })
                         }
                         key={i}

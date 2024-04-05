@@ -19,7 +19,7 @@ const UserCourses = () => {
   // })
   const fetchCourses = async (page:number) => {
     setLoading(true);
-    await fetchUserCourses(page)
+    await fetchUserCourses(page, 'confirmed')
       .then((res) => {
         setData(res.data);
         setCount(res.count);

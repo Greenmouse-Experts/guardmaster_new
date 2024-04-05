@@ -7,9 +7,9 @@ export const fetchOrder = async (page:number) => {
       .then((response) => response.data);
   };
 
-  export const fetchUserCourses = async (page:number) => {
+  export const fetchUserCourses = async (page:number, status:string) => {
     return axios
-      .get(`${ENDPOINT.USER_COURSES}?page=${page}`)
+      .get(`${ENDPOINT.USER_COURSES}?page=${page}&[order][status]=${status}`)
       .then((response) => response.data);
   };
 

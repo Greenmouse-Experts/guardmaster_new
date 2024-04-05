@@ -5,8 +5,9 @@ interface Props {
   item: any;
   setAnswer: React.Dispatch<React.SetStateAction<AttemptType[]>>;
   answers: AttemptType[];
+  index: number;
 }
-const QuestionItem: FC<Props> = ({ item, setAnswer, answers }) => {
+const QuestionItem: FC<Props> = ({ item, setAnswer, answers, index }) => {
   const [selected, setSeleted] = useState<number>();
   const handleAttempt = (ans: number) => {
     const submits = answers.filter((where) => where.question === item.id);
@@ -30,9 +31,9 @@ const QuestionItem: FC<Props> = ({ item, setAnswer, answers }) => {
     handleAttempt(item);
   };
   return (
-    <div>
+    <div className="w-full">
       <div>
-        <p className="">Question</p>
+        <p className="">Question {index + 1}</p>
         <p className="mt-2 fw-500">{item.question}</p>
       </div>
       <div className="grid lg:grid-cols-2 gap-6 mt-12">

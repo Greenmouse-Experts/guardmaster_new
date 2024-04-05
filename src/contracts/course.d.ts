@@ -12,6 +12,7 @@ export interface CourseContentSubs {
   previewUrl: string;
   mediaType: string;
   media?: string
+  id?: string
 }
 export interface CourseContentData {
   title: string;

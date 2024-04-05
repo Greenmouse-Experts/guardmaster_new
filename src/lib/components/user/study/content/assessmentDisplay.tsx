@@ -7,14 +7,26 @@ type activeProps = {
   media: string;
   duration: number;
   title: string;
+  id: string;
 };
 interface Props {
   active: activeProps;
 }
 const AssessmentDisplay: FC<Props> = ({ active }) => {
   const [cover, setCover] = useState(true);
+  console.log(active);
+
   return (
     <div className="w-full overflow-y-auto">
+      {!active?.title && (
+        <div>
+          <img
+            src="https://res.cloudinary.com/greenmouse-tech/image/upload/v1712319923/GuardMaster/quiz-base_hz1zss.jpg"
+            alt="cover"
+            className="w-full"
+          />
+        </div>
+      )}
       {active?.title && (
         <div>
           {cover && (
@@ -40,7 +52,13 @@ const AssessmentDisplay: FC<Props> = ({ active }) => {
               </div>
             </div>
           )}
-          {!cover && <StartAssessment id={''}/>}
+          {!cover && (
+            <StartAssessment
+              duration={Number(active.duration)}
+              id={active.id}
+              close={() => setCover(false)}
+            />
+          )}
         </div>
       )}
     </div>

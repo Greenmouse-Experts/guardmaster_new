@@ -9,6 +9,7 @@ import { fetchUserSingleCourse } from "../../services/api/userApi";
 import { useParams } from "react-router-dom";
 import AssessmentList from "../../lib/components/user/study/content/assessmentList";
 import AssessmentDisplay from "../../lib/components/user/study/content/assessmentDisplay";
+import HourGlassLoading from "../../lib/components/ui/loading/hourloading";
 
 const StudyCourse = () => {
   const { id } = useParams();
@@ -21,14 +22,16 @@ const StudyCourse = () => {
     mediaType: "",
     media: "",
     duration: 0,
-    title: ""
+    title: "",
+    id: ""
   });
   useEffect(() => {
     setActiveSub({
       mediaType: "",
       media: "",
       duration: 0,
-      title: ""
+      title: "",
+      id: ""
     })
   }, [activeStudy])
   return (
@@ -37,6 +40,11 @@ const StudyCourse = () => {
         <CourseSideBar setActive={setActiveStudy} active={activeStudy}/>
       </div>
       <div className="lg:w-[calc(100%_-_106px)] h-screen">
+      {isLoading && (
+        <div className="place-center py-16">
+          <HourGlassLoading size={1.3} />
+        </div>
+      )}
         {data && !isLoading && (
           <>
             <div>

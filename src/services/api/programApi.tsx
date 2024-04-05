@@ -37,14 +37,34 @@ export const getPrograms = async () => {
       .then((response) => response.data);
   };
 
-  export const getQuestions = async (payload:string) => {
+  export const getQuestions = async (payload:string, id:string) => {
     return axios
-      .get(`${ENDPOINT.FETCH_QUESTIONS}/${payload}`)
+      .get(`${ENDPOINT.FETCH_QUESTIONS}/${payload}`, {
+        headers: {
+          'Course-Request-Id': `${id}`
+        }
+      })
       .then((response) => response.data);
   };
-  export const submitQuestions = async (payload:any) => {
+  export const submitQuestions = async (payload:any, id:string) => {
     return axios
-      .post(`${ENDPOINT.SUBMIT_ACCESSMENT}`, payload)
+      .post(`${ENDPOINT.SUBMIT_ACCESSMENT}`, payload,  {
+        headers: {
+          'Course-Request-Id': `${id}`
+        }
+      })
       .then((response) => response.data);
   };
+
+  export const getScore = async (payload:string, id:string) => {
+    return axios
+      .get(`${ENDPOINT.FETCH_MY_SCORE}/${payload}`, {
+        headers: {
+          'Course-Request-Id': `${id}`
+        }
+      })
+      .then((response) => response.data);
+  };
+
+
 
