@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { fetchUserCourses } from "../../services/api/userApi";
 import HourGlassLoading from "../../lib/components/ui/loading/hourloading";
 import { PurchaseItemType } from "../../contracts/course";
-import { Progress, Typography } from "@material-tailwind/react";
 import { useNavigate } from "react-router-dom";
 import { EmptyData } from "../../lib/components/ui/empty/emptyStates";
 import { toast } from "react-toastify";
@@ -73,19 +72,6 @@ const UserCourses = () => {
                   <p className="fw-500 text-gray-600 !syne">
                     {item.course.title}
                   </p>
-                </div>
-                <div className="mt-3">
-                  <div className="w-full">
-                    <div className="mb-2 flex items-center justify-between gap-4">
-                      <Typography color="blue-gray" variant="h6">
-                        Completed
-                      </Typography>
-                      <Typography color="green" variant="h6">
-                        50%
-                      </Typography>
-                    </div>
-                    <Progress value={50} color="green" variant="gradient" />
-                  </div>
                 </div>
                 <div className="mt-5 p-2">
                   <button

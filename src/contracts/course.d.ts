@@ -11,8 +11,8 @@ export interface CourseContentSubs {
   duration: number;
   previewUrl: string;
   mediaType: string;
-  media?: string
-  id?: string
+  media?: string;
+  id?: string;
 }
 export interface CourseContentData {
   title: string;
@@ -87,4 +87,17 @@ export interface PurchaseItemType {
     status: string;
   };
   price: number;
+}
+
+export interface ReadItemType {
+  createdDate: string;
+  id: string;
+  contentSub: CourseContentSubs;
+}
+
+export interface AssessmentResultType {
+  courseContentSub: CourseContentSubs;
+  percent: number;
+  score: number;
+  total: number;
 }

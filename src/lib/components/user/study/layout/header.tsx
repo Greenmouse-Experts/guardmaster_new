@@ -10,10 +10,10 @@ const CourseHeader: FC<Props> = ({ data, duration }) => {
   return (
     <div className="w-full shadow-xl">
       <div className="grid lg:grid-cols-6 items-center p-4 ">
-        <div className="col-span-4">
-          <p className="text-lg fw-600">{data?.title}</p>
+        <div className="lg:col-span-4">
+          <p className="lg:text-lg fw-600">{data?.title}</p>
         </div>
-        <div className="col-span-2 flex items-center lg:gap-x-6">
+        <div className="mt-4 lg:mt-0 lg:col-span-2 flex justify-between lg:justify-normal items-center lg:gap-x-6">
           <p className="bg-primary text-white px-4 py-2">{duration} mins</p>
           <div className="text-gray-600">
             <div className="fw-500 flex gap-x-2">

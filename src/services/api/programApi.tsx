@@ -66,5 +66,15 @@ export const getPrograms = async () => {
       .then((response) => response.data);
   };
 
+  export const markSubRead = async (payload:any, id:string) => {
+    return axios
+      .post(`${ENDPOINT.READ_SUB_CONTENT}`, payload,  {
+        headers: {
+          'Course-Request-Id': `${id}`
+        }
+      })
+      .then((response) => response.data);
+  };
+
 
 

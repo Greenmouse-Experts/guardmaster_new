@@ -53,8 +53,8 @@ const PaymentModal: FC<Props> = ({ close, data, name, amount }) => {
       console.log(e);
     }
   }
-  function onApprove(data: any) {
-    return fetch(`${BASE_URL}/orders/confirm/${data.orderID}`, {
+  async function onApprove(data: any) {
+    return await fetch(`${BASE_URL}/orders/confirm/${data.orderID}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

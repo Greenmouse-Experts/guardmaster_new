@@ -16,6 +16,7 @@ import useAuth from "../../hooks/authUser";
 import HourGlassLoading from "../../lib/components/ui/loading/hourloading";
 import useDialog from "../../hooks/useDialog";
 import LoginPrompt from "../../lib/utils/LoginPrompt";
+import CourseRating from "../../lib/components/landing/course/courseRating";
 
 const CourseDetail = () => {
   const { id } = useParams();
@@ -201,14 +202,8 @@ const CourseDetail = () => {
                           </div>
                         </div>
                       </div>
-                      <div className="mt-12">
-                        <p className="!mont text-[#003DA5] font-medium">
-                          0.0 course rating
-                        </p>
-                        <p className="mt-4 !syne font-semibold !text-3xl">
-                          Reviews and Ratings
-                        </p>
-                        {/* <CourseRating/> */}
+                      <div className="mt-12 w-full">
+                        <CourseRating id={`${id}`}/>
                       </div>
                     </div>
                     <div className="lg:w-[28%] mt-8 lg:mt-0">

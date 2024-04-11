@@ -12,7 +12,7 @@ interface Props {
   id: string;
 }
 const CourseReview: FC<Props> = ({ id }) => {
-  const { data, isLoading } = useQuery({
+  const { data, isLoading, refetch } = useQuery({
     queryKey: ["reviews"],
     queryFn: () => getReviews(id),
   });
@@ -48,7 +48,7 @@ const CourseReview: FC<Props> = ({ id }) => {
           !!data?.data?.results.length &&
           data?.data?.results.map((item: any) => (
             <div className="flex gap-x-5 border-b pb-2" key={item.id}>
-              <div>
+              <div className="shrink-0">
                 <ProfileAvatar
                   url={item?.user?.picture}
                   name={`${item?.user?.firstName} ${item?.user?.lastName}`}
@@ -69,14 +69,14 @@ const CourseReview: FC<Props> = ({ id }) => {
                 </div>
               ))}
                 </div>
-                <p className="mt-1">{item.comment}</p>
+                <p className="mt-1 fs-500">{item.comment}</p>
               </div>
             </div>
           ))}
         </div>
       </div>
       <Modal title="Add Review Modal">
-        <AddReview id={id} close={() => setShowModal(false)} />
+        <AddReview id={id} close={() => setShowModal(false)} refetch={refetch} />
       </Modal>
     </div>
   );

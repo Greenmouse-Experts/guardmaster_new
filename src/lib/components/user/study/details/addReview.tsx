@@ -7,8 +7,9 @@ import { toast } from "react-toastify";
 interface Props {
   id: string;
   close: () => void;
+  refetch: () => void
 }
-const AddReview: FC<Props> = ({ id, close }) => {
+const AddReview: FC<Props> = ({ id, close, refetch }) => {
   const [isBusy, setIsBusy] = useState(false);
   const [data, setData] = useState({
     rating: 0,
@@ -28,6 +29,7 @@ const AddReview: FC<Props> = ({ id, close }) => {
       .then((res) => {
         toast.success(res.message);
         setIsBusy(false);
+        refetch()
         close();
       })
       .catch((err) => {

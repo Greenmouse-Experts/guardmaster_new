@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useEffect, useState } from "react";
 import { RiArrowDropDownLine, RiArrowDropUpLine } from "react-icons/ri";
 import {
   Accordion,
@@ -7,6 +7,7 @@ import {
 } from "@material-tailwind/react";
 import { MdOutlineOndemandVideo } from "react-icons/md";
 import {
+  AssessmentResultType,
   CourseContentData,
 } from "../../../../../contracts/course";
 
@@ -14,23 +15,41 @@ type activeProps = {
   mediaType: string;
   media: string;
   duration: number;
-  title:string;
+  title: string;
   id: string;
+  read?: boolean
 };
 interface Props {
   data: CourseContentData[];
   setActive: React.Dispatch<React.SetStateAction<activeProps>>;
+  assessment: AssessmentResultType[];
 }
-const AssessmentList: FC<Props> = ({ data, setActive }) => {
+const AssessmentList: FC<Props> = ({ data, setActive, assessment }) => {
   const [open, setOpen] = React.useState(0);
   const handleOpen = (value: number) => setOpen(open === value ? 0 : value);
-    const filteredArray = data.map(obj =>
-        ({
-          ...obj,
-          courseContentSubs: obj.courseContentSubs.filter(innerObj => innerObj.mediaType === "assessment")
-        })
-      ).filter(obj => obj.courseContentSubs.length > 0);
-    
+  const filteredArray = data
+    .map((obj) => ({
+      ...obj,
+      courseContentSubs: obj.courseContentSubs.filter(
+        (innerObj) => innerObj.mediaType === "assessment"
+      ),
+    }))
+    .filter((obj) => obj.courseContentSubs.length > 0);
+  const [assessIds, setAssessIds] = useState<(string | undefined)[]>([]);
+  const getAssessment = () => {
+    if (assessment) {
+      const values = assessment?.map(({ courseContentSub }) => courseContentSub?.id);
+      if (!!values.length) {
+        setAssessIds(values);
+      }
+    } else {
+      setAssessIds([]);
+    }
+  };
+  useEffect(() => {
+    getAssessment();
+  }, []);
+
   return (
     <div className="mt-3">
       {filteredArray.map((item, i) => {
@@ -62,30 +81,40 @@ const AssessmentList: FC<Props> = ({ data, setActive }) => {
               <div className="grid gap-3">
                 {!!item.courseContentSubs?.length &&
                   item.courseContentSubs.map((item, i) => (
-                      <div
-                        className="flex justify-between items-center px-4 py-2 hover:text-black cursor-pointer"
-                        onClick={() =>
-                          setActive({
-                            title: item.title || "",
-                            media: item.media || "",
-                            mediaType: item.mediaType,
-                            duration: item.duration,
-                            id: item?.id || ""
-                          })
-                        }
-                        key={i}
-                      >
-                        <div className="flex items-center gap-x-2">
-                          <span className="w-2 h-2 circle block bg-black"></span>
-                          <p className="fs-600 fw-500">{item.title}</p>
+                    <div
+                      className="flex justify-between items-center px-2 py-2 hover:text-black cursor-pointer"
+                      onClick={() =>
+                        setActive({
+                          title: item.title || "",
+                          media: item.media || "",
+                          mediaType: item.mediaType,
+                          duration: item.duration,
+                          id: item?.id || "",
+                          read: assessIds.includes(item?.id),
+                        })
+                      }
+                      key={i}
+                    >
+                      <div className="flex items-center gap-x-2">
+                        <div
+                          className="pt-1"
+                          onClick={(e) => e.stopPropagation()}
+                        >
+                          <input
+                            type="checkbox"
+                            className="w-4 h-4"
+                            checked={assessIds.includes(item?.id)}
+                          />
                         </div>
-                        <div>
-                          <p className="fs-500 fw-500 whitespace-nowrap">
-                            {item.duration} Min(s)
-                          </p>
-                        </div>
+                        <p className="fs-600 fw-500">{item.title}</p>
                       </div>
-                    ))}
+                      <div>
+                        <p className="fs-500 fw-500 whitespace-nowrap">
+                          {item.duration} Min(s)
+                        </p>
+                      </div>
+                    </div>
+                  ))}
               </div>
             </AccordionBody>
           </Accordion>

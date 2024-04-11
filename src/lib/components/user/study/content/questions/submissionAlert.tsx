@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { FC } from "react";
+import { FC, useEffect } from "react";
 import { getScore } from "../../../../../../services/api/programApi";
 import { BeatLoader } from "react-spinners";
 import { FaMinus } from "react-icons/fa6";
@@ -7,13 +7,17 @@ import { FaMinus } from "react-icons/fa6";
 interface Props {
   id: string;
   courseId: string;
+  close: () => void
 }
-const SubmissionAlert: FC<Props> = ({ id, courseId }) => {
+const SubmissionAlert: FC<Props> = ({ id, courseId, close }) => {
   const { data, isLoading } = useQuery({
     queryKey: ["quiz-answers", id],
     queryFn: () => getScore(id, `${courseId}`),
     retry: 0,
   });
+  useEffect(() => {
+    close()
+  }, [])
   return (
     <div>
       <div>

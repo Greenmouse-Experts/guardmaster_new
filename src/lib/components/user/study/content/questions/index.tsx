@@ -39,12 +39,6 @@ const StartAssessment: FC<Props> = ({ id, duration, close }) => {
   const [currentIndex, setCurrentIndex] = useState<number>(0);
   const [prevEl, setPrevEl] = useState<HTMLElement | null>(null);
   const [nextEl, setNextEl] = useState<HTMLElement | null>(null);
-  // useEffect(() => {
-  //     setTimeout(() => {
-  //       handleSubmit()
-  //     }, duration * 60 * 300)
-  // }, [])
-  // submission modal
   const {Dialog, setShowModal} = useDialog()
   // submission
   const [isBusy, setIsBusy] = useState(false)
@@ -56,13 +50,13 @@ const StartAssessment: FC<Props> = ({ id, duration, close }) => {
       courseContentSub: id
     }
    if(submitted){
+    setIsBusy
     toast.info('Quiz already submitted')
    }else {
     await submitQuestions(payload, `${courseId}`)
     .then(() => {
       setIsBusy(false)
       setShowModal(true)
-      close()
     })
     .catch((err) => {
       setIsBusy(false)
@@ -144,7 +138,7 @@ const StartAssessment: FC<Props> = ({ id, duration, close }) => {
         </div>
       )}
       <Dialog title="" size="lg">
-          <SubmissionAlert id={id} courseId={`${courseId}`}/>
+          <SubmissionAlert id={id} courseId={`${courseId}`} close={close}/>
       </Dialog>
     </div>
   );

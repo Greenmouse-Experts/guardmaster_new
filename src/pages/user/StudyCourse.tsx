@@ -35,8 +35,8 @@ const StudyCourse = () => {
     })
   }, [activeStudy])
   return (
-    <div className="flex">
-      <div className="w-[106px]">
+    <div className="lg:flex">
+      <div className="lg:w-[106px]">
         <CourseSideBar setActive={setActiveStudy} active={activeStudy}/>
       </div>
       <div className="lg:w-[calc(100%_-_106px)] h-screen">
@@ -54,31 +54,34 @@ const StudyCourse = () => {
               />
             </div>
             {activeStudy === 1 && (
-              <div className="lg:flex justify-between p-5">
-                <div className="w-[65%]">
+              <div className="lg:flex justify-between p-2 lg:p-5">
+                <div className="lg:w-[65%]">
                   <CoursePlayer active={activeSub} />
                   <CourseDetails
                     data={data?.course}
                     id={`${id}`}
                   />
                 </div>
-                <div className="w-[33%]">
+                <div className="lg:w-[33%]">
                   <ContentList
                     data={data?.contents?.data}
                     setActive={setActiveSub}
+                    id={`${id}`}
+                    reads={data?.reads}
                   />
                 </div>
               </div>
             )}
             {activeStudy === 2 && (
-              <div className="lg:flex justify-between p-5">
-                <div className="w-[65%]">
+              <div className="lg:flex justify-between p-2 lg:p-5">
+                <div className="lg:w-[65%]">
                   <AssessmentDisplay active={activeSub}/>
                 </div>
-                <div className="w-[33%]">
+                <div className="lg:w-[33%]">
                   <AssessmentList
                     data={data?.contents?.data}
                     setActive={setActiveSub}
+                    assessment={data?.assessmentResults}
                   />
                 </div>
               </div>
