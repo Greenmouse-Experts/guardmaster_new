@@ -1,13 +1,17 @@
 import { FC } from "react";
 import { PurchaseItemType } from "../../../../contracts/course";
 import { Progress, Typography } from "@material-tailwind/react";
+import useDialog from "../../../../hooks/useDialog";
+import AllAssessments from "./assessment";
 
 interface Props {
   data: PurchaseItemType;
 }
 const ProgressItem: FC<Props> = ({ data }) => {
+  const {Dialog, setShowModal} = useDialog()
   return (
-    <div className="lg:flex items-stretch shadow-lg lg:gap-x-6">
+   <>
+     <div className="lg:flex items-stretch shadow-lg lg:gap-x-6">
       <div className="lg:w-3/12 border">
         <img
           src={data.course.coverImage}
@@ -25,11 +29,11 @@ const ProgressItem: FC<Props> = ({ data }) => {
               <Typography color="blue-gray" variant="h6">
                 Completed
               </Typography>
-              <Typography color="green" variant="h6">
-                50%
+              <Typography color={data.course.totalContent > 0? "green" : "amber"} variant="h6">
+                {`${data.course.totalContent}%`}
               </Typography>
             </div>
-            <Progress value={50} color="green" variant="gradient" />
+            <Progress value={data.course.totalContent} color="green" variant="gradient" />
           </div>
         </div>
         <div className="mt-3">
@@ -39,7 +43,7 @@ const ProgressItem: FC<Props> = ({ data }) => {
                 Assessments
               </Typography>
               <Typography color="green" variant="h6">
-                5/12
+                {data.course.assessment.done}/{data.course.assessment.total}
               </Typography>
             </div>
           </div>
@@ -52,14 +56,18 @@ const ProgressItem: FC<Props> = ({ data }) => {
             Get Certification
           </button>
           <button
-            className="bg-light fw-600 fs-500 !syne text-gray-600 py-2 px-6 rounded shadow-lg hover:shadow-xl hover:scale-x-110 duration-100"
-            // onClick={() => navigate(`/user/courses/${item.course.id}`)}
+            className="bg-primary text-white fw-600 fs-500 !syne  py-2 px-6 rounded shadow-lg hover:shadow-xl hover:scale-x-110 duration-100"
+            onClick={() => setShowModal(true)}
           >
             View Assessment Results
           </button>
         </div>
       </div>
     </div>
+    <Dialog title="All Attempted Assessments" size="2xl">
+      <AllAssessments id={data?.course.id}/>
+    </Dialog>
+   </>
   );
 };
 

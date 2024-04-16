@@ -68,6 +68,11 @@ export interface PurchaseItemType {
     shortDesc: string;
     title: string;
     updatedDate: string;
+    totalContent: number;
+    assessment: {
+      done: number;
+      total: number
+    }
   };
   coverImage: string;
   createdDate: string;

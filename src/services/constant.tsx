@@ -44,3 +44,4 @@ export const MARK_NOTIFY = `notifications/mark-as-read`
 export const FETCH_QUESTIONS = `/orders/assessment-questions`
 export const SUBMIT_ACCESSMENT = `/orders/attempt`
 export const FETCH_MY_SCORE = `/orders/fetch-attempts`
+export const FETCH_ASSESSMENTS = `/orders/fetch-assessments-result`

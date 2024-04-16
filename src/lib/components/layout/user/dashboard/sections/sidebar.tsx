@@ -11,7 +11,7 @@ const SidebarLayout = () => {
   const { Modal, setShowModal } = useModal();
 
   return (
-    <div className="left-0 top-0 fixed overflow-y-hidden index-30  bg-primary text-white">
+    <div className="left-0 top-0 fixed overflow-y-hidden  bg-primary text-white">
       <Sidebar
         customBreakPoint="1024px"
         className="h-screen overflow-y-hidden scroll-pro pb-4 fs-700 fw-500 px-4"

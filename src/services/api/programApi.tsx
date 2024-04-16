@@ -76,5 +76,15 @@ export const getPrograms = async () => {
       .then((response) => response.data);
   };
 
+  export const getAssessments = async (id:string) => {
+    return axios
+      .get(`${ENDPOINT.FETCH_ASSESSMENTS}`,  {
+        headers: {
+          'Course-Request-Id': `${id}`
+        }
+      })
+      .then((response) => response.data);
+  };
+
 
 
