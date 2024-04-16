@@ -10,7 +10,7 @@ import useAuth from "../../hooks/authUser";
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
-  const {saveUser} = useAuth()
+  const { saveUser } = useAuth();
 
   const togglePassword = () => {
     setShowPassword(!showPassword); // Toggle the showPassword state
@@ -33,25 +33,29 @@ const Login = () => {
     };
     await loginUser(payload)
       .then((data) => {
-        toast.success("Login Successful");
         setIsBusy(false);
-        localStorage.setItem('guard_token', data.accessToken)
-        saveUser({
-          name: `${data.data.firstName} ${data.data.lastName}`,
-          email: data.data.email,
-          token: data.accessToken,
-          image: data.data.picture,
-          address: data.data.address,
-          phone: data.data.phone,
-          id: data.data.id,
-          account: data.data.role,
-          bio: data.data.bio,
-          facebookUrl: data.data.facebookUrl,
-          twitterUrl: data.data.twitterUrl,
-          linkedinUrl: data.data.linkedinUrl,
-          joined: data.data.createdDate,
-        })
-        navigate('/user')
+        if (data.data.role === "student") {
+          toast.success("Login Successful");
+          localStorage.setItem("guard_token", data.accessToken);
+          saveUser({
+            name: `${data.data.firstName} ${data.data.lastName}`,
+            email: data.data.email,
+            token: data.accessToken,
+            image: data.data.picture,
+            address: data.data.address,
+            phone: data.data.phone,
+            id: data.data.id,
+            account: data.data.role,
+            bio: data.data.bio,
+            facebookUrl: data.data.facebookUrl,
+            twitterUrl: data.data.twitterUrl,
+            linkedinUrl: data.data.linkedinUrl,
+            joined: data.data.createdDate,
+          });
+          navigate("/");
+        }else{
+          toast.info('User profile not available')
+        }
       })
       .catch((error) => {
         toast.error(error?.response?.data?.message);
