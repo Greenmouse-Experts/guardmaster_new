@@ -2,6 +2,7 @@ import { FaBook, FaMedal } from 'react-icons/fa'
 import { ActivitiesTimeline } from '../../lib/components/user/dashboard/Activities'
 import ActivityChart from '../../lib/components/user/dashboard/ActivityChart'
 import { LuBookOpen } from 'react-icons/lu'
+import LeaveReview from '../../lib/components/user/dashboard/LeaveReview'
 
 const UserDashboard = () => {
     const topBar = [
@@ -42,6 +43,9 @@ const UserDashboard = () => {
             <div className='grid lg:grid-cols-2 gap-6 mt-6 lg:mt-12'>
                 <ActivitiesTimeline/>
                 <ActivityChart/>
+            </div>
+            <div className='mt-6'>
+                <LeaveReview/>
             </div>
         </div>
     </>

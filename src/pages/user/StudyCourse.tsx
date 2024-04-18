@@ -36,10 +36,10 @@ const StudyCourse = () => {
   }, [activeStudy])
   return (
     <div className="lg:flex">
-      <div className="lg:w-[106px]">
+      <div className="lg:w-[106px] relative">
         <CourseSideBar setActive={setActiveStudy} active={activeStudy}/>
       </div>
-      <div className="lg:w-[calc(100%_-_106px)] h-screen">
+      <div className="lg:w-[calc(100%_-_106px)] min-h-screen">
       {isLoading && (
         <div className="place-center py-16">
           <HourGlassLoading size={1.3} />

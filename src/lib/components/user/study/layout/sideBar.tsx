@@ -11,7 +11,7 @@ interface Props {
 const CourseSideBar: FC<Props> = ({ setActive, active }) => {
   const navigate = useNavigate();
   return (
-    <div className="w-full pr-2 lg:pr-0 shadow-xl lg:min-h-screen lg:h-full relative grid content-center">
+    <div className="w-full pr-2 lg:pr-0 shadow-xl lg:h-screen lg:w-[106px] lg:fixed grid content-center left-0 top-0">
       <div className="lg:w-full p-2 pt-3 lg:p-4 absolute  left-0">
         <img
           src={logo}
