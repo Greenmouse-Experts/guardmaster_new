@@ -1,45 +1,22 @@
+import { useQuery } from "@tanstack/react-query";
 import { useRef } from "react";
 import { FaAngleRight } from "react-icons/fa";
-import { IoMdPlayCircle } from "react-icons/io";
 import {
   RiArrowLeftLine,
   RiArrowRightLine,
   RiDoubleQuotesL,
 } from "react-icons/ri";
 import { useNavigate } from "react-router-dom";
+import { getTestimony } from "../../../../services/api/routine";
+import { TestimonyItem } from "../../../../contracts/routine";
+import ProfileAvatar from "../../ui/ProfileAvatar";
 
 const InstituteSection = () => {
   const navigate = useNavigate();
-  const review = [
-    {
-      name: "Victor Nwanfor",
-      acc: "VD",
-    },
-    {
-      name: "Chloe Bailey",
-      acc: "CB",
-    },
-    {
-      name: "Layi Wasabi",
-      acc: "LW",
-    },
-    {
-      name: "Jason Freeman",
-      acc: "JF",
-    },
-    {
-      name: "Thomas Grind",
-      acc: "TD",
-    },
-    {
-      name: "Victor Nwanfor",
-      acc: "VD",
-    },
-    {
-      name: "Abigirl Norman",
-      acc: "AN",
-    },
-  ];
+  const {data} = useQuery({
+    queryKey: ['testimonies'],
+    queryFn: getTestimony
+  })
   const scrollRef = useRef<any>(null);
 
   const scrollLeft = () => {
@@ -109,22 +86,24 @@ const InstituteSection = () => {
               </div>
               <div className="mt-6 lg:mt-12">
                 <div className="flex gap-x-6  w-full overflow-x-auto scroll-pro" ref={scrollRef}>
-                  {review.map((item) => (
+                  {data && data?.data?.length && data?.data?.map((item:TestimonyItem) => (
                     <div className="p-3 lg:p-6 bg-white w-[370px]">
                       <p>
                         <RiDoubleQuotesL />
                       </p>
+                      <div className="min-h-[50px]">
                       <p className="mt-3 fs-500 w-[350px]">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Etiam lacinia leo eget turpis pretium elementum.
+                        {item.testimony}
                       </p>
-                      <div className="mt-3 flex items-center gap-x-2">
-                        <div className="w-12 h-12 fw-600 circle place-center bg-black text-white">
-                          {item.acc}
-                        </div>
-                        <p className="fw-600">{item.name}</p>
                       </div>
-                      <div className="mt-4 border-t border-[#B8B8B8] py- pt-5">
+                      <div className="mt-3 flex items-center gap-x-2">
+                        {/* <div className="w-12 h-12 fw-600 circle place-center bg-black text-white">
+                          {item.acc}
+                        </div> */}
+                        <ProfileAvatar url="" name={`${item.user.firstName} ${item.user.lastName}`} size={35} font={16} type="dark"/>
+                        <p className="fw-600">{`${item.user.firstName} ${item.user.lastName}`}</p>
+                      </div>
+                      {/* <div className="mt-4 border-t border-[#B8B8B8] py- pt-5">
                         <div className="flex items-center gap-x-1">
                           <IoMdPlayCircle className="text-3xl text-[#052B5E] shrink-0" />
                           <p className="fw-500 fs-400 text-[#052B5E]">
@@ -132,7 +111,7 @@ const InstituteSection = () => {
                             Services-2024
                           </p>
                         </div>
-                      </div>
+                      </div> */}
                     </div>
                   ))}
                 </div>

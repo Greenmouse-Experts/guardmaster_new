@@ -12,7 +12,7 @@ import {
   IoLogOutOutline,
   IoNotifications,
 } from "react-icons/io5";
-import { MdOutlineDashboard, MdOutlineShoppingCart } from "react-icons/md";
+import { MdNotificationsActive, MdOutlineDashboard, MdOutlineShoppingCart } from "react-icons/md";
 import useAuth from "../../../../../hooks/authUser";
 import ProfileAvatar from "../../../ui/ProfileAvatar";
 import { BsGear } from "react-icons/bs";
@@ -22,6 +22,9 @@ import LogoutModal from "../../../auth/LogoutModal";
 import useCartStore from "../../../../../store/cartStore";
 import { useState } from "react";
 import CartComponent from "../../../cart/cartComponent";
+import { fetchUserCourses, fetchUserNotify } from "../../../../../services/api/userApi";
+import { useQuery } from "@tanstack/react-query";
+import { PurchaseItemType } from "../../../../../contracts/course";
 
 const HomeHeader = () => {
   const { user } = useAuth();
@@ -38,6 +41,14 @@ const HomeHeader = () => {
   const openDrawer = () => toggleSidebar("100vh", "hidden");
   const closeDrawer = () => toggleSidebar("auto", "auto");
   const cart = useCartStore((state) => state.cart);
+  const { data, isLoading } = useQuery({
+    queryKey: ["getMyCourses"],
+    queryFn: () => fetchUserCourses(1, "confirmed"),
+  });
+  const { data:notify, isLoading:loading} = useQuery({
+    queryKey: ["notify"],
+    queryFn: () => fetchUserNotify(1),
+  });
   return (
     <>
       <div className="bg-primary py-2">
@@ -58,12 +69,29 @@ const HomeHeader = () => {
                 </Button>
               </MenuHandler>
               <MenuList className="z-[10000]">
-                <MenuItem
-                  className="whitespace-nowrap text-black !syne text-[15px]"
-                  // onClick={() => navigate("/about")}
-                >
-                  {" "}
-                </MenuItem>
+                {!isLoading &&
+                  !!data?.data.length &&
+                  data?.data?.slice(0, 5).map((item: PurchaseItemType) => (
+                    <MenuItem
+                      className="whitespace-nowrap text-black flex items-center gap-x-2 bg-gray-50 mb-2 !syne text-[15px]"
+                      onClick={() =>
+                        navigate(`/user/courses/${item.course.id}`)
+                      }
+                      key={item.id}
+                    >
+                      <div className="w-[60px] h-full">
+                        <img
+                          src={item.course.coverImage}
+                          alt="course"
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                      <div className="w-[160px] lg:w-[200px]">
+                        <p className="whitespace-normal fs-500">{item.course.title}</p>
+                        <p>{}</p>
+                      </div>
+                    </MenuItem>
+                  ))}
               </MenuList>
             </Menu>
           </div>
@@ -86,19 +114,21 @@ const HomeHeader = () => {
                     <div className="bg-[#003ca543] w-full h-full circle place-center">
                       <IoNotifications className="text-xl" />
                       <span className="w-5 lg:w-6 h-5 lg:h-6 circle place-center bg-white text-primary absolute fs-300 lg:fs-600 -top-2 -right-1">
-                        4
+                        {notify?.data?.length}
                       </span>
                     </div>
                   </div>
                 </Button>
               </MenuHandler>
               <MenuList className="z-[10000]">
-                <MenuItem
-                  className="whitespace-nowrap text-black !syne text-[15px]"
-                  // onClick={() => navigate("/about")}
-                >
-                  {" "}
-                </MenuItem>
+                {
+                  !loading && !!notify?.data?.length && notify?.data?.map((item:any) => (
+                    <div className="flex gap-x-2" key={item.id}>
+                        <MdNotificationsActive className="text-xl shrink-0"/>
+                        <p className="fs-500">{item.body}</p>
+                    </div>
+                  ))
+                }
               </MenuList>
             </Menu>
             <Menu>

@@ -12,10 +12,6 @@ const UserCourses = () => {
   const [data, setData] = useState([]);
   const [count, setCount] = useState(0);
   const [page, setPage] = useState(1);
-  // const [list, setList] = useState({
-  //   title: '',
-  //   status: 'confirmed'
-  // })
   const fetchCourses = async (page:number) => {
     setLoading(true);
     await fetchUserCourses(page, 'confirmed')

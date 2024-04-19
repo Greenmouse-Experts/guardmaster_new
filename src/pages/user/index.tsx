@@ -9,6 +9,7 @@ import UserPayments from "./Payments";
 import UserProgress from "./Progress";
 import UserProfile from "./Profile";
 import StudyCourse from "./StudyCourse";
+import UserSupport from "./Support";
 
 const UserIndex = () => {
     const token = localStorage.getItem('guard_token')
@@ -33,6 +34,7 @@ const UserIndex = () => {
           <Route path="/payments" element={<UserPayments/>}/>
           <Route path="/progress" element={<UserProgress/>}/>
           <Route path="/profile" element={<UserProfile/>}/>
+          <Route path="/support" element={<UserSupport/>}/>
         </Route>
       </Routes>
     </>

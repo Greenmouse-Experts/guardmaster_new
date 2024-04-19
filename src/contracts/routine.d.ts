@@ -6,3 +6,14 @@ export interface NotifyItem {
   userGroup: string;
   createdDate: string;
 }
+
+export interface TestimonyItem {
+  createdDate: string;
+  id: string;
+  testimony: string;
+  user: {
+    firstName: string;
+    lastName: string;
+    role: string;
+  };
+}
