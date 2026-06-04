@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
-import { BASE_URL } from "../../services/constant";
-import { getBearerToken } from "../../services/helpers";
+import { BASE_URL } from "../services/constant";
+import { getBearerToken } from "../services/helpers";
 import { toast } from "react-toastify";
-import HourGlassLoading from "../../lib/components/ui/loading/hourloading";
+import HourGlassLoading from "../lib/components/ui/loading/hourloading";
 
 const PaymentCallback = () => {
   const [searchParams] = useSearchParams();
