@@ -34,7 +34,7 @@ const PaymentCallback = () => {
           }
         );
         const result = await response.json();
-        if (response.ok && result?.data) {
+        if (response.ok) {
           setStatus("success");
           toast.success(result.message || "Payment confirmed successfully");
           setTimeout(() => navigate("/user/courses"), 1500);
