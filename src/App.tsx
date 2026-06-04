@@ -19,6 +19,7 @@ import UserIndex from "./pages/user";
 import BlogPage from "./pages/landing/blog";
 import BlogDetails from "./pages/landing/blogDetails";
 import CareersPage from "./pages/landing/career";
+import PaymentCallback from "./pages/PaymentCallback";
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
         <Route path="auth/forget" element={<ForgetPassword />} />
         <Route path="/auth/confirm" element={<VerifyUser/>}/>
         <Route path="/auth/reset" element={<ResetPassword/>}/>
+        <Route path="/payment/callback" element={<PaymentCallback />}/>
         <Route element={<LandingLayout />}>
           <Route path="/" element={<Homepage />} />
           <Route path="/faq" element={<FaqPage />} />

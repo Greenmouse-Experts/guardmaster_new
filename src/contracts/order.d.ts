@@ -22,7 +22,7 @@ export interface OrderItem {
 export interface TransactObject {
   createdDate: string;
   id: string;
-  number: string;
+  reference: string;
   orderItems: OrderItem[];
   status: string;
   trx: TransactItem;
