@@ -31,11 +31,11 @@ const CartComponent: FC<Props> = ({ close }) => {
   }, 0);
   const { isLoggedIn } = useAuth();
   const [payInfo, setPayInfo] = useState<any>();
-  const {Dialog, setShowModal:ShowPop} = useDialog()
+  const { Dialog, setShowModal: ShowPop } = useDialog();
   const proceedToPayment = () => {
     if (!isLoggedIn) {
-      ShowPop(true)
-      close()
+      ShowPop(true);
+      close();
       return;
     }
     const payload = {
